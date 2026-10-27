@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "clean-css": "^5.3.3",
-    "php-parser": "^3.2.5",
+    "php-parser": "^3.7.0",
     "terser": "^5.31.0"
   }
 }

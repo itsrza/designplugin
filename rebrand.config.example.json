@@ -1,0 +1,40 @@
+{
+  "_about": "Copy to rebrand.config.json, fill in the new brand values, then: node tools/rebrand.mjs --dry-run → --write. Only colour/text tokens are touched; shortcodes, REST namespace and URL params are never rewritten.",
+  "_colorsHint": "Map old colour → new colour. Every accent in all four modules is derived from these keys.",
+  "colors": {
+    "#B7E600": "#B7E600",
+    "#A3CC00": "#A3CC00",
+    "#F4FBE3": "#F4FBE3",
+    "#18233D": "#18233D",
+    "#2B3B66": "#2B3B66",
+    "#667085": "#667085",
+    "#8892A3": "#8892A3",
+    "#E2E8F0": "#E2E8F0",
+    "#F6F8F3": "#F6F8F3",
+    "#EF4056": "#EF4056",
+    "#FF047E": "#FF047E",
+    "#EC3680": "#EC3680",
+    "#B8E620": "#B8E620"
+  },
+  "_rgbShadowsHint": "true = rgba() shadows derived from the navy colour are rewritten too (keep shadows consistent with the new dark colour).",
+  "rgbShadows": true,
+  "replacements": [
+    {
+      "_comment": "Default contact number shipped in the plugin.",
+      "find": "09169066373",
+      "replace": "09169066373",
+      "files": ["modules/*.php", "README-fa.md"]
+    },
+    {
+      "_comment": "Default WhatsApp number.",
+      "find": "989169066373",
+      "replace": "989169066373",
+      "files": ["modules/*.php", "README-fa.md"]
+    },
+    {
+      "_comment": "Brand name inside copy (blog CTA, magazine breadcrumb, item-list schema).",
+      "find": "سرویا",
+      "replace": "سرویا"
+    }
+  ]
+}

@@ -25,3 +25,6 @@ vendor/
 .idea/
 .vscode/
 *.swp
+
+# Rebrand backups (copy of files before automated replacements)
+rebrand-backup/
