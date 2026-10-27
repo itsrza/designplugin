@@ -1,5 +1,5 @@
 /**
- * Serviya — single article enhancements.
+ * Miran — single article enhancements.
  *
  * Article content, comments and permalinks are native WordPress. This
  * file only adds:
@@ -124,7 +124,7 @@
   }
 
   onReady(function () {
-    document.querySelectorAll('[data-serviya-post]').forEach(function (root) {
+    document.querySelectorAll('[data-miran-post]').forEach(function (root) {
       initProgress(root);
       initToc(root);
       initCopy(root);

@@ -1,13 +1,13 @@
 # designplugin
 
-افزونه‌ی **میران (Miran)** برای صفحات فروشگاه، وبلاگ، محصول و مقاله (وردپرس + ووکامرس + WoodMart).
-هسته‌ی کد از افزونه‌ی سرویا ۳.۲.۳ آمده و در نسخه **۳.۳.۰** با هویت برند میران (پالت قهوه‌ای/کرافت + متن‌ها و شماره‌های تماس) ری‌برند شده است. شناسه‌های فنی (شورت‌کد `[serviya_*]`، REST `serviya/v1`، پارامترهای `sb_*`) عمداً تغییر نکرده‌اند.
+افزونه‌ی **میران (Miran)** `v1.0.0` برای صفحات فروشگاه، وبلاگ، محصول و مقاله (وردپرس + ووکامرس + WoodMart).
+هسته‌ی کد از افزونه‌ی سرویا ۳.۲.۳ آمده و در نسخه **۱.۰.۰** با هویت برند میران (پالت قهوه‌ای/کرافت + متن‌ها و شماره‌های تماس) ری‌برند شده است. شناسه‌های فنی (شورت‌کد `[miran_*]`، REST `miran/v1`، پارامترهای `sb_*`) عمداً تغییر نکرده‌اند.
 
 ## ساختار مخزن
 
 ```text
-serviya/            کد افزونه (منبع حقیقت)
-  serviya.php       بوت‌استرپ + هدر افزونه
+miran/            کد افزونه (منبع حقیقت)
+  miran.php       بوت‌استرپ + هدر افزونه
   modules/          shop.php · blog.php · product.php · post.php
   assets/css|js/    فایل‌های خوانا + build های *.min.*
   README-fa.md      راهنمای فارسی کاربر و تاریخچه نسخه‌ها
@@ -33,7 +33,7 @@ npm run build        # بازسازی همه‌ی فایل‌های *.min.css و
 npm run build:check  # فقط بررسی به‌روز بودن فایل‌های min
 npm run lint:php     # بررسی سینتکس PHP بدون نیاز به باینری php
 npm run check        # lint:php + build:check (قبل از کامیت)
-npm run package      # ساخت release/serviya-<version>.zip برای نصب در وردپرس
+npm run package      # ساخت release/miran-<version>.zip برای نصب در وردپرس
 
 # ری‌برند (رنگ/متن) بدون تغییر شورت‌کد و REST:
 cp rebrand.config.example.json rebrand.config.json   # مقادیر برند جدید را پر کنید
@@ -41,19 +41,19 @@ node tools/rebrand.mjs --dry-run                     # گزارش تغییرات
 node tools/rebrand.mjs --write                       # بکاپ + اعمال + بازسازی min
 ```
 
-- فایل‌های خوانا (`serviya-*.css`, `serviya-*.js`) را ویرایش کنید، نه `.min.*` را.
-- نسخه را هم‌زمان در `serviya/serviya.php` (هدر + `SERVIYA_VERSION`) و `package.json` به‌روز کنید.
-- شورت‌کدها: `[serviya_shop]` · `[serviya_blog]` · `[serviya_product]` · `[serviya_post]`
+- فایل‌های خوانا (`miran-*.css`, `miran-*.js`) را ویرایش کنید، نه `.min.*` را.
+- نسخه را هم‌زمان در `miran/miran.php` (هدر + `MIRAN_VERSION`) و `package.json` به‌روز کنید.
+- شورت‌کدها: `[miran_shop]` · `[miran_blog]` · `[miran_product]` · `[miran_post]`
 
 ## مستندات
 
-- راهنمای نصب و استفاده: [`serviya/README-fa.md`](serviya/README-fa.md)
+- راهنمای نصب و استفاده: [`miran/README-fa.md`](miran/README-fa.md)
 - نقشه فنی کد: [`docs/PROJECT-MAP.md`](docs/PROJECT-MAP.md)
 - نقشه راه پروژه جدید: [`docs/MIRAN-PLAN.md`](docs/MIRAN-PLAN.md)
 
 > ⚠️ فایل `github-recovery-codes.txt` در ریشه‌ی مخزن، کدهای بازیابی ۲FA است و نباید در گیت باشد؛ آن را حذف و کدها را باطل کنید.
 
-## برند میران (نسخه ۳.۳.۱)
+## برند میران (نسخه ۱.۰.۰)
 
 | مورد | مقدار |
 |---|---|

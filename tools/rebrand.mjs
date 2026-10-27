@@ -23,7 +23,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PLUGIN = path.join(ROOT, 'serviya');
+const PLUGIN = path.join(ROOT, 'miran');
 const argv = process.argv.slice(2);
 const WRITE = argv.includes('--write');
 const configIndex = argv.indexOf('--config');

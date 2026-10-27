@@ -1,5 +1,5 @@
 /**
- * Serviya — single product enhancements.
+ * Miran — single product enhancements.
  *
  * Everything commerce-critical (gallery slider, variations/swatches,
  * add-to-cart, compare, wishlist, countdown, FBT) is handled by
@@ -85,7 +85,7 @@
     var rootObserver = new MutationObserver(schedule);
     rootObserver.observe(root, { childList: true, characterData: true, subtree: true });
 
-    // WoodMart's sticky bar is printed outside the Serviya wrapper and can
+    // WoodMart's sticky bar is printed outside the Miran wrapper and can
     // also be updated after a variation is selected.
     document.querySelectorAll('.wd-sticky-btn, .woodmart-sticky-btn, .wd-sticky-add-to-cart')
       .forEach(function (sticky) {
@@ -425,7 +425,7 @@
   }
 
   onReady(function () {
-    document.querySelectorAll('[data-serviya-product]').forEach(function (root) {
+    document.querySelectorAll('[data-miran-product]').forEach(function (root) {
       initPersianPrices(root);
       initSticky(root);
       initVariationMeta(root);

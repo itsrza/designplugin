@@ -3,7 +3,7 @@
  * Builds the installable WordPress zip from the plugin folder.
  *
  *   node tools/package.mjs
- *   → release/serviya-<version>.zip   (upload this in wp-admin → Plugins → Add New)
+ *   → release/miran-<version>.zip   (upload this in wp-admin → Plugins → Add New)
  *
  * The version is read from the plugin header so the zip name always matches
  * what WordPress shows. Release artefacts stay out of git (see .gitignore).
@@ -14,13 +14,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PLUGIN_DIR = 'serviya';
+const PLUGIN_DIR = 'miran';
 const RELEASE_DIR = path.join(ROOT, 'release');
 
-const header = await readFile(path.join(ROOT, PLUGIN_DIR, 'serviya.php'), 'utf8');
+const header = await readFile(path.join(ROOT, PLUGIN_DIR, 'miran.php'), 'utf8');
 const version = (header.match(/^\s*\*\s*Version:\s*(.+)$/m) || [])[1];
 if (!version) {
-  console.error('Could not read the "Version:" header from serviya/serviya.php');
+  console.error('Could not read the "Version:" header from miran/miran.php');
   process.exit(1);
 }
 

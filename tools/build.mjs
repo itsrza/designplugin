@@ -18,10 +18,10 @@ import CleanCSS from 'clean-css';
 import { minify as minifyJs } from 'terser';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const ASSETS = path.join(ROOT, 'serviya', 'assets');
+const ASSETS = path.join(ROOT, 'miran', 'assets');
 const CHECK_ONLY = process.argv.includes('--check');
 
-const BANNER = (name) => `/*! Serviya — ${name} (minified build, do not edit; run "npm run build") */\n`;
+const BANNER = (name) => `/*! Miran — ${name} (minified build, do not edit; run "npm run build") */\n`;
 
 const SOURCES = [
   { dir: 'css', ext: '.css', kind: 'css' },

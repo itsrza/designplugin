@@ -1,9 +1,9 @@
 <?php
 /**
- * Serviya — Shop module
+ * Miran — Shop module
  *
- * Loaded by the unified Serviya plugin. Internal functions use the
- * serviya_suite_ prefix so this module cannot collide with the former
+ * Loaded by the unified Miran plugin. Internal functions use the
+ * miran_suite_ prefix so this module cannot collide with the former
  * standalone plugins during migration.
  */
 
@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) {
  * Assets — separate, cacheable files, loaded only where the shop is shown
  * ========================================================================== */
 
-function serviya_suite_shop_needs_assets() {
+function miran_suite_shop_needs_assets() {
     if (function_exists('is_shop') && (is_shop() || is_product_category() || is_product_tag())) {
         return true;
     }
@@ -23,20 +23,20 @@ function serviya_suite_shop_needs_assets() {
     $object_id = get_queried_object_id();
     if ($object_id) {
         $post = get_post($object_id);
-        if ($post && has_shortcode($post->post_content, 'serviya_shop')) {
+        if ($post && (has_shortcode($post->post_content, 'miran_shop') || has_shortcode($post->post_content, 'serviya_shop'))) {
             return true;
         }
         // Shortcode placed through Elementor (stored in post meta, not content).
         $elementor_data = get_post_meta($object_id, '_elementor_data', true);
-        if (is_string($elementor_data) && strpos($elementor_data, 'serviya_shop') !== false) {
+        if (is_string($elementor_data) && (false !== strpos($elementor_data, 'miran_shop') || false !== strpos($elementor_data, 'serviya_shop'))) {
             return true;
         }
     }
 
-    return (bool) apply_filters('serviya_shop_needs_assets', false);
+    return (bool) apply_filters('miran_shop_needs_assets', false);
 }
 
-function serviya_suite_shop_current_url() {
+function miran_suite_shop_current_url() {
     $object_id = get_queried_object_id();
     if ($object_id && is_singular()) {
         $permalink = get_permalink($object_id);
@@ -53,33 +53,33 @@ function serviya_suite_shop_current_url() {
     return home_url('/');
 }
 
-function serviya_suite_shop_enqueue_assets() {
-    $plugin_url  = SERVIYA_URL;
-    $plugin_path = SERVIYA_PATH;
+function miran_suite_shop_enqueue_assets() {
+    $plugin_url  = MIRAN_URL;
+    $plugin_path = MIRAN_PATH;
 
     // Minified builds in production; readable sources with SCRIPT_DEBUG.
     $use_min  = !(defined('SCRIPT_DEBUG') && SCRIPT_DEBUG);
-    $css_rel  = 'assets/css/serviya-shop' . ($use_min && file_exists($plugin_path . 'assets/css/serviya-shop.min.css') ? '.min.css' : '.css');
-    $js_rel   = 'assets/js/serviya-shop' . ($use_min && file_exists($plugin_path . 'assets/js/serviya-shop.min.js') ? '.min.js' : '.js');
+    $css_rel  = 'assets/css/miran-shop' . ($use_min && file_exists($plugin_path . 'assets/css/miran-shop.min.css') ? '.min.css' : '.css');
+    $js_rel   = 'assets/js/miran-shop' . ($use_min && file_exists($plugin_path . 'assets/js/miran-shop.min.js') ? '.min.js' : '.js');
     $css_file = $plugin_path . $css_rel;
     $js_file  = $plugin_path . $js_rel;
 
-    $css_version = file_exists($css_file) ? (string) filemtime($css_file) : SERVIYA_VERSION;
-    $js_version  = file_exists($js_file) ? (string) filemtime($js_file) : SERVIYA_VERSION;
+    $css_version = file_exists($css_file) ? (string) filemtime($css_file) : MIRAN_VERSION;
+    $js_version  = file_exists($js_file) ? (string) filemtime($js_file) : MIRAN_VERSION;
 
-    if (!wp_style_is('serviya-shop', 'enqueued')) {
+    if (!wp_style_is('miran-shop', 'enqueued')) {
         wp_enqueue_style(
-            'serviya-shop',
+            'miran-shop',
             $plugin_url . $css_rel,
             array(),
             $css_version
         );
     }
 
-    if (!wp_script_is('serviya-shop', 'enqueued')) {
+    if (!wp_script_is('miran-shop', 'enqueued')) {
         if (version_compare(get_bloginfo('version'), '6.3', '>=')) {
             wp_enqueue_script(
-                'serviya-shop',
+                'miran-shop',
                 $plugin_url . $js_rel,
                 array(),
                 $js_version,
@@ -87,7 +87,7 @@ function serviya_suite_shop_enqueue_assets() {
             );
         } else {
             wp_enqueue_script(
-                'serviya-shop',
+                'miran-shop',
                 $plugin_url . $js_rel,
                 array(),
                 $js_version,
@@ -99,13 +99,13 @@ function serviya_suite_shop_enqueue_assets() {
             ? html_entity_decode(get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8')
             : 'تومان';
 
-        wp_localize_script('serviya-shop', 'ServiyaShopData', array(
+        wp_localize_script('miran-shop', 'MiranShopData', array(
             'restBase'       => esc_url_raw(rest_url('wc/store/v1/')),
-            'shopUrl'        => serviya_suite_shop_current_url(),
+            'shopUrl'        => miran_suite_shop_current_url(),
             'homeUrl'        => home_url('/'),
             'siteName'       => get_bloginfo('name'),
             'currencySymbol' => $currency_symbol,
-            'perPage'        => (int) apply_filters('serviya_shop_per_page', 12),
+            'perPage'        => (int) apply_filters('miran_shop_per_page', 12),
         ));
     }
 }
@@ -113,8 +113,8 @@ function serviya_suite_shop_enqueue_assets() {
 // Priority 100: print after the theme stylesheet (the previous inline version
 // lived in the body, i.e. effectively last), so theme rules can't override it.
 add_action('wp_enqueue_scripts', function () {
-    if (serviya_suite_shop_needs_assets()) {
-        serviya_suite_shop_enqueue_assets();
+    if (miran_suite_shop_needs_assets()) {
+        miran_suite_shop_enqueue_assets();
     }
 }, 100);
 
@@ -177,7 +177,7 @@ add_filter('wp_robots', function ($robots) {
  *   ss_page, ss_{pa_taxonomy} (slug,slug | ss_attr[pa_x][])
  * ========================================================================== */
 
-function serviya_suite_shop_sanitize_list($value) {
+function miran_suite_shop_sanitize_list($value) {
     if (is_array($value)) {
         $items = $value;
     } else {
@@ -187,7 +187,7 @@ function serviya_suite_shop_sanitize_list($value) {
     return array_values(array_filter($items));
 }
 
-function serviya_suite_shop_attribute_taxonomies() {
+function miran_suite_shop_attribute_taxonomies() {
     if (!function_exists('wc_get_attribute_taxonomies')) {
         return array();
     }
@@ -201,7 +201,7 @@ function serviya_suite_shop_attribute_taxonomies() {
     return $taxonomies;
 }
 
-function serviya_suite_shop_parse_state() {
+function miran_suite_shop_parse_state() {
     // phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only filter state.
     $get = isset($_GET) ? wp_unslash($_GET) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
     // phpcs:enable
@@ -210,12 +210,12 @@ function serviya_suite_shop_parse_state() {
     $sort  = isset($get['ss_sort']) && in_array($get['ss_sort'], $sorts, true) ? $get['ss_sort'] : 'date';
 
     $attributes = array();
-    foreach (array_keys(serviya_suite_shop_attribute_taxonomies()) as $taxonomy) {
+    foreach (array_keys(miran_suite_shop_attribute_taxonomies()) as $taxonomy) {
         $terms = array();
         if (isset($get['ss_' . $taxonomy])) {
-            $terms = serviya_suite_shop_sanitize_list($get['ss_' . $taxonomy]);
+            $terms = miran_suite_shop_sanitize_list($get['ss_' . $taxonomy]);
         } elseif (isset($get['ss_attr']) && is_array($get['ss_attr']) && isset($get['ss_attr'][$taxonomy])) {
-            $terms = serviya_suite_shop_sanitize_list($get['ss_attr'][$taxonomy]);
+            $terms = miran_suite_shop_sanitize_list($get['ss_attr'][$taxonomy]);
         }
         if ($terms) {
             $attributes[$taxonomy] = $terms;
@@ -228,12 +228,12 @@ function serviya_suite_shop_parse_state() {
         'sort'       => $sort,
         'in_stock'   => isset($get['ss_stock']) && (string) $get['ss_stock'] === '1',
         'on_sale'    => isset($get['ss_sale']) && (string) $get['ss_sale'] === '1',
-        'categories' => isset($get['ss_cat']) ? serviya_suite_shop_sanitize_list($get['ss_cat']) : array(),
+        'categories' => isset($get['ss_cat']) ? miran_suite_shop_sanitize_list($get['ss_cat']) : array(),
         'attributes' => $attributes,
     );
 }
 
-function serviya_suite_shop_build_url($state, $base_url, $page = 0) {
+function miran_suite_shop_build_url($state, $base_url, $page = 0) {
     $args = array();
     if ($state['search'] !== '') {
         $args['ss_q'] = $state['search'];
@@ -261,7 +261,7 @@ function serviya_suite_shop_build_url($state, $base_url, $page = 0) {
     return $args ? add_query_arg($args, $base_url) : $base_url;
 }
 
-function serviya_suite_shop_active_filter_count($state) {
+function miran_suite_shop_active_filter_count($state) {
     $count = count($state['categories'])
         + ($state['in_stock'] ? 1 : 0)
         + ($state['on_sale'] ? 1 : 0)
@@ -272,7 +272,7 @@ function serviya_suite_shop_active_filter_count($state) {
     return $count;
 }
 
-function serviya_suite_shop_fa_number($value) {
+function miran_suite_shop_fa_number($value) {
     $formatted = number_format((float) $value, 0, '.', ',');
     return strtr($formatted, array(
         '0' => '۰', '1' => '۱', '2' => '۲', '3' => '۳', '4' => '۴',
@@ -285,7 +285,7 @@ function serviya_suite_shop_fa_number($value) {
  * Product query (server-side, mirrors the Store API filtering used by JS)
  * ========================================================================== */
 
-function serviya_suite_shop_query_products($state, $per_page) {
+function miran_suite_shop_query_products($state, $per_page) {
     $args = array(
         'post_type'           => 'product',
         'post_status'         => 'publish',
@@ -391,7 +391,7 @@ function serviya_suite_shop_query_products($state, $per_page) {
  * Card rendering — byte-for-byte the same classes/markup as the JS cards
  * ========================================================================== */
 
-function serviya_suite_shop_product_dimensions($product) {
+function miran_suite_shop_product_dimensions($product) {
     $parts = array_filter(
         array($product->get_length(), $product->get_width(), $product->get_height()),
         function ($value) {
@@ -423,7 +423,7 @@ function serviya_suite_shop_product_dimensions($product) {
     return '';
 }
 
-function serviya_suite_shop_price_html($product) {
+function miran_suite_shop_price_html($product) {
     $currency = html_entity_decode(get_woocommerce_currency_symbol(), ENT_QUOTES, 'UTF-8');
     $currency_html = '<span class="ss-price-currency">' . esc_html($currency) . '</span>';
 
@@ -432,7 +432,7 @@ function serviya_suite_shop_price_html($product) {
         $max = (float) $product->get_variation_price('max');
         if ($min > 0 && $max > 0 && $min !== $max) {
             return '<span class="ss-price-new">'
-                . serviya_suite_shop_fa_number($min) . ' – ' . serviya_suite_shop_fa_number($max)
+                . miran_suite_shop_fa_number($min) . ' – ' . miran_suite_shop_fa_number($max)
                 . '</span>' . $currency_html;
         }
     }
@@ -445,15 +445,15 @@ function serviya_suite_shop_price_html($product) {
     }
 
     if ($regular > $price) {
-        return '<span class="ss-price-old">' . serviya_suite_shop_fa_number($regular) . '</span>'
-            . '<span class="ss-price-new">' . serviya_suite_shop_fa_number($price) . '</span>'
+        return '<span class="ss-price-old">' . miran_suite_shop_fa_number($regular) . '</span>'
+            . '<span class="ss-price-new">' . miran_suite_shop_fa_number($price) . '</span>'
             . $currency_html;
     }
 
-    return '<span class="ss-price-new">' . serviya_suite_shop_fa_number($price) . '</span>' . $currency_html;
+    return '<span class="ss-price-new">' . miran_suite_shop_fa_number($price) . '</span>' . $currency_html;
 }
 
-function serviya_suite_shop_render_card($product, $index) {
+function miran_suite_shop_render_card($product, $index) {
     $product_id = $product->get_id();
     $title      = $product->get_name() !== '' ? $product->get_name() : 'بدون نام';
     $link       = get_permalink($product_id);
@@ -466,10 +466,10 @@ function serviya_suite_shop_render_card($product, $index) {
     if ($in_stock && $regular > $price && $price > 0) {
         $discount = min(99, (int) round((($regular - $price) / $regular) * 100));
         if ($discount > 0) {
-            $badges .= '<span class="ss-badge-discount">' . serviya_suite_shop_fa_number($discount) . '٪-</span>';
+            $badges .= '<span class="ss-badge-discount">' . miran_suite_shop_fa_number($discount) . '٪-</span>';
         }
     }
-    $dimensions = serviya_suite_shop_product_dimensions($product);
+    $dimensions = miran_suite_shop_product_dimensions($product);
     if ($dimensions !== '') {
         $badges .= '<span class="ss-badge-dim">ابعاد <span>' . esc_html($dimensions) . '</span></span>';
     }
@@ -535,7 +535,7 @@ function serviya_suite_shop_render_card($product, $index) {
         . '<a href="' . esc_url($link) . '" class="ss-card-title-link">'
         . '<h3 class="ss-card-title">' . esc_html($title) . '</h3></a>'
         . '<div class="ss-card-cat">' . esc_html($category_name) . '</div>'
-        . '<div class="ss-card-price-box">' . serviya_suite_shop_price_html($product) . '</div>'
+        . '<div class="ss-card-price-box">' . miran_suite_shop_price_html($product) . '</div>'
         . $button_html
         . '</div></article>';
 }
@@ -544,28 +544,28 @@ function serviya_suite_shop_render_card($product, $index) {
  * Shortcode
  * ========================================================================== */
 
-function serviya_suite_shop_render($atts) {
+function miran_suite_shop_render($atts) {
     if (!class_exists('WooCommerce')) {
         return current_user_can('manage_options')
             ? '<p>افزونه میران: ووکامرس فعال نیست.</p>'
             : '';
     }
 
-    serviya_suite_shop_enqueue_assets();
+    miran_suite_shop_enqueue_assets();
 
     $atts = shortcode_atts(array(
-        'per_page' => (int) apply_filters('serviya_shop_per_page', 12),
+        'per_page' => (int) apply_filters('miran_shop_per_page', 12),
         'title'    => 'فروشگاه',
-    ), $atts, 'serviya_shop');
+    ), $atts, 'miran_shop');
 
     $per_page  = min(48, max(1, absint($atts['per_page'])));
     $shop_title = sanitize_text_field($atts['title']);
-    $state     = serviya_suite_shop_parse_state();
-    $result    = serviya_suite_shop_query_products($state, $per_page);
-    $shop_url  = serviya_suite_shop_current_url();
+    $state     = miran_suite_shop_parse_state();
+    $result    = miran_suite_shop_query_products($state, $per_page);
+    $shop_url  = miran_suite_shop_current_url();
     $home_url  = home_url('/');
     $uid       = wp_unique_id('ss-');
-    $active_count = serviya_suite_shop_active_filter_count($state);
+    $active_count = miran_suite_shop_active_filter_count($state);
 
     // Categories (all + top level). hide_empty stays off on purpose: for
     // hierarchical taxonomies WordPress counts only directly assigned
@@ -663,7 +663,7 @@ function serviya_suite_shop_render($atts) {
 
     // Attributes + terms (server-side: no N+1 API calls, deterministic order).
     $attribute_groups = array();
-    foreach (serviya_suite_shop_attribute_taxonomies() as $taxonomy => $attribute) {
+    foreach (miran_suite_shop_attribute_taxonomies() as $taxonomy => $attribute) {
         $terms = get_terms(array(
             'taxonomy'   => $taxonomy,
             'hide_empty' => true,
@@ -773,7 +773,7 @@ function serviya_suite_shop_render($atts) {
             ));
         }
         return '<a class="ss-cat-item' . ($is_active ? ' active' : '') . '"'
-            . ' href="' . esc_url(serviya_suite_shop_build_url($cat_state, $shop_url)) . '"'
+            . ' href="' . esc_url(miran_suite_shop_build_url($cat_state, $shop_url)) . '"'
             . ' data-cat-slug="' . esc_attr($row['slug']) . '"'
             . ' data-cat-id="' . esc_attr($row['id']) . '"'
             . ($is_active ? ' aria-current="true"' : '')
@@ -798,7 +798,7 @@ function serviya_suite_shop_render($atts) {
         'attributes' => (object) $state['attributes'],
     );
     ?>
-    <div class="serviya-shop-widget" dir="rtl"
+    <div class="miran-shop-widget" dir="rtl"
         data-current-page="<?php echo esc_attr($state['page']); ?>"
         data-total-pages="<?php echo esc_attr($result['total_pages']); ?>"
         data-per-page="<?php echo esc_attr($per_page); ?>"
@@ -822,7 +822,7 @@ function serviya_suite_shop_render($atts) {
                             $ancestor_state['categories'] = array($ancestor['slug']);
                             ?>
                             <li>
-                                <a href="<?php echo esc_url(serviya_suite_shop_build_url($ancestor_state, $shop_url)); ?>" data-ss-cat-link="<?php echo esc_attr($ancestor['slug']); ?>"><?php echo esc_html($ancestor['name']); ?></a>
+                                <a href="<?php echo esc_url(miran_suite_shop_build_url($ancestor_state, $shop_url)); ?>" data-ss-cat-link="<?php echo esc_attr($ancestor['slug']); ?>"><?php echo esc_html($ancestor['name']); ?></a>
                                 <span class="ss-sep" aria-hidden="true">/</span>
                             </li>
                         <?php endforeach; ?>
@@ -830,7 +830,7 @@ function serviya_suite_shop_render($atts) {
                     </ol>
                 </nav>
                 <div class="ss-product-count">
-                    <span class="ss-total-count"><?php echo serviya_suite_shop_fa_number($result['total']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span> کالا
+                    <span class="ss-total-count"><?php echo miran_suite_shop_fa_number($result['total']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span> کالا
                 </div>
             </div>
 
@@ -844,7 +844,7 @@ function serviya_suite_shop_render($atts) {
                             $back_state['categories'] = $strip_back_target !== '' ? array($strip_back_target) : array();
                             ?>
                             <a class="ss-cat-item ss-cat-back"
-                                href="<?php echo esc_url(serviya_suite_shop_build_url($back_state, $shop_url)); ?>"
+                                href="<?php echo esc_url(miran_suite_shop_build_url($back_state, $shop_url)); ?>"
                                 data-ss-cat-back data-target-slug="<?php echo esc_attr((string) $strip_back_target); ?>">
                                 <?php echo $back_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?>
                                 <span class="ss-cat-title">بازگشت</span>
@@ -923,7 +923,7 @@ function serviya_suite_shop_render($atts) {
                                         aria-controls="<?php echo esc_attr($uid); ?>-acc-cat">
                                         <span>دسته‌بندی‌ها</span>
                                         <span class="ss-acc-meta">
-                                            <span class="ss-acc-badge"><?php echo serviya_suite_shop_fa_number(count($all_categories)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span>
+                                            <span class="ss-acc-badge"><?php echo miran_suite_shop_fa_number(count($all_categories)); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span>
                                             <span class="ss-acc-icon" aria-hidden="true">▼</span>
                                         </span>
                                     </button>
@@ -945,7 +945,7 @@ function serviya_suite_shop_render($atts) {
                                         aria-controls="<?php echo esc_attr($acc_id); ?>">
                                         <span><?php echo esc_html($group['label']); ?></span>
                                         <span class="ss-acc-meta">
-                                            <span class="ss-acc-badge"><?php echo serviya_suite_shop_fa_number(count($group['terms'])); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span>
+                                            <span class="ss-acc-badge"><?php echo miran_suite_shop_fa_number(count($group['terms'])); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span>
                                             <span class="ss-acc-icon" aria-hidden="true">▼</span>
                                         </span>
                                     </button>
@@ -993,7 +993,7 @@ function serviya_suite_shop_render($atts) {
                         <button type="button" class="ss-mobile-filter-btn"
                             aria-expanded="false" aria-controls="<?php echo esc_attr($uid); ?>-sidebar">
                             فیلترها
-                            <span class="ss-filter-count"<?php echo $active_count === 0 ? ' hidden' : ''; ?>><?php echo serviya_suite_shop_fa_number($active_count); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span>
+                            <span class="ss-filter-count"<?php echo $active_count === 0 ? ' hidden' : ''; ?>><?php echo miran_suite_shop_fa_number($active_count); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?></span>
                         </button>
                     </div>
 
@@ -1001,7 +1001,7 @@ function serviya_suite_shop_render($atts) {
                         <?php
                         if ($result['products']) {
                             foreach ($result['products'] as $index => $product) {
-                                echo serviya_suite_shop_render_card($product, $index); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
+                                echo miran_suite_shop_render_card($product, $index); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
                             }
                         } else {
                             ?>
@@ -1020,7 +1020,7 @@ function serviya_suite_shop_render($atts) {
                             $page_base = str_replace(
                                 '999999999',
                                 '%#%',
-                                serviya_suite_shop_build_url($state, $shop_url, 999999999)
+                                miran_suite_shop_build_url($state, $shop_url, 999999999)
                             );
                             $pagination_html = paginate_links(array(
                                 'base'      => $page_base,
@@ -1079,4 +1079,6 @@ function serviya_suite_shop_render($atts) {
     return ob_get_clean();
 }
 
-add_shortcode('serviya_shop', 'serviya_suite_shop_render');
+add_shortcode('miran_shop', 'miran_suite_shop_render');
+// Legacy alias: pages built before the rename keep working untouched.
+add_shortcode('serviya_shop', 'miran_suite_shop_render');

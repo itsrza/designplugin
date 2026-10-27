@@ -29,7 +29,7 @@
 
 - سایه‌ها (`rgba(24,35,61,…)`) از Navy مشتق شده‌اند. اگر Navy عوض شد، سایه‌ها هم باید به `rgba(R,G,B,…)` جدید تبدیل شوند؛ ابزار این کار را با قاعده‌ی `rgbShadows: true` انجام می‌دهد.
 - رنگ‌های **WoodMart** و **Elementor Global Colors** جدا هستند و با کد افزونه تغییر نمی‌کنند: `WoodMart ← Theme Settings ← Colors` و `Elementor ← Site Settings ← Global Colors`.
-- محدوده‌ی «فقط متن/رنگ» است؛ **شناسه‌های فنی** (`[serviya_*]`، `serviya/v1`، `sb_cat/sb_q/sb_page`، `pp_*`/`ss_*`) بدون درخواست صریح شما دست نمی‌خورند (بند ۱ سند).
+- محدوده‌ی «فقط متن/رنگ» است؛ **شناسه‌های فنی** (`[miran_*]`، `miran/v1`، `sb_cat/sb_q/sb_page`، `pp_*`/`ss_*`) بدون درخواست صریح شما دست نمی‌خورند (بند ۱ سند).
 
 ## متن‌ها و داده‌هایی که باید عوض شوند (فهرست دقیق فعلی)
 
@@ -40,11 +40,11 @@
 | «مجله سرویا» | `modules/post.php` (عنوان بردکرامب/لینک «همه مقالات مجله سرویا»)، `modules/blog.php` (اسکیمای ItemList) | «مجله {برند}» |
 | «تماس با سرویا» / «مشاوران سرویا» | `modules/blog.php` (بلوک CTA) | متن برند جدید |
 | «بسته‌بندی» (متن اختصاصی کسب‌وکار قبلی) | `modules/blog.php` (CTA) | متن کسب‌وکار جدید |
-| «افزونه یکپارچه سرویا…» | `serviya/serviya.php:4` (Description) | در صورت تمایل: نام برند جدید (بدون تغییر نام پوشه/توابع) |
-| `SERVIYA_VERSION` / هدر `Version: 3.2.3` | `serviya/serviya.php:9,17` + `package.json` | نسخه‌ی جدید مثلاً 3.3.0 هنگام تحویل |
+| «افزونه یکپارچه سرویا…» | `miran/serviya.php:4` (Description) | در صورت تمایل: نام برند جدید (بدون تغییر نام پوشه/توابع) |
+| `SERVIYA_VERSION` / هدر `Version: 3.2.3` | `miran/serviya.php:9,17` + `package.json` | نسخه‌ی جدید مثلاً 3.3.0 هنگام تحویل |
 | نام/توضیح سایت، لوگو، فاوآیکون | پیشخوان (نه کد) | برند جدید |
 
-> شماره‌ها را می‌توان به‌جای تغییر در کد، از طریق صفت شورت‌کد هم داد (`[serviya_blog phone="…"]`، `[serviya_product phone=… whatsapp=…]`). برای سایت جدید پیشنهاد من: هم پیش‌فرض کد را عوض کنیم و هم در شورت‌کد صریح بنویسیم.
+> شماره‌ها را می‌توان به‌جای تغییر در کد، از طریق صفت شورت‌کد هم داد (`[miran_blog phone="…"]`، `[miran_product phone=… whatsapp=…]`). برای سایت جدید پیشنهاد من: هم پیش‌فرض کد را عوض کنیم و هم در شورت‌کد صریح بنویسیم.
 
 ---
 
@@ -124,7 +124,7 @@ cp rebrand.config.example.json rebrand.config.json
 node tools/rebrand.mjs --dry-run     # فقط گزارش: کدام فایل، چند مورد
 node tools/rebrand.mjs --write       # بکاپ + اعمال + بازسازی فایل‌های min
 npm run check                         # lint PHP + بررسی min
-npm run package                       # release/serviya-<version>.zip
+npm run package                       # release/miran-<version>.zip
 ```
 
 4. لوگو/فاوآیکون/نام سایت: `تنظیمات ← عمومی` + `WoodMart ← Theme Settings ← General/Header`.
@@ -162,12 +162,12 @@ wp term list product_cat --fields=term_id,slug --format=csv   # بعد از با
 ## فاز ۳ — صفحات خاص
 
 1. `برگه‌ها ← همه برگه‌ها` ⇒ چهار برگه‌ی سرویس: هر کدام فقط ویجت Shortcode:
-   - فروشگاه: `[serviya_shop per_page="12"]`
-   - وبلاگ: `[serviya_blog per_page="9" phone="…" products_url="…"]`
-   - صفحه‌ی محصول (قالب تکی): `[serviya_product]`
-   - صفحه‌ی مقاله (قالب تکی): `[serviya_post]`
+   - فروشگاه: `[miran_shop per_page="12"]`
+   - وبلاگ: `[miran_blog per_page="9" phone="…" products_url="…"]`
+   - صفحه‌ی محصول (قالب تکی): `[miran_product]`
+   - صفحه‌ی مقاله (قالب تکی): `[miran_post]`
 2. قالب محصول: `WoodMart ← Layouts ← Add new ← Single Product` (شرط: All products) با یک ویجت Shortcode، **بدون** ویجت گالری/عنوان/قیمت کنارش.
-3. قالب مقاله: `قالب‌ها ← پوسته‌ساز ← افزودن ← تکی: نوشته‌ها`، چیدمان تمام‌عرض، عنوان/سایدبار قالب خاموش، فقط Shortcode `[serviya_post]`، شرط «همه نوشته‌ها».
+3. قالب مقاله: `قالب‌ها ← پوسته‌ساز ← افزودن ← تکی: نوشته‌ها`، چیدمان تمام‌عرض، عنوان/سایدبار قالب خاموش، فقط Shortcode `[miran_post]`، شرط «همه نوشته‌ها».
 4. خانه/درباره ما/تماس با ما/قوانین: محتوا، فرم تماس (تست ارسال + ایمیل)، نقشه، اطلاعات تماس یکدست در هدر/فوتر/اسکیما.
 5. **یک H1 در هر صفحه:** اگر قالب عنوان چاپ می‌کند، برای همان صفحه مخفی کنید (`WoodMart ← Theme Settings` یا CSS اختصاصی). تست:
 

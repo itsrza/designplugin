@@ -1,16 +1,16 @@
 /*
- * Serviya Blog — progressive enhancement.
+ * Miran Blog — progressive enhancement.
  * Page 1 (posts + category chips) is server-rendered by PHP. This script adds
  * AJAX filtering/search/load-more on top, with URL sync, request cancellation,
  * a small in-memory cache and next-page prefetching.
- * Data comes from the plugin's own slim endpoint (serviya/v1/posts), which
+ * Data comes from the plugin's own slim endpoint (miran/v1/posts), which
  * returns only the fields a card needs — no full post content, no _embed blob.
  */
 (function () {
     'use strict';
 
-    var CFG = window.ServiyaBlogData || {};
-    var REST_BASE = String(CFG.restBase || '/wp-json/serviya/v1/').replace(/\/?$/, '/');
+    var CFG = window.MiranBlogData || {};
+    var REST_BASE = String(CFG.restBase || '/wp-json/miran/v1/').replace(/\/?$/, '/');
     var PAGE_URL = CFG.pageUrl || window.location.pathname;
     var DEFAULT_PER_PAGE = parseInt(CFG.perPage, 10) || 9;
     var RESULTS_TTL = 60000;
@@ -61,7 +61,7 @@
         return '<svg width="' + size + '" height="' + size + '" aria-hidden="true"><use href="#bi-' + name + '"/></svg>';
     }
 
-    function initServiyaBlog(root) {
+    function initMiranBlog(root) {
         if (!root || root.dataset.sbInitialized === '1') return;
         root.dataset.sbInitialized = '1';
 
@@ -126,8 +126,8 @@
                 lastLocationKey = url;
                 return;
             }
-            if (push) window.history.pushState({ serviyaBlog: true }, '', url);
-            else window.history.replaceState({ serviyaBlog: true }, '', url);
+            if (push) window.history.pushState({ miranBlog: true }, '', url);
+            else window.history.replaceState({ miranBlog: true }, '', url);
             lastLocationKey = relevantLocationKey();
         }
 
@@ -571,7 +571,7 @@
     }
 
     function boot() {
-        document.querySelectorAll('.serviya-blog').forEach(initServiyaBlog);
+        document.querySelectorAll('.miran-blog').forEach(initMiranBlog);
     }
 
     if (document.readyState === 'loading') {

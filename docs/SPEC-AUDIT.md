@@ -1,6 +1,6 @@
 # ممیزی کد موجود در برابر هایپرپرامپت «کلون سرویا»
 
-> مرجع: متن هایپرپرامپت (بخش‌های ۱ تا ۱۰). مبنای مقایسه: کد `serviya/` نسخه ۳.۲.۳ در همین مخزن.
+> مرجع: متن هایپرپرامپت (بخش‌های ۱ تا ۱۰). مبنای مقایسه: کد `miran/` نسخه ۳.۲.۳ در همین مخزن.
 > هر ادعای «✓ منطبق» با ارجاع `فایل:خط` آمده است. هر «⚠» یعنی کد با متن سند فرق دارد یا بدون سایت زنده قابل اثبات نیست.
 
 ## خلاصه اجرایی
@@ -26,7 +26,7 @@
 
 | الزام سند | وضعیت | شاهد |
 |---|---|---|
-| ساختار پوشه‌ی افزونه یکپارچه | ✓ | `serviya/serviya.php` + `modules/{shop,blog,product,post}.php` + `assets/{css,js}/serviya-*.{css,js}` |
+| ساختار پوشه‌ی افزونه یکپارچه | ✓ | `miran/serviya.php` + `modules/{shop,blog,product,post}.php` + `assets/{css,js}/miran-*.{css,js}` |
 | ثابت‌های `SERVIYA_PATH/URL/VERSION` | ✓ | `serviya.php:17-19` |
 | بدون فرم خرید دوم، تکیه بر هوک‌های ووکامرس | ✓ | `modules/product.php:560-837` (`do_action` روی ۵ هوک استاندارد + fallback) |
 | بارگذاری CSS/JS فقط در صفحه‌ی خودش | ✓ | `shop.php:18,115` · `blog.php:18,84` · `product.php:30,91` · `post.php:30,79` (+ فیلترهای `*_needs_assets`) |
@@ -45,7 +45,7 @@
 
 | نقش | مقدار سند | محل در کد |
 |---|---|---|
-| Primary | `#B7E600` | `--srv-lime` (`serviya-shop.css:13`)، `--sp-lime` (`serviya-product.css:7`)، `--svp-lime` (`serviya-post.css:8`)، `serviya-blog.css:8` |
+| Primary | `#B7E600` | `--srv-lime` (`serviya-shop.css:13`)، `--sp-lime` (`miran-product.css:7`)، `--svp-lime` (`miran-post.css:8`)، `serviya-blog.css:8` |
 | Primary Hover | `#A3CC00` | `--sp-lime-hover` / `--svp-lime-hover` / `.ss-*:hover` |
 | Lime Soft | `#F4FBE3` | `--sp-lime-soft`, `--svp-lime-soft` |
 | Navy | `#18233D` | `--srv-navy`, `--sp-navy`, `--svp-navy`, `serviya-blog.css` |
@@ -54,19 +54,19 @@
 | حاشیه | `#E2E8F0` | `--sp-border`, `--svp-border` |
 | نرم | `#F6F8F3` | `--sp-soft`, `--srv-soft`, `--svp-soft` |
 | قرمز | `#EF4056` | `--sp-red`, `--svp-red` |
-| لیبل تخفیف | `#FF047E` | `--sp-sale` (`serviya-product.css:18`) + literal در `serviya-shop.css:571` |
-| قیمت نهایی | `#EC3680` | `--sp-price-final` (`serviya-product.css:19`) + literal برای نوار چسبان وودمارت (`serviya-product.css:~1866`) |
-| لیبل ابعاد | `#B8E620` | `--sp-dim` (`serviya-product.css:21`) + literal `#B8E620` در `serviya-shop.css:589` |
+| لیبل تخفیف | `#FF047E` | `--sp-sale` (`miran-product.css:18`) + literal در `serviya-shop.css:571` |
+| قیمت نهایی | `#EC3680` | `--sp-price-final` (`miran-product.css:19`) + literal برای نوار چسبان وودمارت (`miran-product.css:~1866`) |
+| لیبل ابعاد | `#B8E620` | `--sp-dim` (`miran-product.css:21`) + literal `#B8E620` در `serviya-shop.css:589` |
 | سایه بج | `0 8px 20px rgba(24,35,61,.14)` | `.sp-sale-badge`، `.sp-dim-badge`، `.ss-badge-*` |
 | سایه کارت | `0 18px 50px rgba(24,35,61,.08)` | `--sp-shadow`, `--svp-shadow` |
 | شعاع | ۳۰px کارت اصلی، ۱۸–۲۴px کارت | `.sp-main`, `.svp-article` = 30px؛ `--sp-radius/--svp-radius` = 24px |
-| کانتینر | `min(1320px, 100% - 32px)` | محصول/مقاله ✓ (`serviya-product.css:45`، `serviya-post.css:37`) — **فروشگاه ⚠** و **وبلاگ ⚠** (پایین) |
+| کانتینر | `min(1320px, 100% - 32px)` | محصول/مقاله ✓ (`miran-product.css:45`، `miran-post.css:37`) — **فروشگاه ⚠** و **وبلاگ ⚠** (پایین) |
 
 ### بند ۴ — بردکرامب
 
 | الزام | وضعیت | شاهد |
 |---|---|---|
-| یک خط، `nowrap` | ✓ | `ol{flex-wrap:nowrap}` در هر سه ماژول (`serviya-shop.css:1159`، `serviya-product.css:90`، `serviya-post.css:88`) |
+| یک خط، `nowrap` | ✓ | `ol{flex-wrap:nowrap}` در هر سه ماژول (`serviya-shop.css:1159`، `miran-product.css:90`، `miran-post.css:88`) |
 | آیتم‌ها `flex:0 0 auto`، آخر `flex:0 1 auto; min-width:0; overflow:hidden` | ✓ | همان بلوک‌ها + `li:last-child` |
 | ellipsis عنوان صفحه فعلی | ✓ | `li:last-child{overflow:hidden}` + `text-overflow` روی `.ss-current/.sp-current/.svp-current` |
 | تله `margin-bottom:10px` قالب، `margin:0` روی `li` | ✓ (رفع شده) | `li{...margin:0}` در سه فایل؛ سند همین را می‌خواهد |
@@ -89,7 +89,7 @@
 | کارت: تصویر `contain` مربعی | ✓ | `serviya-shop.css:560` (`object-fit:contain`) |
 | بج تخفیف بالا-چپ فیزیکی `#FF047E`، ابعاد بالا-راست `#B8E620`، کپسول، ۳۰/۲۵px، سایه | ✓ | `serviya-shop.css:564-602` و موبایل `935-960` |
 | ناموجود خاکستری | ✓ | `.ss-card.is-out-of-stock` (کلاس `ss-card-unavailable`) |
-| قیمت فارسی + ہزارگان | ✓ | `serviya_suite_shop_fa_number` + `toFaNumber` در JS |
+| قیمت فارسی + ہزارگان | ✓ | `miran_suite_shop_fa_number` + `toFaNumber` در JS |
 | سبد از Store API + آپدیت شمارنده هدر | ✓ | `serviya-shop.js:872-1000` (`cart/add-item`, nonce، رویدادهای `wc_fragments_refresh`/`added_to_cart`) |
 | ابعاد از `pa_dimensions` یا ابعاد بومی | ✓ | `shop.php:394-425` + fallback attribute در JS |
 | آیکن آکاردئون `\f129` / `\f115` | ✓ | `serviya-shop.css` (`.ss-acc-icon::before`) |
@@ -104,7 +104,7 @@
 |---|---|---|
 | `per_page=9`, `phone`, `products_url` | ✓ | `blog.php:417-433` (شماره پیش‌فرض hardcode: `blog.php:426`) |
 | SSR مقاله ویژه + ۸ کارت + دسته‌ها | ✓ | `blog.php:443-452` |
-| اندپوینت `GET /wp-json/serviya/v1/posts` سبک | ✓ | `blog.php:294-321` + `DTO` در `blog.php:256` |
+| اندپوینت `GET /wp-json/miran/v1/posts` سبک | ✓ | `blog.php:294-321` + `DTO` در `blog.php:256` |
 | `sb_cat/sb_q/sb_page` در URL | ✓ | `blog.php:122-170`، `serviya-blog.js` (`URLSearchParams`) |
 | کش، prefetch، لغو درخواست، retry | ✓ | `serviya-blog.js` (`RESULTS_TTL=60000`) |
 | بدون JS کار کند | ✓ | فرم GET + `<noscript>` صفحه‌بندی |
@@ -117,35 +117,35 @@
 
 | الزام | وضعیت | شاهد |
 |---|---|---|
-| نصب با یک ویجت Shortcode (دستورالعمل در README) | ✓ | `serviya/README-fa.md` بخش محصول |
+| نصب با یک ویجت Shortcode (دستورالعمل در README) | ✓ | `miran/README-fa.md` بخش محصول |
 | گزینه‌های `id, phone, whatsapp, telegram, sticky, consult` | ✓ | `product.php:568-580` |
-| ناوبری قبلی/بعدی چاپ نمی‌شود | ✓ (تابع مرده) | `serviya_suite_product_adjacent_nav()` در `product.php:422` **تعریف شده ولی هیچ‌جا صدا زده نمی‌شود** ⇒ حذف توصیه می‌شود |
-| کارت سفید ۳۰px، گرید `minmax(0,...)`، `min-width:0` | ✓ | `serviya-product.css:241-270` |
-| ≤۱۰۸۰px: تک‌ستون + `overflow-x:clip` + گالری `position:relative` | ✓ | `serviya-product.css:1890-1918` (با کامنت دقیقاً همان دلیل سند) |
-| بندانگشتی زیر تصویر اصلی | ✓ | `@media (min-width:1025px)` بلاک `serviya-product.css:320+` |
-| بج ابعاد بالا-راست `#B8E620` / تخفیف بالا-چپ `#FF047E`، ۳۴/۳۰px، سایه یکسان | ✓ | `serviya-product.css:418-468` + موبایل `1958-1976` |
+| ناوبری قبلی/بعدی چاپ نمی‌شود | ✓ (تابع مرده) | `miran_suite_product_adjacent_nav()` در `product.php:422` **تعریف شده ولی هیچ‌جا صدا زده نمی‌شود** ⇒ حذف توصیه می‌شود |
+| کارت سفید ۳۰px، گرید `minmax(0,...)`، `min-width:0` | ✓ | `miran-product.css:241-270` |
+| ≤۱۰۸۰px: تک‌ستون + `overflow-x:clip` + گالری `position:relative` | ✓ | `miran-product.css:1890-1918` (با کامنت دقیقاً همان دلیل سند) |
+| بندانگشتی زیر تصویر اصلی | ✓ | `@media (min-width:1025px)` بلاک `miran-product.css:320+` |
+| بج ابعاد بالا-راست `#B8E620` / تخفیف بالا-چپ `#FF047E`، ۳۴/۳۰px، سایه یکسان | ✓ | `miran-product.css:418-468` + موبایل `1958-1976` |
 | لنگر هر دو به لبه داخلی گالری (`calc(var(--sp-gallery-pad) + 8px)` و onsale `top:8px`) | ✓ | همان بلوک‌ها |
 | چیپ موجودی (یکپارچه، تابع فرمت ووکامرس) + برند + دسته | ✓ | `product.php:206-243`، `product.php:735-760` |
-| خط موجودی تکراری پایین توضیح پنهان | ✓ | `serviya-product.css` (`.stock` داخل summary مخفی) |
+| خط موجودی تکراری پایین توضیح پنهان | ✓ | `miran-product.css` (`.stock` داخل summary مخفی) |
 | یک H1 + چیپ SKU زیر آن | ✓ | `product.php:700-730` |
-| حذف متای دسته/برچسب و `.wd-visits-count` | ✓ | `serviya-product.css:858` (مخفی)، متا چاپ نمی‌شود (`product.php:717-720` کامنت) |
+| حذف متای دسته/برچسب و `.wd-visits-count` | ✓ | `miran-product.css:858` (مخفی)، متا چاپ نمی‌شود (`product.php:717-720` کامنت) |
 | کارت قیمت: del بالا / قیمت نهایی `#EC3680` پایین / برچسب چپ | ✓ | `product.php:526-555` + CSS `.sp-price-card` |
-| خط روی قیمت قبلی با gradient + line-through | ✓ | `serviya-product.css` (`.sp-price-card del bdi`) |
+| خط روی قیمت قبلی با gradient + line-through | ✓ | `miran-product.css` (`.sp-price-card del bdi`) |
 | بازه‌ی قیمت دست‌نخورده | ✓ | `product.php:544-547` (بازگشت بدون تغییر) |
-| اسکن اعداد فارسی + MutationObserver | ✓ | `serviya-product.js:51-100` |
-| «تومان» سمت چپ با `order:2` و `translateY(-.32em)`، در نوار چسبان `-.05em` | ✓ | `serviya-product.css:316, 333, 774-775` و بلاک نوار چسبان |
-| شمارش معکوس fallback با ترتیب ثانیه→روز | ✓ | `product.php:351-379` (ترتیب آرایه) + `serviya-product.js:336-360` |
-| تب‌ها کپسولی، بدون خط زیر/بالا | ✓ | `serviya-product.css:1352-1435` (حذف `::before/::after` و `wd-nav-wrapper`) |
+| اسکن اعداد فارسی + MutationObserver | ✓ | `miran-product.js:51-100` |
+| «تومان» سمت چپ با `order:2` و `translateY(-.32em)`، در نوار چسبان `-.05em` | ✓ | `miran-product.css:316, 333, 774-775` و بلاک نوار چسبان |
+| شمارش معکوس fallback با ترتیب ثانیه→روز | ✓ | `product.php:351-379` (ترتیب آرایه) + `miran-product.js:336-360` |
+| تب‌ها کپسولی، بدون خط زیر/بالا | ✓ | `miran-product.css:1352-1435` (حذف `::before/::after` و `wd-nav-wrapper`) |
 | FBT/Upsell/Related با همان بج‌ها | ✓ | `product.php:772-800` + CSS `.related/.upsells .onsale` |
-| نوار چسبان وودمارت ⇒ حذف نوار افزونه | ✓ | `serviya-product.js:99-128` |
-| قیمت نهایی در نوار چسبان ۲۱px (وودمارت) / ۱۷px (سرویا) و `#EC3680` | ✓ | `serviya-product.css:1810-1870` |
+| نوار چسبان وودمارت ⇒ حذف نوار افزونه | ✓ | `miran-product.js:99-128` |
+| قیمت نهایی در نوار چسبان ۲۱px (وودمارت) / ۱۷px (سرویا) و `#EC3680` | ✓ | `miran-product.css:1810-1870` |
 
 ### بند ۸ — مقاله
 
 | الزام | وضعیت | شاهد |
 |---|---|---|
 | گزینه‌ها (بدون `phone`) | ✓ | `post.php:486-498` |
-| نوار پیشرفت مطالعه | ✓ | `post.php` (`data-svp-progress`) + `serviya-post.js:20-40` |
+| نوار پیشرفت مطالعه | ✓ | `post.php` (`data-svp-progress`) + `miran-post.js:20-40` |
 | بردکرامب: خانه ← مجله ← دسته ← عنوان کوتاه‌شده ۴۲ کاراکتر | ✓ | `post.php:214-242` (`trunc(...,42)`) |
 | چیپ دسته، یک H1، لید از excerpt | ✓ | `post.php:530-560` |
 | متا: نویسنده+آواتار، تاریخ فارسی، «به‌روزرسانی» بعد از ۱ روز، زمان مطالعه، دیدگاه | ✓ | `post.php:534-565` |
@@ -153,11 +153,11 @@
 | فرم رمز، عدم چاپ در برگه/محصول، گارد recursion، بازگرداندن `$GLOBALS['post']` | ✓ | `post.php:492-525`، `try/finally` در `post.php:686-700` |
 | برچسب، اشتراک + کپی لینک، باکس نویسنده، قبلی/بعدی | ✓ | `post.php:366-440` |
 | دیدگاه بومی `comments_template()` | ✓ | `post.php:626-636` |
-| سایدبار چپ فیزیکی (ستون دوم در RTL) | ✓ | `serviya-post.css` گرید `svp-layout` |
-| TOC خودکار فقط با JS و ≥۲ سرفصل | ✓ | `serviya-post.js:60-120` |
-| سایدبار بدون اسکرول داخلی/چسبان، ریشه شفاف | ✓ | `serviya-post.css` (`background: transparent` روی ریشه، `--svp-soft` استفاده نمی‌شود برای ستون) |
+| سایدبار چپ فیزیکی (ستون دوم در RTL) | ✓ | `miran-post.css` گرید `svp-layout` |
+| TOC خودکار فقط با JS و ≥۲ سرفصل | ✓ | `miran-post.js:60-120` |
+| سایدبار بدون اسکرول داخلی/چسبان، ریشه شفاف | ✓ | `miran-post.css` (`background: transparent` روی ریشه، `--svp-soft` استفاده نمی‌شود برای ستون) |
 | بدون باکس تماس در سایدبار | ✓ | `post.php:286-300` کامنت صریح |
-| موبایل: سایدبار زیر مقاله | ✓ | `@media (max-width: …)` در `serviya-post.css` |
+| موبایل: سایدبار زیر مقاله | ✓ | `@media (max-width: …)` در `miran-post.css` |
 | «مقالات دیگر» هم‌دسته + تکمیل با تازه‌ترین‌ها | ✓ | `post.php:438-478` |
 
 ### بند ۹ — برنامه اجرایی

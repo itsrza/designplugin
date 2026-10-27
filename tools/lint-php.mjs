@@ -15,7 +15,7 @@ import { fileURLToPath } from 'node:url';
 import engine from 'php-parser';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const PLUGIN_DIR = path.join(ROOT, 'serviya');
+const PLUGIN_DIR = path.join(ROOT, 'miran');
 const parser = new engine({
   parser: { extractDoc: false, suppressErrors: false },
   ast: { withPositions: true },

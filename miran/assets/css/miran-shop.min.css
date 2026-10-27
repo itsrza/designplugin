@@ -1,0 +1,225 @@
+/*! Miran — miran-shop.css (minified build, do not edit; run "npm run build") */
+.miran-shop-widget{--srv-accent:#D9A86C;--srv-navy:#46270B;--srv-ink:#3A2A1C;--srv-soft:#F6F8F3;--srv-gray:#9B846C;--srv-border:#EADFCF;--srv-red:#EF4444;width:100%;min-width:0;padding:40px 0;background:var(--srv-soft);color:var(--srv-navy);font-family:inherit;direction:rtl}
+.miran-shop-widget *,.miran-shop-widget ::after,.miran-shop-widget ::before{box-sizing:border-box}
+.miran-shop-widget button,.miran-shop-widget input{font-family:inherit}
+.miran-shop-widget .ss-container{width:100%;max-width:1320px;min-width:0;margin:0 auto;padding:0 15px}
+.miran-shop-widget .ss-header-bar{display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid var(--srv-border);padding-bottom:16px;margin-bottom:30px}
+.miran-shop-widget .ss-breadcrumbs{display:flex;flex:1 1 auto;align-items:center;flex-wrap:nowrap;gap:8px;min-width:0;overflow:hidden;font-size:13px;color:var(--srv-gray);font-weight:500;white-space:nowrap}
+.miran-shop-widget .ss-breadcrumbs a{color:var(--srv-gray);text-decoration:none!important;white-space:nowrap}
+.miran-shop-widget .ss-breadcrumbs a:hover{color:var(--srv-navy)}
+.miran-shop-widget .ss-sep{color:var(--srv-border);margin:0 4px}
+.miran-shop-widget .ss-current{color:var(--srv-navy);font-weight:800}
+.miran-shop-widget .ss-product-count{flex-shrink:0;font-size:13px;color:var(--srv-gray);font-weight:600}
+.miran-shop-widget .ss-product-count span{color:var(--srv-navy);font-weight:800;font-size:14px;margin-left:4px}
+.miran-shop-widget .ss-skeleton{background:linear-gradient(110deg,#ede6dc 8%,#f6f1e9 18%,#ede6dc 33%);background-size:200% 100%;animation:ss-shine 1.5s linear infinite;border:none!important}
+@keyframes ss-shine{
+to{background-position-x:-200%}
+}
+.miran-shop-widget .ss-skel-card{min-width:0;background:#fff;border-radius:16px;padding:16px;border:1px solid var(--srv-border);display:flex;flex-direction:column}
+.miran-shop-widget .ss-skel-img-box{width:100%;aspect-ratio:1;margin-bottom:16px;border-radius:12px}
+.miran-shop-widget .ss-skel-text-1{height:16px;width:80%;border-radius:4px;margin-bottom:8px}
+.miran-shop-widget .ss-skel-text-2{height:12px;width:50%;border-radius:4px;margin-bottom:24px}
+.miran-shop-widget .ss-skel-text-3{height:20px;width:60%;border-radius:4px;margin-bottom:16px;margin-right:auto}
+.miran-shop-widget .ss-skel-btn-box{height:42px;width:100%;margin-top:auto;border-radius:8px}
+.miran-shop-widget .ss-top-categories{display:flex;gap:16px;overflow-x:auto;padding-bottom:20px;margin-bottom:20px;scrollbar-width:thin;scrollbar-color:var(--srv-border) transparent;overscroll-behavior-x:contain}
+.miran-shop-widget .ss-top-categories::-webkit-scrollbar{height:6px}
+.miran-shop-widget .ss-top-categories::-webkit-scrollbar-thumb{background:var(--srv-border);border-radius:10px}
+.miran-shop-widget .ss-cat-item{min-width:100px;flex-shrink:0;background:#fff;border:2px solid transparent;border-radius:16px;padding:16px 10px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:border-color .2s,background .2s;box-shadow:0 4px 15px rgba(0,0,0,.02)}
+.miran-shop-widget .ss-cat-item:hover{border-color:rgba(217,168,108,.5)}
+.miran-shop-widget .ss-cat-item.active{border-color:var(--srv-accent);background:#fcf6ec}
+.miran-shop-widget .ss-cat-item.ss-skeleton{width:100px;height:100px}
+.miran-shop-widget .ss-cat-icon-fallback,.miran-shop-widget .ss-cat-img{width:45px;height:45px;margin-bottom:12px}
+.miran-shop-widget .ss-cat-img{object-fit:contain}
+.miran-shop-widget .ss-cat-icon-fallback{display:flex;align-items:center;justify-content:center;background:var(--srv-soft);border-radius:12px;color:var(--srv-gray)}
+.miran-shop-widget .ss-cat-title{font-size:12px;line-height:1.7;font-weight:700;color:var(--srv-navy);text-align:center}
+.miran-shop-widget .ss-layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:30px;align-items:start}
+.miran-shop-widget .ss-main,.miran-shop-widget .ss-sidebar{min-width:0}
+.miran-shop-widget .ss-widget{background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.02)}
+.miran-shop-widget .ss-widget-title{font-size:16px;line-height:1.7;font-weight:800;margin:0 0 20px}
+.miran-shop-widget .ss-search-box{position:relative;width:100%}
+.miran-shop-widget .ss-search-box input{display:block;width:100%;min-width:0;background:var(--srv-soft);border:1px solid transparent;border-radius:10px;padding:12px 14px 12px 40px;font-size:13px}
+.miran-shop-widget .ss-search-box input:focus{outline:0;border-color:var(--srv-accent);background:#fff}
+.miran-shop-widget .ss-search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--srv-gray);pointer-events:none}
+.miran-shop-widget .ss-toggles{display:flex;flex-direction:column;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px dashed var(--srv-border)}
+.miran-shop-widget .ss-toggle{display:flex;justify-content:space-between;align-items:center;gap:12px;cursor:pointer}
+.miran-shop-widget .ss-toggle-label{font-size:14px;font-weight:600}
+.miran-shop-widget .ss-toggle-switch{position:relative;flex-shrink:0;width:44px;height:24px}
+.miran-shop-widget .ss-toggle-switch input{position:absolute;width:1px;height:1px;opacity:0}
+.miran-shop-widget .ss-slider{position:absolute;inset:0;cursor:pointer;background:var(--srv-border);transition:background .25s;border-radius:34px}
+.miran-shop-widget .ss-slider::before{position:absolute;content:"";height:18px;width:18px;left:3px;bottom:3px;background:#fff;transition:transform .25s;border-radius:50%}
+.miran-shop-widget .ss-toggle-switch input:checked+.ss-slider{background:var(--srv-accent)}
+.miran-shop-widget .ss-toggle-switch input:checked+.ss-slider::before{transform:translateX(20px)}
+.miran-shop-widget .ss-toggle-switch input:focus-visible+.ss-slider{outline:2px solid var(--srv-navy);outline-offset:3px}
+.miran-shop-widget .ss-accordion{margin-bottom:16px;border-bottom:1px solid var(--srv-border);padding-bottom:10px}
+.miran-shop-widget .ss-acc-header{display:flex;justify-content:space-between;align-items:center;gap:10px;cursor:pointer;font-size:14px;font-weight:700;padding:8px 0}
+.miran-shop-widget .ss-acc-meta{display:flex;align-items:center;gap:10px}
+.miran-shop-widget .ss-acc-badge{background:var(--srv-soft);color:var(--srv-navy);font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.miran-shop-widget .ss-acc-icon{transition:transform .3s;font-size:12px;color:var(--srv-gray)}
+.miran-shop-widget .ss-accordion.active .ss-acc-icon{transform:rotate(180deg)}
+.miran-shop-widget .ss-acc-content{display:none;padding-top:10px;padding-right:5px;max-height:250px;overflow-y:auto}
+.miran-shop-widget .ss-accordion.active .ss-acc-content{display:block}
+.miran-shop-widget .ss-checkbox-row{display:flex;align-items:center;margin-bottom:12px;cursor:pointer;gap:0}
+.miran-shop-widget .ss-checkbox-row input{flex-shrink:0;margin-left:10px;accent-color:var(--srv-accent);width:16px;height:16px;cursor:pointer}
+.miran-shop-widget .ss-checkbox-row span{font-size:13px;color:var(--srv-gray);font-weight:500;overflow-wrap:anywhere}
+.miran-shop-widget .ss-top-bar{display:flex;justify-content:flex-start;align-items:center;min-width:0;background:#fff;padding:16px 24px;border-radius:16px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.02)}
+.miran-shop-widget .ss-sort-wrapper{display:flex;align-items:center;gap:16px;min-width:0}
+.miran-shop-widget .ss-sort-label{display:flex;align-items:center;flex-shrink:0;gap:8px;font-size:14px;font-weight:700}
+.miran-shop-widget .ss-sort-options{display:flex;flex-wrap:wrap;gap:8px}
+.miran-shop-widget .ss-sort-options button{flex-shrink:0;background:0 0;border:none;font-size:13px;color:var(--srv-gray);cursor:pointer;padding:8px 12px;border-radius:8px;transition:background .2s,color .2s}
+.miran-shop-widget .ss-sort-options button:hover{color:var(--srv-navy)}
+.miran-shop-widget .ss-sort-options button.active{background:var(--srv-soft);color:var(--srv-navy);font-weight:700}
+.miran-shop-widget .ss-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
+.miran-shop-widget .ss-card{position:relative;display:flex;flex-direction:column;min-width:0;width:100%;padding:16px;overflow:hidden;background:#fff;border:1px solid var(--srv-border);border-radius:16px;text-decoration:none!important;transition:box-shadow .25s,border-color .25s,background .25s}
+.miran-shop-widget .ss-card *{text-decoration:none!important}
+.miran-shop-widget .ss-card:hover{box-shadow:0 10px 30px rgba(0,0,0,.06);border-color:rgba(217,168,108,.5);background:linear-gradient(to top,rgba(217,168,108,.1),#fff 70%)}
+.miran-shop-widget .ss-card.is-out-of-stock .ss-card-img img{filter:grayscale(100%);opacity:.6}
+.miran-shop-widget .ss-card-img{position:relative;display:block;width:100%;aspect-ratio:1/1;flex-shrink:0;border-radius:12px;overflow:hidden;margin-bottom:16px;background:#fff}
+.miran-shop-widget .ss-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.miran-shop-widget .ss-badge-discount{position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;justify-content:center;height:30px;background:#ff047e;box-shadow:0 8px 20px rgba(70,39,11,.14);color:#fff;font-size:12px;font-weight:800;line-height:1.7;padding:5px 12px;border-radius:999px;z-index:2;direction:ltr}
+.miran-shop-widget .ss-badge-dim{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;justify-content:center;gap:4px;height:30px;max-width:calc(100% - 20px);background:#d9a86c;box-shadow:0 8px 20px rgba(70,39,11,.14);color:#000;font-size:12px;font-weight:800;line-height:1.7;padding:5px 12px;border-radius:999px;z-index:2;direction:rtl;white-space:nowrap}
+.miran-shop-widget .ss-card-content{display:flex;flex-direction:column;align-items:stretch;flex-grow:1;min-width:0}
+.miran-shop-widget .ss-card-title{font-size:14px;font-weight:700;color:var(--srv-navy);margin:0 0 6px;line-height:1.7;text-align:right;overflow-wrap:anywhere}
+.miran-shop-widget .ss-card-title-link{display:block;color:inherit;text-decoration:none!important}
+.miran-shop-widget .ss-card-title-link:hover{color:var(--srv-ink)}
+.miran-shop-widget .ss-card-cat{font-size:11px;color:var(--srv-gray);margin-bottom:auto;text-align:right;overflow-wrap:anywhere}
+.miran-shop-widget .ss-card-price-box{display:flex;align-items:baseline;justify-content:flex-start;flex-wrap:wrap;gap:6px;min-width:0;margin:16px 0;direction:rtl}
+.miran-shop-widget .ss-price-old{font-size:12px;color:var(--srv-gray);text-decoration:line-through!important}
+.miran-shop-widget .ss-price-new{font-size:16px;font-weight:800;color:var(--srv-navy);overflow-wrap:anywhere}
+.miran-shop-widget .ss-price-currency{font-size:11px;color:var(--srv-gray)}
+.miran-shop-widget .ss-card-btn{position:relative;display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:44px;margin-top:auto;padding:10px 8px;overflow:hidden;background:var(--srv-accent);color:var(--srv-navy);border:1px solid transparent;border-radius:9px;font-size:13px;line-height:1.5;font-weight:800;text-align:center;cursor:pointer;transition:background .2s,color .2s,border-color .2s,opacity .2s;-webkit-tap-highlight-color:transparent}
+.miran-shop-widget button.ss-card-btn{font-family:inherit}
+.miran-shop-widget .ss-card-btn:hover{background:#c8924f}
+.miran-shop-widget .ss-card-btn:focus-visible{outline:2px solid var(--srv-navy);outline-offset:3px}
+.miran-shop-widget .ss-btn-label{display:inline-block;position:relative;z-index:2}
+.miran-shop-widget .ss-btn-cart{width:19px;height:19px;flex:0 0 19px;position:relative;z-index:2}
+.miran-shop-widget .ss-card-btn.is-animating,.miran-shop-widget .ss-card-btn.is-animating:hover{background:var(--srv-navy);color:#fff;cursor:wait}
+.miran-shop-widget .ss-card-btn.is-added,.miran-shop-widget .ss-card-btn.is-added:hover{background:var(--srv-navy);color:#fff;border-color:var(--srv-navy);cursor:default;opacity:1}
+.miran-shop-widget .ss-card-btn.is-added .ss-btn-cart{color:var(--srv-accent)}
+.miran-shop-widget .ss-card-btn.is-added .ss-btn-label{color:#fff}
+.miran-shop-widget .ss-card-btn.is-added:disabled{opacity:1;cursor:default}
+.miran-shop-widget .ss-card-btn.is-unavailable,.miran-shop-widget .ss-card-btn:disabled:not(.is-added){opacity:.6;cursor:not-allowed}
+.miran-shop-widget .ss-card-link-btn{text-decoration:none!important}
+.miran-shop-widget .ss-error-msg{grid-column:1/-1;text-align:center;color:var(--srv-red);background:#fff;border-radius:12px;padding:30px;font-weight:700;font-size:14px;border:1px solid #fcc}
+.miran-shop-widget .ss-pagination{text-align:center;margin-top:40px}
+.miran-shop-widget .ss-load-more{background:0 0;border:2px solid var(--srv-navy);color:var(--srv-navy);padding:12px 32px;border-radius:30px;font-size:14px;font-weight:700;cursor:pointer;transition:background .2s,color .2s}
+.miran-shop-widget .ss-load-more:hover{background:var(--srv-navy);color:#fff}
+@media (min-width:769px) and (max-width:1100px){
+.miran-shop-widget .ss-layout{grid-template-columns:240px minmax(0,1fr);gap:18px}
+.miran-shop-widget .ss-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.miran-shop-widget .ss-widget{padding:18px}
+.miran-shop-widget .ss-card{padding:12px}
+}
+@media (max-width:768px){
+.miran-shop-widget{padding:20px 0;overflow:clip}
+.miran-shop-widget .ss-container{padding:0 12px}
+.miran-shop-widget .ss-header-bar{margin-bottom:18px;padding-bottom:12px}
+.miran-shop-widget .ss-breadcrumbs{gap:5px;font-size:11px}
+.miran-shop-widget .ss-product-count{font-size:11px}
+.miran-shop-widget .ss-product-count span{font-size:12px}
+.miran-shop-widget .ss-layout{grid-template-columns:minmax(0,1fr);gap:16px}
+.miran-shop-widget .ss-main,.miran-shop-widget .ss-sidebar{width:100%;min-width:0}
+.miran-shop-widget .ss-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;align-items:stretch}
+.miran-shop-widget .ss-card{padding:9px;border-radius:12px;transform:none;box-shadow:0 2px 8px rgba(70,39,11,.04)}
+.miran-shop-widget .ss-card:hover{transform:none;box-shadow:0 3px 10px rgba(70,39,11,.07)}
+.miran-shop-widget .ss-card-img{aspect-ratio:1/1;margin-bottom:9px;border-radius:9px}
+.miran-shop-widget .ss-card-content{width:100%;min-width:0}
+.miran-shop-widget .ss-card-title{font-size:12px;line-height:1.8;margin-bottom:5px;min-height:43px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+.miran-shop-widget .ss-card-cat{font-size:10px;line-height:1.7;min-height:17px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.miran-shop-widget .ss-card-price-box{justify-content:flex-start;align-items:baseline;flex-wrap:wrap;gap:4px;margin:12px 0}
+.miran-shop-widget .ss-price-old{flex-basis:100%;font-size:10px;line-height:1.5}
+.miran-shop-widget .ss-price-new{font-size:13px;line-height:1.7}
+.miran-shop-widget .ss-price-currency{font-size:10px}
+.miran-shop-widget .ss-card-btn{min-height:38px;padding:8px 4px;border-radius:7px;font-size:11px;line-height:1.6;white-space:normal;overflow-wrap:anywhere}
+.miran-shop-widget .ss-badge-discount{top:6px;left:6px;height:25px;padding:4px 8px;font-size:10px;line-height:1.6;border-radius:999px}
+.miran-shop-widget .ss-badge-dim{top:6px;right:6px;height:25px;max-width:calc(100% - 12px);gap:3px;padding:4px 8px;font-size:10px;line-height:1.6;border-radius:999px}
+.miran-shop-widget .ss-top-categories{gap:10px;padding-bottom:12px;margin-bottom:12px;-webkit-overflow-scrolling:touch}
+.miran-shop-widget .ss-cat-item{min-width:86px;padding:12px 8px;border-radius:12px}
+.miran-shop-widget .ss-cat-item.ss-skeleton{width:86px;min-width:86px;height:86px}
+.miran-shop-widget .ss-cat-icon-fallback,.miran-shop-widget .ss-cat-img{width:38px;height:38px;margin-bottom:8px}
+.miran-shop-widget .ss-cat-title{font-size:11px;line-height:1.7}
+.miran-shop-widget .ss-top-bar{width:100%;min-width:0;padding:12px;margin-bottom:14px;border-radius:12px;overflow:hidden}
+.miran-shop-widget .ss-sort-wrapper{display:flex;align-items:center;flex-wrap:nowrap;gap:10px;width:100%;min-width:0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding-bottom:2px}
+.miran-shop-widget .ss-sort-wrapper::-webkit-scrollbar{display:none}
+.miran-shop-widget .ss-sort-label{flex-shrink:0;gap:5px;font-size:12px}
+.miran-shop-widget .ss-sort-options{display:flex;flex-wrap:nowrap;flex-shrink:0;gap:5px}
+.miran-shop-widget .ss-sort-options button{flex-shrink:0;padding:7px 9px;font-size:11px;white-space:nowrap}
+.miran-shop-widget .ss-widget{padding:16px;margin-bottom:14px;border-radius:12px}
+.miran-shop-widget .ss-widget-title{font-size:14px;margin-bottom:14px}
+.miran-shop-widget .ss-search-box input{min-height:44px;font-size:12px}
+.miran-shop-widget .ss-acc-header{font-size:13px}
+.miran-shop-widget .ss-checkbox-row span{font-size:12px}
+.miran-shop-widget .ss-pagination{margin-top:24px}
+.miran-shop-widget .ss-load-more{width:100%;max-width:300px;padding:12px 16px;font-size:13px}
+}
+@media (max-width:360px){
+.miran-shop-widget .ss-container{padding-right:8px;padding-left:8px}
+.miran-shop-widget .ss-grid{gap:8px}
+.miran-shop-widget .ss-card{padding:7px}
+.miran-shop-widget .ss-card-title{font-size:11px}
+.miran-shop-widget .ss-price-new{font-size:12px}
+.miran-shop-widget .ss-card-btn{padding-right:2px;padding-left:2px;font-size:10px}
+}
+@media (prefers-reduced-motion:reduce){
+.miran-shop-widget *,.miran-shop-widget ::after,.miran-shop-widget ::before{animation-duration:NaNs!important;animation-iteration-count:1!important;transition-duration:NaNs!important;scroll-behavior:auto!important}
+}
+.miran-shop-widget .ss-sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.miran-shop-widget [hidden]{display:none!important}
+.miran-shop-widget h1.ss-current{display:block;margin:0;min-width:0;overflow:hidden;font:inherit;color:var(--srv-navy);font-weight:800;text-overflow:ellipsis;white-space:nowrap}
+.miran-shop-widget .ss-breadcrumbs ol{display:flex;align-items:center;flex-wrap:nowrap;gap:8px;min-width:0;overflow:hidden;list-style:none;margin:0;padding:0;white-space:nowrap}
+.miran-shop-widget .ss-breadcrumbs li{display:flex;flex:0 0 auto;align-items:center;gap:8px;min-width:0;white-space:nowrap;margin:0}
+.miran-shop-widget .ss-breadcrumbs li:last-child{flex:0 1 auto;overflow:hidden}
+.miran-shop-widget .ss-breadcrumbs .ss-sep{flex:0 0 auto}
+.miran-shop-widget form.ss-layout{margin:0}
+.miran-shop-widget a.ss-cat-item{color:inherit;text-decoration:none!important}
+.miran-shop-widget .ss-load-more:focus-visible,.miran-shop-widget .ss-pagination-nav a:focus-visible,.miran-shop-widget .ss-sort-options button:focus-visible,.miran-shop-widget a.ss-cat-item:focus-visible{outline:2px solid var(--srv-navy);outline-offset:3px}
+.miran-shop-widget button.ss-acc-header{width:100%;background:0 0;border:0;color:inherit;font-family:inherit;text-align:right}
+.miran-shop-widget button.ss-acc-header:focus-visible{outline:2px solid var(--srv-navy);outline-offset:2px;border-radius:6px}
+.miran-shop-widget .ss-checkbox-row.ss-child{padding-right:18px}
+.miran-shop-widget .ss-widget-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:20px}
+.miran-shop-widget .ss-widget-head .ss-widget-title{margin:0}
+.miran-shop-widget .ss-clear-all{background:0 0;border:0;padding:4px 2px;font-family:inherit;font-size:12px;font-weight:700;color:var(--srv-red);cursor:pointer}
+.miran-shop-widget .ss-clear-all:hover{text-decoration:underline}
+.miran-shop-widget .ss-pagination-nav{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin-top:22px}
+.miran-shop-widget .ss-pagination-nav .page-numbers{min-width:40px;padding:8px 12px;border-radius:30px;border:1px solid var(--srv-border);background:#fff;color:var(--srv-navy);font-size:13px;font-weight:700;text-align:center;text-decoration:none!important;transition:background .2s,color .2s,border-color .2s}
+.miran-shop-widget .ss-pagination-nav a.page-numbers:hover{background:var(--srv-navy);color:#fff}
+.miran-shop-widget .ss-pagination-nav .page-numbers.current{background:var(--srv-accent);border-color:var(--srv-accent);color:var(--srv-navy)}
+.miran-shop-widget .ss-inline-btn{display:inline-block;margin-top:14px;background:0 0;border:2px solid var(--srv-navy);color:var(--srv-navy);padding:9px 24px;border-radius:30px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:background .2s,color .2s}
+.miran-shop-widget .ss-inline-btn:hover{background:var(--srv-navy);color:#fff}
+.miran-shop-widget .ss-loadmore-error{margin-top:16px;color:var(--srv-red);font-size:13px;font-weight:700}
+.miran-shop-widget .ss-loadmore-error .ss-inline-btn{margin-top:10px}
+.miran-shop-widget .ss-mobile-filter-btn{display:none;align-items:center;gap:8px;margin-right:auto;background:var(--srv-accent);color:var(--srv-navy);border:0;border-radius:30px;padding:9px 16px;font-family:inherit;font-size:13px;font-weight:800;cursor:pointer;flex-shrink:0}
+.miran-shop-widget .ss-filter-count{min-width:20px;height:20px;padding:0 5px;border-radius:20px;background:var(--srv-navy);color:var(--srv-accent);font-size:11px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.miran-shop-widget .ss-drawer-apply,.miran-shop-widget .ss-drawer-head{display:none}
+.miran-shop-widget .ss-drawer-overlay{display:none;position:fixed;inset:0;background:rgba(70,39,11,.5);z-index:99998}
+@media (max-width:768px){
+.miran-shop-widget .ss-mobile-filter-btn{display:inline-flex}
+.miran-shop-widget .ss-top-bar{flex-wrap:wrap;gap:10px}
+.miran-shop-widget .ss-sidebar{position:fixed;top:0;bottom:0;right:0;width:min(320px,88vw);max-width:320px;z-index:99999;background:var(--srv-soft);padding:16px 14px 20px;overflow-y:auto;overscroll-behavior:contain;transform:translateX(105%);transition:transform .3s ease;box-shadow:-10px 0 30px rgba(70,39,11,.18);visibility:hidden}
+.miran-shop-widget.ss-drawer-open .ss-sidebar{transform:none;visibility:visible}
+.miran-shop-widget.ss-drawer-open .ss-drawer-overlay{display:block}
+.miran-shop-widget .ss-drawer-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;font-size:15px;font-weight:800;color:var(--srv-navy)}
+.miran-shop-widget .ss-drawer-close{width:36px;height:36px;border-radius:50%;border:1px solid var(--srv-border);background:#fff;color:var(--srv-navy);font-size:18px;line-height:1;cursor:pointer;font-family:inherit}
+.miran-shop-widget .ss-drawer-apply{display:block;position:sticky;bottom:0;width:100%;margin-top:6px;padding:13px 16px;border:0;border-radius:10px;background:var(--srv-accent);color:var(--srv-navy);font-family:inherit;font-size:14px;font-weight:800;cursor:pointer}
+}
+.miran-shop-widget .ss-toggle-switch{display:block}
+.miran-shop-widget .ss-search-box input[type=search]{-webkit-appearance:none;appearance:none}
+.miran-shop-widget{--srv-font:vazirmatn,"vazirmatn","Vazirmatn",Tahoma,Arial,sans-serif;font-family:var(--srv-font)!important}
+.miran-shop-widget a,.miran-shop-widget button,.miran-shop-widget h1,.miran-shop-widget h2,.miran-shop-widget h3,.miran-shop-widget h4,.miran-shop-widget input,.miran-shop-widget label,.miran-shop-widget select,.miran-shop-widget span,.miran-shop-widget textarea{font-family:var(--srv-font)!important}
+.miran-shop-widget .ss-search-box input.ss-search-input{font-family:var(--srv-font)!important;font-size:13px;font-weight:500;line-height:1.7;color:var(--srv-navy);background:var(--srv-soft);border:1px solid transparent;border-radius:10px;padding:12px 14px 12px 40px;min-height:46px;box-shadow:none;outline:0}
+.miran-shop-widget .ss-search-box input.ss-search-input::placeholder{color:var(--srv-gray);opacity:1;font-family:var(--srv-font)!important}
+.miran-shop-widget .ss-search-box input.ss-search-input:focus{border-color:var(--srv-accent);background:#fff;box-shadow:none;outline:0}
+.miran-shop-widget .ss-search-box input.ss-search-input::-webkit-search-cancel-button,.miran-shop-widget .ss-search-box input.ss-search-input::-webkit-search-decoration,.miran-shop-widget .ss-search-box input.ss-search-input::-webkit-search-results-button,.miran-shop-widget .ss-search-box input.ss-search-input::-webkit-search-results-decoration{-webkit-appearance:none;appearance:none;display:none}
+.miran-shop-widget .ss-search-box input.ss-search-input::-ms-clear,.miran-shop-widget .ss-search-box input.ss-search-input::-ms-reveal{display:none;width:0;height:0}
+.miran-shop-widget .ss-search-box{position:relative;width:100%;margin:0}
+.miran-shop-widget .ss-search-box input.ss-search-input{display:block!important;width:100%!important;max-width:100%!important;height:52px!important;min-height:52px!important;margin:0!important;padding:0 16px 0 48px!important;box-sizing:border-box!important;background:var(--srv-soft)!important;border:1.5px solid var(--srv-border)!important;border-radius:14px!important;box-shadow:none!important;outline:0!important;-webkit-appearance:none!important;appearance:none!important;font-family:var(--srv-font)!important;font-size:14px!important;font-weight:500!important;line-height:normal!important;color:var(--srv-navy)!important;text-align:right!important;transition:border-color .2s ease,background .2s ease,box-shadow .2s ease}
+.miran-shop-widget .ss-search-box input.ss-search-input:hover{border-color:#dccbb6!important}
+.miran-shop-widget .ss-search-box input.ss-search-input:focus{background:#fff!important;border-color:var(--srv-accent)!important;box-shadow:0 0 0 4px rgba(217,168,108,.2)!important;outline:0!important}
+.miran-shop-widget .ss-search-box input.ss-search-input::placeholder{color:var(--srv-gray)!important;opacity:1!important;font-family:var(--srv-font)!important;font-weight:500!important}
+.miran-shop-widget .ss-search-box>svg{position:absolute!important;left:16px!important;right:auto!important;top:50%!important;transform:translateY(-50%)!important;width:20px!important;height:20px!important;margin:0!important;color:var(--srv-gray)!important;pointer-events:none!important;z-index:2}
+@media (max-width:768px){
+.miran-shop-widget .ss-search-box input.ss-search-input{height:50px!important;min-height:50px!important;font-size:14px!important}
+}
+.miran-shop-widget .ss-acc-icon{font-size:0;line-height:1}
+.miran-shop-widget .ss-acc-icon::before{content:"\f129";font-family:woodmart-font;font-weight:400;font-size:13px;line-height:1;display:inline-block;color:var(--srv-gray)}
+.miran-shop-widget .ss-accordion.active .ss-acc-icon{transform:none}
+.miran-shop-widget .ss-accordion.active .ss-acc-icon::before{content:"\f115"}

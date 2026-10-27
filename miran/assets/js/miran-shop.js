@@ -1,5 +1,5 @@
 /*
- * Serviya Shop v2 — progressive enhancement layer.
+ * Miran Shop v2 — progressive enhancement layer.
  *
  * The first page of products, categories and attribute filters is rendered
  * server-side by PHP (SEO + speed + works without JS). This script only:
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
 
-    var CFG = window.ServiyaShopData || {};
+    var CFG = window.MiranShopData || {};
     var REST_BASE = String(CFG.restBase || '/wp-json/wc/store/v1/').replace(/\/?$/, '/');
     var SHOP_URL = CFG.shopUrl || window.location.pathname;
     var HOME_URL = CFG.homeUrl || '/';
@@ -84,7 +84,7 @@
     /* Per-instance init (multiple widgets per page are supported)         */
     /* ------------------------------------------------------------------ */
 
-    function initServiyaShop(root) {
+    function initMiranShop(root) {
         if (!root || root.dataset.ssInitialized === '1') return;
         root.dataset.ssInitialized = '1';
 
@@ -250,9 +250,9 @@
                 return;
             }
             if (push) {
-                window.history.pushState({ serviyaShop: true }, '', url);
+                window.history.pushState({ miranShop: true }, '', url);
             } else {
-                window.history.replaceState({ serviyaShop: true }, '', url);
+                window.history.replaceState({ miranShop: true }, '', url);
             }
             lastLocationKey = relevantLocationKey();
         }
@@ -905,7 +905,7 @@
                 if (window.jQuery) window.jQuery(document.body).trigger('wc_fragment_refresh');
             } catch (error) {}
             try {
-                document.body.dispatchEvent(new CustomEvent('serviya:cart-updated', {
+                document.body.dispatchEvent(new CustomEvent('miran:cart-updated', {
                     bubbles: true,
                     detail: { cart: cartData, productId: productId, quantity: 1 }
                 }));
@@ -993,7 +993,7 @@
                     button.removeAttribute('title');
                 }, 2500);
 
-                if (window.console) console.error('[Serviya Shop] Add to cart failed:', error);
+                if (window.console) console.error('[Miran Shop] Add to cart failed:', error);
             }
         }
 
@@ -1291,7 +1291,7 @@
     }
 
     function boot() {
-        document.querySelectorAll('.serviya-shop-widget').forEach(initServiyaShop);
+        document.querySelectorAll('.miran-shop-widget').forEach(initMiranShop);
     }
 
     if (document.readyState === 'loading') {

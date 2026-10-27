@@ -86,7 +86,7 @@
 این رنگ دو جا اثر دارد و هر دو با یک متغیر کنترل می‌شوند:
 
 - عدد قیمت و برچسب «قیمت فروش/قیمت فروش ویژه» در سکشن قیمت → `--sp-price-final`
-- قیمت نهایی در نوار چسبان میران و وودمارت → `--sp-price-final` + یک literal برای نوار وودمارت (خارج از `.serviya-product` است)
+- قیمت نهایی در نوار چسبان میران و وودمارت → `--sp-price-final` + یک literal برای نوار وودمارت (خارج از `.miran-product` است)
 
 ## ۳.۶) لوگو و دامنه
 
@@ -131,7 +131,7 @@
 | مورد | قبل | بعد |
 |---|---|---|
 | نام برند در متن‌ها | سرویا | **میران** |
-| نام افزونه در فهرست وردپرس | Serviya — Shop & Blog | **Miran — Shop & Blog** |
+| نام افزونه در فهرست وردپرس | Miran — Shop & Blog | **Miran — Shop & Blog** |
 | سازنده | Serviya | **Miran** |
 | `Plugin URI` | `https://serviya.ir/` | حذف شد (دامنه‌ی میران اعلام نشده) |
 | تلفن پیش‌فرض مشاوره | `09169066373` | **`09382420272`** |
@@ -139,14 +139,14 @@
 
 جاهایی که شماره در کد نشسته و قابل بازنویسی با صفت شورت‌کد هم هست:
 
-- `serviya/modules/blog.php` → پیش‌فرض `phone` در `[serviya_blog]`
-- `serviya/modules/product.php` → پیش‌فرض `phone` و `whatsapp` در `[serviya_product]`
+- `miran/modules/blog.php` → پیش‌فرض `phone` در `[miran_blog]`
+- `miran/modules/product.php` → پیش‌فرض `phone` و `whatsapp` در `[miran_product]`
 
 نمونه‌ی صریح (پیشنهاد برای سایت جدید):
 
 ```text
-[serviya_blog per_page="9" phone="09382420272"]
-[serviya_product phone="09382420272" whatsapp="989382420272" telegram="…"]
+[miran_blog per_page="9" phone="09382420272"]
+[miran_product phone="09382420272" whatsapp="989382420272" telegram="…"]
 ```
 
 ## ۵) دسته‌بندی‌ها و اسلاگ‌ها — دو منبع، یک تصمیم

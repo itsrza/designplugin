@@ -1,9 +1,9 @@
 /*
- * Serviya — single product design.
+ * Miran — single product design.
  * Styles the canonical WooCommerce/WoodMart product markup; no product
- * logic lives here. All rules are scoped to .serviya-product.
+ * logic lives here. All rules are scoped to .miran-product.
  */
-.serviya-product {
+.miran-product {
   --sp-accent: #D9A86C;
   --sp-accent-hover: #C8924F;
   --sp-accent-soft: #F9EFE1;
@@ -35,28 +35,28 @@
   line-height: 1.8;
 }
 
-.serviya-product *,
-.serviya-product *::before,
-.serviya-product *::after {
+.miran-product *,
+.miran-product *::before,
+.miran-product *::after {
   box-sizing: border-box;
 }
 
-.serviya-product .sp-container {
+.miran-product .sp-container {
   width: min(1320px, calc(100% - 32px));
   margin-inline: auto;
 }
 
-.serviya-product a {
+.miran-product a {
   color: var(--sp-ink);
 }
 
-.serviya-product :focus-visible {
+.miran-product :focus-visible {
   outline: 3px solid rgba(217,168,108, 0.75);
   outline-offset: 3px;
 }
 
 /* ---------------------------------------------------------------- toolbar */
-.serviya-product .sp-toolbar {
+.miran-product .sp-toolbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -66,13 +66,13 @@
 
 /* Always one line: items never wrap, and an over-long current-page title
    is ellipsized instead of breaking onto a second line. */
-.serviya-product .sp-breadcrumb {
+.miran-product .sp-breadcrumb {
   flex: 1 1 auto;
   min-width: 0;
   max-width: 100%;
 }
 
-.serviya-product .sp-breadcrumb ol {
+.miran-product .sp-breadcrumb ol {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -87,7 +87,7 @@
   white-space: nowrap;
 }
 
-.serviya-product .sp-breadcrumb li {
+.miran-product .sp-breadcrumb li {
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
@@ -99,28 +99,28 @@
   margin: 0;
 }
 
-.serviya-product .sp-breadcrumb li:last-child {
+.miran-product .sp-breadcrumb li:last-child {
   flex: 0 1 auto;
   overflow: hidden;
 }
 
-.serviya-product .sp-breadcrumb li + li::before {
+.miran-product .sp-breadcrumb li + li::before {
   flex: 0 0 auto;
   color: #CBB9A2;
   content: "/";
 }
 
-.serviya-product .sp-breadcrumb a {
+.miran-product .sp-breadcrumb a {
   color: var(--sp-muted);
   text-decoration: none;
   white-space: nowrap;
 }
 
-.serviya-product .sp-breadcrumb a:hover {
+.miran-product .sp-breadcrumb a:hover {
   color: var(--sp-navy);
 }
 
-.serviya-product .sp-breadcrumb [aria-current="page"] {
+.miran-product .sp-breadcrumb [aria-current="page"] {
   min-width: 0;
   overflow: hidden;
   color: var(--sp-navy);
@@ -130,21 +130,21 @@
 }
 
 /* The previous/next product shortcuts are intentionally not part of this
- * layout (whether printed by WoodMart or by an older Serviya render). */
-.serviya-product .sp-product-nav,
-.serviya-product .wd-products-nav,
-.serviya-product .product-nav {
+ * layout (whether printed by WoodMart or by an older Miran render). */
+.miran-product .sp-product-nav,
+.miran-product .wd-products-nav,
+.miran-product .product-nav {
   display: none !important;
 }
 
-.serviya-product .sp-product-nav {
+.miran-product .sp-product-nav {
   display: flex;
   align-items: center;
   gap: 8px;
   margin-inline-start: auto;
 }
 
-.serviya-product .sp-nav-card {
+.miran-product .sp-nav-card {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -158,13 +158,13 @@
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.serviya-product .sp-nav-card:hover {
+.miran-product .sp-nav-card:hover {
   border-color: #E7CBA4;
   box-shadow: 0 8px 22px rgba(70,39,11, 0.08);
   transform: translateY(-1px);
 }
 
-.serviya-product .sp-nav-thumb {
+.miran-product .sp-nav-thumb {
   flex: 0 0 auto;
   width: 38px;
   height: 38px;
@@ -173,26 +173,26 @@
   background: var(--sp-soft);
 }
 
-.serviya-product .sp-nav-thumb img {
+.miran-product .sp-nav-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.serviya-product .sp-nav-text {
+.miran-product .sp-nav-text {
   display: flex;
   min-width: 0;
   flex-direction: column;
   line-height: 1.35;
 }
 
-.serviya-product .sp-nav-text small {
+.miran-product .sp-nav-text small {
   color: var(--sp-gray);
   font-size: 11px;
   font-weight: 600;
 }
 
-.serviya-product .sp-nav-text strong {
+.miran-product .sp-nav-text strong {
   overflow: hidden;
   color: var(--sp-navy);
   font-size: 12.5px;
@@ -201,20 +201,20 @@
   white-space: nowrap;
 }
 
-.serviya-product .sp-nav-price {
+.miran-product .sp-nav-price {
   color: var(--sp-muted);
   font-size: 11.5px;
 }
 
-.serviya-product .sp-nav-price del {
+.miran-product .sp-nav-price del {
   opacity: 0.65;
 }
 
-.serviya-product .sp-nav-price ins {
+.miran-product .sp-nav-price ins {
   text-decoration: none;
 }
 
-.serviya-product .sp-nav-shop {
+.miran-product .sp-nav-shop {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -227,12 +227,12 @@
   text-decoration: none;
 }
 
-.serviya-product .sp-nav-shop:hover {
+.miran-product .sp-nav-shop:hover {
   color: var(--sp-accent);
 }
 
 /* ------------------------------------------------------------------- main */
-.serviya-product .sp-main {
+.miran-product .sp-main {
   /* overflow: clip keeps the rounded shell without disabling gallery stickiness. */
   overflow: hidden;
   overflow: clip;
@@ -243,7 +243,7 @@
   box-shadow: var(--sp-shadow);
 }
 
-.serviya-product .sp-main-inner {
+.miran-product .sp-main-inner {
   display: grid;
   grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr);
   gap: clamp(22px, 4vw, 48px);
@@ -253,13 +253,13 @@
 /* Grid items must be allowed to shrink below their content size —
    otherwise the (nowrap) gallery carousel blows the column out on
    small screens and the summary gets pushed off-canvas. */
-.serviya-product .sp-main-inner > * {
+.miran-product .sp-main-inner > * {
   min-width: 0;
   max-width: 100%;
 }
 
 /* ---------------------------------------------------------------- gallery */
-.serviya-product .sp-gallery {
+.miran-product .sp-gallery {
   position: sticky;
   top: 96px;
   padding: var(--sp-gallery-pad);
@@ -270,87 +270,87 @@
     #FDF8F2;
 }
 
-.serviya-product .sp-gallery .woocommerce-product-gallery {
+.miran-product .sp-gallery .woocommerce-product-gallery {
   float: none;
   width: 100%;
   margin: 0;
 }
 
 /* Force WoodMart's optional side thumbnails into the requested bottom row. */
-.serviya-product .sp-gallery .woocommerce-product-gallery {
+.miran-product .sp-gallery .woocommerce-product-gallery {
   position: relative;
   display: flex;
   flex-wrap: wrap;
 }
 
 /* One shared anchor for the sale + dimensions badges: the sale labels sit
- * 8px inside the gallery box, the Serviya badges are offset by the shell
+ * 8px inside the gallery box, the Miran badges are offset by the shell
  * padding + the same 8px, so both pills share one top line. */
-.serviya-product .sp-gallery .product-labels {
+.miran-product .sp-gallery .product-labels {
   top: 8px;
   inset-inline-end: 8px;
 }
 
-.serviya-product .sp-gallery .wd-gallery-images,
-.serviya-product .sp-gallery .wd-gallery-thumb {
+.miran-product .sp-gallery .wd-gallery-images,
+.miran-product .sp-gallery .wd-gallery-thumb {
   flex: 1 1 100%;
   min-width: 0;
   max-width: 100%;
 }
 
-.serviya-product .sp-gallery .wd-carousel,
-.serviya-product .sp-gallery .wd-carousel-inner {
+.miran-product .sp-gallery .wd-carousel,
+.miran-product .sp-gallery .wd-carousel-inner {
   min-width: 0;
   max-width: 100%;
 }
 
-.serviya-product .sp-gallery .wd-carousel-item img {
+.miran-product .sp-gallery .wd-carousel-item img {
   height: auto;
 }
 
-.serviya-product .sp-gallery .wd-gallery-images {
+.miran-product .sp-gallery .wd-gallery-images {
   order: 1;
 }
 
-.serviya-product .sp-gallery .wd-gallery-thumb {
+.miran-product .sp-gallery .wd-gallery-thumb {
   order: 2;
   margin-top: 12px;
 }
 
 @media (min-width: 1025px) {
-  .serviya-product .sp-gallery .thumbs-position-left {
+  .miran-product .sp-gallery .thumbs-position-left {
     flex-wrap: wrap !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left.wd-has-thumb .wd-gallery-images {
+  .miran-product .sp-gallery .thumbs-position-left.wd-has-thumb .wd-gallery-images {
     flex: 1 1 100% !important;
     max-width: 100% !important;
     align-self: auto !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-gallery-thumb {
+  .miran-product .sp-gallery .thumbs-position-left .wd-gallery-thumb {
     flex: 1 1 100% !important;
     order: 2 !important;
     height: auto !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-inner {
+  .miran-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-inner {
     position: relative !important;
     inset: auto !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel {
+  .miran-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel {
     height: auto !important;
     touch-action: pan-y !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-wrap {
+  .miran-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-wrap {
     flex-direction: row !important;
     height: auto !important;
     transform: none !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-item {
+  .miran-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-item {
     flex: 0 0 calc(100% / var(--wd-col, 4)) !important;
     width: auto !important;
     max-width: calc(100% / var(--wd-col, 4)) !important;
@@ -358,31 +358,31 @@
     padding-inline: 5px !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-item img {
+  .miran-product .sp-gallery .thumbs-position-left .wd-gallery-thumb .wd-carousel-item img {
     height: auto !important;
     margin-bottom: 0 !important;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-thumb-nav {
+  .miran-product .sp-gallery .thumbs-position-left .wd-thumb-nav {
     --wd-arrow-width: 42px;
     --wd-arrow-height: 42px;
   }
 
-  .serviya-product .sp-gallery .thumbs-position-left .wd-thumb-nav .wd-arrow-inner::after {
+  .miran-product .sp-gallery .thumbs-position-left .wd-thumb-nav .wd-arrow-inner::after {
     rotate: 0deg !important;
   }
 }
 
-.serviya-product .sp-gallery img {
+.miran-product .sp-gallery img {
   border-radius: 18px;
 }
 
-.serviya-product .sp-gallery .woocommerce-product-gallery__wrapper,
-.serviya-product .sp-gallery .woocommerce-product-gallery__image {
+.miran-product .sp-gallery .woocommerce-product-gallery__wrapper,
+.miran-product .sp-gallery .woocommerce-product-gallery__image {
   border-radius: 18px;
 }
 
-.serviya-product .sp-gallery .flex-control-thumbs {
+.miran-product .sp-gallery .flex-control-thumbs {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -390,32 +390,32 @@
   padding: 0;
 }
 
-.serviya-product .sp-gallery .flex-control-thumbs li {
+.miran-product .sp-gallery .flex-control-thumbs li {
   float: none;
   width: 76px;
   margin: 0;
 }
 
-.serviya-product .sp-gallery .flex-control-thumbs img {
+.miran-product .sp-gallery .flex-control-thumbs img {
   border: 2px solid transparent;
   border-radius: 12px;
   opacity: 0.78;
   transition: border-color 0.2s ease, opacity 0.2s ease;
 }
 
-.serviya-product .sp-gallery .flex-control-thumbs img:hover,
-.serviya-product .sp-gallery .flex-control-thumbs img.flex-active {
+.miran-product .sp-gallery .flex-control-thumbs img:hover,
+.miran-product .sp-gallery .flex-control-thumbs img.flex-active {
   border-color: var(--sp-accent);
   opacity: 1;
 }
 
-.serviya-product .sp-gallery .woocommerce-product-gallery__trigger {
+.miran-product .sp-gallery .woocommerce-product-gallery__trigger {
   border-radius: 50%;
   background: #fff;
   box-shadow: 0 8px 20px rgba(70,39,11, 0.12);
 }
 
-.serviya-product .sp-sale-badge {
+.miran-product .sp-sale-badge {
   position: absolute;
   z-index: 6;
   inset-block-start: calc(var(--sp-gallery-pad) + 8px);
@@ -434,7 +434,7 @@
   line-height: 1.7;
 }
 
-.serviya-product .sp-dim-badge {
+.miran-product .sp-dim-badge {
   position: absolute;
   z-index: 7;
   inset-block-start: calc(var(--sp-gallery-pad) + 8px);
@@ -456,7 +456,7 @@
   white-space: nowrap;
 }
 
-.serviya-product .sp-gallery .onsale {
+.miran-product .sp-gallery .onsale {
   inset-block-start: 8px;
   inset-inline-start: auto;
   inset-inline-end: 8px;
@@ -475,11 +475,11 @@
   line-height: 1.7;
 }
 
-.serviya-product .product-label {
+.miran-product .product-label {
   border-radius: 999px !important;
 }
 
-.serviya-product .product-label.onsale {
+.miran-product .product-label.onsale {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -494,24 +494,24 @@
   line-height: 1.7;
 }
 
-.serviya-product .sp-fallback-figure {
+.miran-product .sp-fallback-figure {
   margin: 0;
 }
 
-.serviya-product .sp-fallback-main {
+.miran-product .sp-fallback-main {
   display: block;
   width: 100%;
   height: auto;
 }
 
-.serviya-product .sp-fallback-thumbs {
+.miran-product .sp-fallback-thumbs {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 14px;
 }
 
-.serviya-product .sp-fallback-thumb {
+.miran-product .sp-fallback-thumb {
   width: 76px;
   padding: 0;
   overflow: hidden;
@@ -521,11 +521,11 @@
   cursor: pointer;
 }
 
-.serviya-product .sp-fallback-thumb.is-active {
+.miran-product .sp-fallback-thumb.is-active {
   border-color: var(--sp-accent);
 }
 
-.serviya-product .sp-fallback-thumb img {
+.miran-product .sp-fallback-thumb img {
   display: block;
   width: 100%;
   height: 100%;
@@ -534,20 +534,20 @@
 }
 
 /* ---------------------------------------------------------------- summary */
-.serviya-product .sp-summary {
+.miran-product .sp-summary {
   float: none;
   width: 100%;
   margin: 0;
 }
 
-.serviya-product .sp-eyebrow {
+.miran-product .sp-eyebrow {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 14px;
 }
 
-.serviya-product .sp-chip {
+.miran-product .sp-chip {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -561,45 +561,45 @@
   text-decoration: none;
 }
 
-.serviya-product .sp-chip--brand {
+.miran-product .sp-chip--brand {
   border-color: #EBD3B4;
   background: var(--sp-accent-soft);
   color: var(--sp-ink);
 }
 
-.serviya-product .sp-chip--stock.is-in {
+.miran-product .sp-chip--stock.is-in {
   border-color: #bbf7d0;
   background: #f0fdf4;
   color: var(--sp-green);
 }
 
-.serviya-product .sp-chip--stock.is-low {
+.miran-product .sp-chip--stock.is-low {
   border-color: #fde68a;
   background: #fffbeb;
   color: var(--sp-amber);
 }
 
-.serviya-product .sp-chip--stock.is-backorder {
+.miran-product .sp-chip--stock.is-backorder {
   border-color: #E6D2B6;
   background: #FBF3E8;
   color: #7A4A16;
 }
 
-.serviya-product .sp-chip--stock.is-out {
+.miran-product .sp-chip--stock.is-out {
   border-color: #fecdd3;
   background: #fff1f2;
   color: var(--sp-red);
 }
 
-.serviya-product .sp-stock-dot {
+.miran-product .sp-stock-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: currentColor;
 }
 
-.serviya-product .product_title,
-.serviya-product .summary .entry-title {
+.miran-product .product_title,
+.miran-product .summary .entry-title {
   margin: 0 0 10px;
   color: var(--sp-navy);
   font-size: clamp(25px, 3vw, 36px);
@@ -607,11 +607,11 @@
   line-height: 1.4;
 }
 
-.serviya-product .sp-sku-row {
+.miran-product .sp-sku-row {
   margin: -3px 0 15px;
 }
 
-.serviya-product .sp-sku-chip {
+.miran-product .sp-sku-chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -624,21 +624,21 @@
   font-weight: 600;
 }
 
-.serviya-product .sp-sku-value {
+.miran-product .sp-sku-value {
   color: var(--sp-navy);
   font-weight: 800;
   unicode-bidi: isolate;
 }
 
-.serviya-product .woocommerce-breadcrumb,
-.serviya-product .wd-breadcrumbs,
-.serviya-product .breadcrumbs {
+.miran-product .woocommerce-breadcrumb,
+.miran-product .wd-breadcrumbs,
+.miran-product .breadcrumbs {
   margin-bottom: 12px;
   color: var(--sp-muted);
   font-size: 13px;
 }
 
-.serviya-product .woocommerce-product-rating {
+.miran-product .woocommerce-product-rating {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -646,18 +646,18 @@
   margin: 0 0 16px;
 }
 
-.serviya-product .star-rating {
+.miran-product .star-rating {
   color: #f59e0b;
   letter-spacing: 1px;
 }
 
-.serviya-product .woocommerce-review-link {
+.miran-product .woocommerce-review-link {
   color: var(--sp-muted);
   font-size: 13px;
   text-decoration: none;
 }
 
-.serviya-product .summary .price {
+.miran-product .summary .price {
   position: relative;
   display: flex;
   flex-wrap: wrap;
@@ -674,7 +674,7 @@
   line-height: 1.45;
 }
 
-.serviya-product .summary .price del {
+.miran-product .summary .price del {
   order: 1;
   color: var(--sp-gray);
   font-size: 0.58em;
@@ -685,7 +685,7 @@
   text-underline-offset: 2px;
 }
 
-.serviya-product .summary .price ins {
+.miran-product .summary .price ins {
   order: -1;
   background: transparent;
   color: var(--sp-price-final);
@@ -694,22 +694,22 @@
 
 /* Final price color (also for the no-discount single amount and for
    amounts inside the stacked price card built by the module). */
-.serviya-product .summary .price > .woocommerce-Price-amount,
-.serviya-product .sp-price-stack > ins,
-.serviya-product .sp-price-stack > .woocommerce-Price-amount {
+.miran-product .summary .price > .woocommerce-Price-amount,
+.miran-product .sp-price-stack > ins,
+.miran-product .sp-price-stack > .woocommerce-Price-amount {
   color: var(--sp-price-final);
 }
 
 /* Structured price card: prices stacked on the right (old struck price
    on top, final price below), the «قیمت فروش (ویژه)» label on the left. */
-.serviya-product .summary .price.sp-price-card {
+.miran-product .summary .price.sp-price-card {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   gap: 8px 16px;
 }
 
-.serviya-product .sp-price-stack {
+.miran-product .sp-price-stack {
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -717,12 +717,12 @@
   line-height: 1.35;
 }
 
-.serviya-product .summary .price .sp-price-stack > del,
-.serviya-product .summary .price .sp-price-stack > ins {
+.miran-product .summary .price .sp-price-stack > del,
+.miran-product .summary .price .sp-price-stack > ins {
   order: 0;
 }
 
-.serviya-product .sp-price-label {
+.miran-product .sp-price-label {
   flex: 0 0 auto;
   color: var(--sp-price-final);
   font-size: clamp(16px, 1.9vw, 21px);
@@ -733,8 +733,8 @@
 }
 
 /* WooCommerce screen-reader price notes must never take layout space. */
-.serviya-product .price > .screen-reader-text,
-.serviya-product .sp-price-stack > .screen-reader-text {
+.miran-product .price > .screen-reader-text,
+.miran-product .sp-price-stack > .screen-reader-text {
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -747,7 +747,7 @@
   white-space: nowrap !important;
 }
 
-.serviya-product .woocommerce-Price-currencySymbol {
+.miran-product .woocommerce-Price-currencySymbol {
   font-size: 0.55em;
   font-weight: 700;
 }
@@ -755,8 +755,8 @@
 /* Currency unit sits on the LEFT of the amount: bidi alone puts «تومان»
  * on the right of the digits, so lay the amount out as an RTL flex row —
  * digits first (right), unit second (left). */
-.serviya-product .price .woocommerce-Price-amount bdi,
-.serviya-product .sp-sticky-price .woocommerce-Price-amount bdi,
+.miran-product .price .woocommerce-Price-amount bdi,
+.miran-product .sp-sticky-price .woocommerce-Price-amount bdi,
 .wd-sticky-btn .price .woocommerce-Price-amount bdi {
   direction: rtl;
   display: inline-flex;
@@ -768,15 +768,15 @@
    before or after the amount): the amount text keeps flex order 0
    (right in RTL) and the currency symbol is pushed after it (left).
    The small unit also sits slightly higher than the digits. */
-.serviya-product .price .amount bdi > .woocommerce-Price-currencySymbol,
-.serviya-product .sp-sticky-price .amount bdi > .woocommerce-Price-currencySymbol,
+.miran-product .price .amount bdi > .woocommerce-Price-currencySymbol,
+.miran-product .sp-sticky-price .amount bdi > .woocommerce-Price-currencySymbol,
 .wd-sticky-btn .price .amount bdi > .woocommerce-Price-currencySymbol {
   order: 2;
   transform: translateY(-0.32em);
 }
 
 /* Old (pre-discount) prices are always struck through, sticky bars too. */
-.serviya-product .sp-sticky-price del,
+.miran-product .sp-sticky-price del,
 .wd-sticky-btn .price del {
   text-decoration-line: line-through;
   text-decoration-thickness: 1.5px;
@@ -784,8 +784,8 @@
 
 /* text-decoration alone is not painted across the inline-flex <bdi>
    amount, so the strike is also drawn as a background line on it. */
-.serviya-product .price del .woocommerce-Price-amount bdi,
-.serviya-product .sp-sticky-price del .woocommerce-Price-amount bdi,
+.miran-product .price del .woocommerce-Price-amount bdi,
+.miran-product .sp-sticky-price del .woocommerce-Price-amount bdi,
 .wd-sticky-btn .price del .woocommerce-Price-amount bdi {
   background-image: linear-gradient(currentColor, currentColor);
   background-repeat: no-repeat;
@@ -793,11 +793,11 @@
   background-position: 0 54%;
 }
 
-.serviya-product .wd-product-countdown,
-.serviya-product .woodmart-product-countdown,
-.serviya-product .wd-countdown-timer,
-.serviya-product .countdown-timer,
-.serviya-product .sp-countdown {
+.miran-product .wd-product-countdown,
+.miran-product .woodmart-product-countdown,
+.miran-product .wd-countdown-timer,
+.miran-product .countdown-timer,
+.miran-product .sp-countdown {
   margin: 0 0 18px;
   padding: 13px 15px;
   border: 1px solid #ffdbe0;
@@ -805,12 +805,12 @@
   background: #fff7f8;
 }
 
-.serviya-product .wd-product-countdown span,
-.serviya-product .woodmart-product-countdown span {
+.miran-product .wd-product-countdown span,
+.miran-product .woodmart-product-countdown span {
   border-radius: 12px;
 }
 
-.serviya-product .sp-countdown {
+.miran-product .sp-countdown {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -818,20 +818,20 @@
   gap: 10px 16px;
 }
 
-.serviya-product .sp-countdown-label {
+.miran-product .sp-countdown-label {
   color: var(--sp-sale);
   font-size: 13.5px;
   font-weight: 800;
 }
 
-.serviya-product .sp-countdown-units {
+.miran-product .sp-countdown-units {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
   direction: rtl;
 }
 
-.serviya-product .sp-countdown-unit {
+.miran-product .sp-countdown-unit {
   display: inline-flex;
   min-width: 58px;
   flex-direction: column;
@@ -843,32 +843,32 @@
   line-height: 1.35;
 }
 
-.serviya-product .sp-countdown-unit strong {
+.miran-product .sp-countdown-unit strong {
   font-size: 17px;
   font-weight: 800;
 }
 
-.serviya-product .sp-countdown-unit small {
+.miran-product .sp-countdown-unit small {
   color: var(--sp-muted);
   font-size: 11px;
   font-weight: 600;
 }
 
 /* The live visitor counter is removed from this product layout. */
-.serviya-product .wd-visits-count,
-.serviya-product .wd-single-visitor-count,
-.serviya-product [class*="visits-count"],
-.serviya-product [class*="visitor"],
-.serviya-product [class*="product-visitors"] {
+.miran-product .wd-visits-count,
+.miran-product .wd-single-visitor-count,
+.miran-product [class*="visits-count"],
+.miran-product [class*="visitor"],
+.miran-product [class*="product-visitors"] {
   display: none !important;
 }
 
-.serviya-product [class*="sold-counter"] {
+.miran-product [class*="sold-counter"] {
   color: var(--sp-muted);
   font-size: 13.5px;
 }
 
-.serviya-product .woocommerce-product-details__short-description {
+.miran-product .woocommerce-product-details__short-description {
   margin: 0 0 20px;
   padding: 16px 18px;
   border: 1px solid #F3EADF;
@@ -877,26 +877,26 @@
   color: #6B5643;
 }
 
-.serviya-product .woocommerce-product-details__short-description > :first-child {
+.miran-product .woocommerce-product-details__short-description > :first-child {
   margin-top: 0;
 }
 
-.serviya-product .woocommerce-product-details__short-description > :last-child {
+.miran-product .woocommerce-product-details__short-description > :last-child {
   margin-bottom: 0;
 }
 
-.serviya-product .woocommerce-product-details__short-description ul {
+.miran-product .woocommerce-product-details__short-description ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.serviya-product .woocommerce-product-details__short-description li {
+.miran-product .woocommerce-product-details__short-description li {
   position: relative;
   padding: 3px 27px 3px 0;
 }
 
-.serviya-product .woocommerce-product-details__short-description li::before {
+.miran-product .woocommerce-product-details__short-description li::before {
   position: absolute;
   inset-block-start: 5px;
   inset-inline-start: 0;
@@ -914,7 +914,7 @@
 }
 
 /* -------------------------------------------------------------- buy forms */
-.serviya-product form.cart {
+.miran-product form.cart {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
@@ -924,12 +924,12 @@
   border-top: 1px solid var(--sp-border);
 }
 
-.serviya-product form.variations_form {
+.miran-product form.variations_form {
   flex-direction: column;
   align-items: stretch;
 }
 
-.serviya-product table.variations {
+.miran-product table.variations {
   width: 100%;
   margin: 0 0 6px;
   border: 0;
@@ -937,30 +937,30 @@
   border-spacing: 0 12px;
 }
 
-.serviya-product table.variations th,
-.serviya-product table.variations td {
+.miran-product table.variations th,
+.miran-product table.variations td {
   padding: 0;
   border: 0;
   text-align: start;
   vertical-align: middle;
 }
 
-.serviya-product table.variations .label {
+.miran-product table.variations .label {
   width: 96px;
   color: var(--sp-navy);
   font-weight: 700;
 }
 
-.serviya-product .variations label,
-.serviya-product .wd-attribute-label,
-.serviya-product .woodmart-attribute-label {
+.miran-product .variations label,
+.miran-product .wd-attribute-label,
+.miran-product .woodmart-attribute-label {
   color: var(--sp-navy);
   font-weight: 700;
 }
 
-.serviya-product .variations select,
-.serviya-product .variations_form select,
-.serviya-product form.cart select {
+.miran-product .variations select,
+.miran-product .variations_form select,
+.miran-product form.cart select {
   min-height: 48px;
   padding: 8px 14px;
   border: 1px solid var(--sp-border);
@@ -970,66 +970,66 @@
   font: inherit;
 }
 
-.serviya-product .variations .reset_variations {
+.miran-product .variations .reset_variations {
   display: inline-block;
   margin-inline-start: 10px;
   color: var(--sp-muted);
   font-size: 12.5px;
 }
 
-.serviya-product .wd-swatch,
-.serviya-product .woodmart-swatch,
-.serviya-product .variable-item,
-.serviya-product [class*="swatch-item"],
-.serviya-product [class*="swatches"] > * {
+.miran-product .wd-swatch,
+.miran-product .woodmart-swatch,
+.miran-product .variable-item,
+.miran-product [class*="swatch-item"],
+.miran-product [class*="swatches"] > * {
   border-color: var(--sp-border);
   border-radius: 12px;
   transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
 }
 
-.serviya-product .wd-swatch:hover,
-.serviya-product .woodmart-swatch:hover,
-.serviya-product .variable-item:hover {
+.miran-product .wd-swatch:hover,
+.miran-product .woodmart-swatch:hover,
+.miran-product .variable-item:hover {
   border-color: #DCB98D;
   transform: translateY(-1px);
 }
 
-.serviya-product .wd-swatch.active,
-.serviya-product .wd-swatch.selected,
-.serviya-product .woodmart-swatch.active,
-.serviya-product .woodmart-swatch.selected,
-.serviya-product .variable-item.selected,
-.serviya-product [class*="swatch-item"].active,
-.serviya-product [class*="swatch-item"].selected {
+.miran-product .wd-swatch.active,
+.miran-product .wd-swatch.selected,
+.miran-product .woodmart-swatch.active,
+.miran-product .woodmart-swatch.selected,
+.miran-product .variable-item.selected,
+.miran-product [class*="swatch-item"].active,
+.miran-product [class*="swatch-item"].selected {
   border-color: var(--sp-navy);
   box-shadow: 0 0 0 3px rgba(217,168,108, 0.55);
 }
 
-.serviya-product .single_variation_wrap {
+.miran-product .single_variation_wrap {
   width: 100%;
 }
 
-.serviya-product .woocommerce-variation-add-to-cart {
+.miran-product .woocommerce-variation-add-to-cart {
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
   gap: 12px;
 }
 
-.serviya-product .woocommerce-variation-price {
+.miran-product .woocommerce-variation-price {
   margin-bottom: 12px;
 }
 
-.serviya-product .woocommerce-variation-price .price {
+.miran-product .woocommerce-variation-price .price {
   margin: 0;
 }
 
-.serviya-product .woocommerce-variation-description,
-.serviya-product .woocommerce-variation-availability {
+.miran-product .woocommerce-variation-description,
+.miran-product .woocommerce-variation-availability {
   color: var(--sp-muted);
 }
 
-.serviya-product .quantity {
+.miran-product .quantity {
   display: inline-flex;
   align-items: stretch;
   overflow: hidden;
@@ -1038,7 +1038,7 @@
   background: #fff;
 }
 
-.serviya-product .quantity input.qty {
+.miran-product .quantity input.qty {
   width: 52px;
   min-height: 52px;
   padding: 5px;
@@ -1050,8 +1050,8 @@
   text-align: center;
 }
 
-.serviya-product .quantity .plus,
-.serviya-product .quantity .minus {
+.miran-product .quantity .plus,
+.miran-product .quantity .minus {
   min-width: 38px;
   border: 0;
   background: var(--sp-soft);
@@ -1061,7 +1061,7 @@
   font-weight: 800;
 }
 
-.serviya-product .single_add_to_cart_button {
+.miran-product .single_add_to_cart_button {
   flex: 1 1 220px;
   min-height: 54px;
   padding: 10px 24px;
@@ -1078,23 +1078,23 @@
   transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.serviya-product .single_add_to_cart_button:hover:not(:disabled) {
+.miran-product .single_add_to_cart_button:hover:not(:disabled) {
   background: var(--sp-accent-hover);
   box-shadow: 0 14px 30px rgba(200,146,79, 0.34);
   transform: translateY(-1px);
 }
 
-.serviya-product .single_add_to_cart_button:disabled,
-.serviya-product .single_add_to_cart_button.disabled {
+.miran-product .single_add_to_cart_button:disabled,
+.miran-product .single_add_to_cart_button.disabled {
   cursor: not-allowed;
   opacity: 0.55;
   box-shadow: none;
 }
 
-.serviya-product .wd-buy-now-btn,
-.serviya-product .woodmart-buy-now-btn,
-.serviya-product [class*="buy-now"] button,
-.serviya-product button[class*="buy-now"] {
+.miran-product .wd-buy-now-btn,
+.miran-product .woodmart-buy-now-btn,
+.miran-product [class*="buy-now"] button,
+.miran-product button[class*="buy-now"] {
   min-height: 54px;
   padding: 10px 22px;
   border: 1px solid var(--sp-navy);
@@ -1106,73 +1106,73 @@
   cursor: pointer;
 }
 
-.serviya-product .wd-buy-now-btn:hover,
-.serviya-product .woodmart-buy-now-btn:hover {
+.miran-product .wd-buy-now-btn:hover,
+.miran-product .woodmart-buy-now-btn:hover {
   color: var(--sp-accent);
 }
 
 /* Stock is merged into the pill above the title; suppress the duplicate
  * canonical line and the duplicate text inside the variation box. Grouped
  * product rows keep their own per-item stock status. */
-.serviya-product .sp-summary .summary-inner > .stock,
-.serviya-product .sp-summary .woocommerce-variation-availability .stock {
+.miran-product .sp-summary .summary-inner > .stock,
+.miran-product .sp-summary .woocommerce-variation-availability .stock {
   display: none !important;
 }
 
-.serviya-product .stock {
+.miran-product .stock {
   width: 100%;
   margin: 2px 0;
   font-size: 13.5px;
   font-weight: 700;
 }
 
-.serviya-product .stock.in-stock {
+.miran-product .stock.in-stock {
   color: var(--sp-green);
 }
 
-.serviya-product .stock.out-of-stock {
+.miran-product .stock.out-of-stock {
   color: var(--sp-red);
 }
 
-.serviya-product .stock.available-on-backorder {
+.miran-product .stock.available-on-backorder {
   color: var(--sp-amber);
 }
 
-.serviya-product [class*="stock-progress"],
-.serviya-product [class*="free-shipping-progress"],
-.serviya-product [class*="shipping-progress"] {
+.miran-product [class*="stock-progress"],
+.miran-product [class*="free-shipping-progress"],
+.miran-product [class*="shipping-progress"] {
   margin-block: 10px 16px;
   color: var(--sp-muted);
   font-size: 13px;
 }
 
-.serviya-product [class*="progress-bar"],
-.serviya-product progress {
+.miran-product [class*="progress-bar"],
+.miran-product progress {
   overflow: hidden;
   border-radius: 999px;
   background: #F2EBE0;
 }
 
-.serviya-product progress {
+.miran-product progress {
   width: 100%;
   height: 9px;
   border: 0;
   appearance: none;
 }
 
-.serviya-product progress::-webkit-progress-bar {
+.miran-product progress::-webkit-progress-bar {
   background: #F2EBE0;
 }
 
-.serviya-product progress::-webkit-progress-value,
-.serviya-product progress::-moz-progress-bar {
+.miran-product progress::-webkit-progress-value,
+.miran-product progress::-moz-progress-bar {
   background: linear-gradient(90deg, var(--sp-accent-hover), var(--sp-accent));
 }
 
-.serviya-product table[class*="discount"],
-.serviya-product .wd-dynamic-discounts table,
-.serviya-product .woodmart-dynamic-discounts table,
-.serviya-product .summary table.shop_table {
+.miran-product table[class*="discount"],
+.miran-product .wd-dynamic-discounts table,
+.miran-product .woodmart-dynamic-discounts table,
+.miran-product .summary table.shop_table {
   width: 100%;
   overflow: hidden;
   border: 1px solid var(--sp-border);
@@ -1181,24 +1181,24 @@
   border-spacing: 0;
 }
 
-.serviya-product .wd-compare-btn,
-.serviya-product .wd-wishlist-btn,
-.serviya-product .woodmart-compare-btn,
-.serviya-product .woodmart-wishlist-btn,
-.serviya-product .compare-button,
-.serviya-product .yith-wcwl-add-to-wishlist,
-.serviya-product .wd-sizeguide-btn {
+.miran-product .wd-compare-btn,
+.miran-product .wd-wishlist-btn,
+.miran-product .woodmart-compare-btn,
+.miran-product .woodmart-wishlist-btn,
+.miran-product .compare-button,
+.miran-product .yith-wcwl-add-to-wishlist,
+.miran-product .wd-sizeguide-btn {
   display: inline-flex;
   margin: 4px 0 12px 8px;
 }
 
-.serviya-product .wd-compare-btn a,
-.serviya-product .wd-wishlist-btn a,
-.serviya-product .woodmart-compare-btn a,
-.serviya-product .woodmart-wishlist-btn a,
-.serviya-product .compare-button a,
-.serviya-product .yith-wcwl-add-to-wishlist a,
-.serviya-product .wd-sizeguide-btn a {
+.miran-product .wd-compare-btn a,
+.miran-product .wd-wishlist-btn a,
+.miran-product .woodmart-compare-btn a,
+.miran-product .woodmart-wishlist-btn a,
+.miran-product .compare-button a,
+.miran-product .yith-wcwl-add-to-wishlist a,
+.miran-product .wd-sizeguide-btn a {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -1216,8 +1216,8 @@
 
 /* WoodMart positions its selected-state check from the middle of the whole
  * text button, which puts it on top of the label. Anchor it to the icon. */
-.serviya-product .wd-compare-btn .wd-action-icon,
-.serviya-product .wd-wishlist-btn .wd-action-icon {
+.miran-product .wd-compare-btn .wd-action-icon,
+.miran-product .wd-wishlist-btn .wd-action-icon {
   position: relative;
   display: inline-flex;
   flex: 0 0 auto;
@@ -1226,13 +1226,13 @@
   overflow: visible;
 }
 
-.serviya-product .wd-compare-btn a.added,
-.serviya-product .wd-wishlist-btn a.added {
+.miran-product .wd-compare-btn a.added,
+.miran-product .wd-wishlist-btn a.added {
   gap: 14px;
 }
 
-.serviya-product .wd-compare-btn .wd-check-icon,
-.serviya-product .wd-wishlist-btn .wd-check-icon {
+.miran-product .wd-compare-btn .wd-check-icon,
+.miran-product .wd-wishlist-btn .wd-check-icon {
   position: absolute !important;
   inset-block-start: -7px !important;
   inset-inline-start: auto !important;
@@ -1242,34 +1242,34 @@
   transform: none !important;
 }
 
-.serviya-product .wd-compare-btn .wd-action-text,
-.serviya-product .wd-wishlist-btn .wd-action-text {
+.miran-product .wd-compare-btn .wd-action-text,
+.miran-product .wd-wishlist-btn .wd-action-text {
   position: relative;
   z-index: 1;
 }
 
-.serviya-product .wd-compare-btn a:hover,
-.serviya-product .wd-wishlist-btn a:hover,
-.serviya-product .compare-button a:hover,
-.serviya-product .yith-wcwl-add-to-wishlist a:hover {
+.miran-product .wd-compare-btn a:hover,
+.miran-product .wd-wishlist-btn a:hover,
+.miran-product .compare-button a:hover,
+.miran-product .yith-wcwl-add-to-wishlist a:hover {
   border-color: #E7CBA4;
   background: var(--sp-accent-soft);
 }
 
 /* Categories/tags are not repeated at the bottom of the summary. SKU has
  * moved to the framed label below the title. */
-.serviya-product .product_meta {
+.miran-product .product_meta {
   display: none !important;
 }
 
-.serviya-product .wd-social-icons,
-.serviya-product .woodmart-social-icons,
-.serviya-product .product-share {
+.miran-product .wd-social-icons,
+.miran-product .woodmart-social-icons,
+.miran-product .product-share {
   margin-top: 14px;
 }
 
 /* ---------------------------------------------------------------- consult */
-.serviya-product .sp-consult {
+.miran-product .sp-consult {
   margin-top: 22px;
   padding: 18px;
   overflow: hidden;
@@ -1280,13 +1280,13 @@
   color: #fff;
 }
 
-.serviya-product .sp-consult-head {
+.miran-product .sp-consult-head {
   display: flex;
   align-items: center;
   gap: 13px;
 }
 
-.serviya-product .sp-consult-icon {
+.miran-product .sp-consult-icon {
   display: grid;
   flex: 0 0 auto;
   width: 50px;
@@ -1297,26 +1297,26 @@
   color: var(--sp-navy);
 }
 
-.serviya-product .sp-consult strong {
+.miran-product .sp-consult strong {
   display: block;
   font-size: 16px;
   font-weight: 800;
 }
 
-.serviya-product .sp-consult p {
+.miran-product .sp-consult p {
   margin: 2px 0 0;
   color: rgba(255, 255, 255, 0.78);
   font-size: 13px;
 }
 
-.serviya-product .sp-consult-links {
+.miran-product .sp-consult-links {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
   margin-top: 15px;
 }
 
-.serviya-product .sp-consult-btn {
+.miran-product .sp-consult-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -1330,17 +1330,17 @@
   text-decoration: none;
 }
 
-.serviya-product .sp-consult-btn:hover {
+.miran-product .sp-consult-btn:hover {
   border-color: var(--sp-accent);
   color: var(--sp-accent);
 }
 
 /* ------------------------------------------------------------------ after */
-.serviya-product .sp-after {
+.miran-product .sp-after {
   margin-top: 24px;
 }
 
-.serviya-product .sp-after > * {
+.miran-product .sp-after > * {
   margin: 0 0 24px;
   padding: clamp(18px, 3vw, 32px);
   border: 1px solid rgba(234,223,207, 0.9);
@@ -1349,11 +1349,11 @@
   box-shadow: 0 12px 36px rgba(70,39,11, 0.05);
 }
 
-.serviya-product .woocommerce-tabs {
+.miran-product .woocommerce-tabs {
   clear: both;
 }
 
-.serviya-product .woocommerce-tabs .wd-nav-wrapper {
+.miran-product .woocommerce-tabs .wd-nav-wrapper {
   margin: 0 0 24px !important;
   padding: 0 !important;
   border: 0 !important;
@@ -1362,7 +1362,7 @@
   text-align: start !important;
 }
 
-.serviya-product .woocommerce-tabs ul.tabs {
+.miran-product .woocommerce-tabs ul.tabs {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start !important;
@@ -1379,14 +1379,14 @@
 
 /* Remove both WooCommerce's tab frame and WoodMart's reverse-underline
  * line above the active/hovered label. */
-.serviya-product .woocommerce-tabs ul.tabs::before,
-.serviya-product .woocommerce-tabs ul.tabs::after,
-.serviya-product .woocommerce-tabs ul.tabs li::before,
-.serviya-product .woocommerce-tabs ul.tabs li::after,
-.serviya-product .woocommerce-tabs ul.tabs li a::before,
-.serviya-product .woocommerce-tabs ul.tabs li a::after,
-.serviya-product .woocommerce-tabs ul.tabs .nav-link-text::before,
-.serviya-product .woocommerce-tabs ul.tabs .nav-link-text::after {
+.miran-product .woocommerce-tabs ul.tabs::before,
+.miran-product .woocommerce-tabs ul.tabs::after,
+.miran-product .woocommerce-tabs ul.tabs li::before,
+.miran-product .woocommerce-tabs ul.tabs li::after,
+.miran-product .woocommerce-tabs ul.tabs li a::before,
+.miran-product .woocommerce-tabs ul.tabs li a::after,
+.miran-product .woocommerce-tabs ul.tabs .nav-link-text::before,
+.miran-product .woocommerce-tabs ul.tabs .nav-link-text::after {
   display: none !important;
   width: 0 !important;
   height: 0 !important;
@@ -1395,7 +1395,7 @@
   content: none !important;
 }
 
-.serviya-product .woocommerce-tabs ul.tabs li {
+.miran-product .woocommerce-tabs ul.tabs li {
   margin: 0 !important;
   padding: 0 !important;
   border: 0 !important;
@@ -1404,7 +1404,7 @@
   box-shadow: none !important;
 }
 
-.serviya-product .woocommerce-tabs ul.tabs li a {
+.miran-product .woocommerce-tabs ul.tabs li a {
   display: block;
   padding: 11px 22px !important;
   border: 0 !important;
@@ -1418,31 +1418,31 @@
   text-decoration: none !important;
 }
 
-.serviya-product .woocommerce-tabs ul.tabs li:hover:not(.active) {
+.miran-product .woocommerce-tabs ul.tabs li:hover:not(.active) {
   background: var(--sp-accent-soft) !important;
 }
 
-.serviya-product .woocommerce-tabs ul.tabs li:hover:not(.active) a {
+.miran-product .woocommerce-tabs ul.tabs li:hover:not(.active) a {
   color: var(--sp-navy) !important;
 }
 
-.serviya-product .woocommerce-tabs ul.tabs li.active {
+.miran-product .woocommerce-tabs ul.tabs li.active {
   background: var(--sp-navy) !important;
 }
 
-.serviya-product .woocommerce-tabs ul.tabs li.active a {
+.miran-product .woocommerce-tabs ul.tabs li.active a {
   color: #fff !important;
 }
 
-.serviya-product .woocommerce-tabs .panel {
+.miran-product .woocommerce-tabs .panel {
   margin: 0;
   color: #6B5643;
 }
 
-.serviya-product .woocommerce-tabs .panel h2,
-.serviya-product .sp-after > h2,
-.serviya-product .sp-after > section > h2,
-.serviya-product .sp-after > div > h2 {
+.miran-product .woocommerce-tabs .panel h2,
+.miran-product .sp-after > h2,
+.miran-product .sp-after > section > h2,
+.miran-product .sp-after > div > h2 {
   margin: 0 0 16px;
   color: var(--sp-navy);
   font-size: clamp(20px, 2.4vw, 27px);
@@ -1450,20 +1450,20 @@
   line-height: 1.5;
 }
 
-.serviya-product .woocommerce-tabs .panel h3,
-.serviya-product .sp-after h3 {
+.miran-product .woocommerce-tabs .panel h3,
+.miran-product .sp-after h3 {
   color: var(--sp-navy);
   font-weight: 800;
 }
 
-.serviya-product .woocommerce-tabs .panel p,
-.serviya-product .woocommerce-tabs .panel li {
+.miran-product .woocommerce-tabs .panel p,
+.miran-product .woocommerce-tabs .panel li {
   line-height: 2;
 }
 
 /* Additional information is a clean specification list: no table frame,
  * no tinted label cells, no row lines, and no underlined values. */
-.serviya-product table.shop_attributes {
+.miran-product table.shop_attributes {
   width: 100%;
   margin: 0 !important;
   overflow: visible;
@@ -1475,42 +1475,42 @@
   border-spacing: 0;
 }
 
-.serviya-product table.shop_attributes tbody,
-.serviya-product table.shop_attributes tr,
-.serviya-product table.shop_attributes th,
-.serviya-product table.shop_attributes td {
+.miran-product table.shop_attributes tbody,
+.miran-product table.shop_attributes tr,
+.miran-product table.shop_attributes th,
+.miran-product table.shop_attributes td {
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
 }
 
-.serviya-product table.shop_attributes th,
-.serviya-product table.shop_attributes td {
+.miran-product table.shop_attributes th,
+.miran-product table.shop_attributes td {
   padding: 9px 0;
   text-align: start;
   vertical-align: top;
 }
 
-.serviya-product table.shop_attributes th {
+.miran-product table.shop_attributes th {
   width: 210px;
   padding-inline-end: 24px;
   color: var(--sp-navy);
   font-weight: 800;
 }
 
-.serviya-product table.shop_attributes td {
+.miran-product table.shop_attributes td {
   color: #6B5643;
   font-weight: 500;
 }
 
-.serviya-product table.shop_attributes td p {
+.miran-product table.shop_attributes td p {
   margin: 0;
   padding: 0;
   border: 0 !important;
   background: transparent !important;
 }
 
-.serviya-product table.shop_attributes a {
+.miran-product table.shop_attributes a {
   padding: 0 !important;
   border: 0 !important;
   background: transparent !important;
@@ -1520,13 +1520,13 @@
 }
 
 /* ---------------------------------------------------------------- reviews */
-.serviya-product #reviews .commentlist {
+.miran-product #reviews .commentlist {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.serviya-product #reviews .commentlist li {
+.miran-product #reviews .commentlist li {
   margin: 0 0 14px;
   padding: 16px;
   border: 1px solid var(--sp-border);
@@ -1534,44 +1534,44 @@
   background: #fff;
 }
 
-.serviya-product #reviews .commentlist .comment-text {
+.miran-product #reviews .commentlist .comment-text {
   margin: 0;
   padding: 0;
   border: 0;
 }
 
-.serviya-product #reviews img.avatar {
+.miran-product #reviews img.avatar {
   border-radius: 50%;
 }
 
-.serviya-product #reviews .meta {
+.miran-product #reviews .meta {
   color: var(--sp-muted);
   font-size: 13px;
 }
 
-.serviya-product #review_form_wrapper {
+.miran-product #review_form_wrapper {
   margin-top: 22px;
   padding-top: 20px;
   border-top: 1px solid var(--sp-border);
 }
 
-.serviya-product #review_form .comment-form-rating,
-.serviya-product #review_form p {
+.miran-product #review_form .comment-form-rating,
+.miran-product #review_form p {
   margin-bottom: 13px;
 }
 
-.serviya-product input[type="text"],
-.serviya-product input[type="email"],
-.serviya-product input[type="tel"],
-.serviya-product input[type="number"],
-.serviya-product textarea,
-.serviya-product select {
+.miran-product input[type="text"],
+.miran-product input[type="email"],
+.miran-product input[type="tel"],
+.miran-product input[type="number"],
+.miran-product textarea,
+.miran-product select {
   font-family: inherit;
 }
 
-.serviya-product .panel input[type="text"],
-.serviya-product .panel input[type="email"],
-.serviya-product .panel textarea {
+.miran-product .panel input[type="text"],
+.miran-product .panel input[type="email"],
+.miran-product .panel textarea {
   width: 100%;
   padding: 10px 13px;
   border: 1px solid var(--sp-border);
@@ -1580,8 +1580,8 @@
   color: var(--sp-text);
 }
 
-.serviya-product .panel input[type="submit"],
-.serviya-product .panel button[type="submit"] {
+.miran-product .panel input[type="submit"],
+.miran-product .panel button[type="submit"] {
   padding: 10px 22px;
   border: 0;
   border-radius: 999px;
@@ -1592,28 +1592,28 @@
   cursor: pointer;
 }
 
-.serviya-product .panel input[type="submit"]:hover,
-.serviya-product .panel button[type="submit"]:hover {
+.miran-product .panel input[type="submit"]:hover,
+.miran-product .panel button[type="submit"]:hover {
   color: var(--sp-accent);
 }
 
 /* ----------------------------------------------------- FBT / product rows */
-.serviya-product [class*="frequently-bought"],
-.serviya-product [class*="fbt-"] {
+.miran-product [class*="frequently-bought"],
+.miran-product [class*="fbt-"] {
   color: var(--sp-text);
 }
 
-.serviya-product .related > h2,
-.serviya-product .up-sells > h2,
-.serviya-product .upsells > h2 {
+.miran-product .related > h2,
+.miran-product .up-sells > h2,
+.miran-product .upsells > h2 {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.serviya-product .related > h2::before,
-.serviya-product .up-sells > h2::before,
-.serviya-product .upsells > h2::before {
+.miran-product .related > h2::before,
+.miran-product .up-sells > h2::before,
+.miran-product .upsells > h2::before {
   width: 9px;
   height: 28px;
   border-radius: 99px;
@@ -1621,7 +1621,7 @@
   content: "";
 }
 
-.serviya-product ul.products:not(.wd-products) {
+.miran-product ul.products:not(.wd-products) {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
   gap: 16px;
@@ -1630,7 +1630,7 @@
   list-style: none;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product {
+.miran-product ul.products:not(.wd-products) li.product {
   position: relative;
   float: none;
   width: auto;
@@ -1642,13 +1642,13 @@
   background: #fff;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product .woocommerce-LoopProduct-link {
+.miran-product ul.products:not(.wd-products) li.product .woocommerce-LoopProduct-link {
   display: block;
   color: inherit;
   text-decoration: none;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product .onsale {
+.miran-product ul.products:not(.wd-products) li.product .onsale {
   position: absolute;
   z-index: 2;
   inset-block-start: 22px;
@@ -1664,12 +1664,12 @@
   line-height: 1.6;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product img {
+.miran-product ul.products:not(.wd-products) li.product img {
   border-radius: 14px;
 }
 
 
-.serviya-product ul.products:not(.wd-products) li.product .woocommerce-loop-product__title {
+.miran-product ul.products:not(.wd-products) li.product .woocommerce-loop-product__title {
   margin: 10px 0 6px;
   color: var(--sp-navy);
   font-size: 16px;
@@ -1677,7 +1677,7 @@
   line-height: 1.6;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product .price {
+.miran-product ul.products:not(.wd-products) li.product .price {
   display: block;
   margin: 4px 0 12px;
   color: var(--sp-ink);
@@ -1685,18 +1685,18 @@
   font-weight: 800;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product .price del {
+.miran-product ul.products:not(.wd-products) li.product .price del {
   color: var(--sp-gray);
   font-size: 12px;
   text-decoration-line: line-through;
   text-decoration-thickness: 1.5px;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product .price ins {
+.miran-product ul.products:not(.wd-products) li.product .price ins {
   text-decoration: none;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product .button {
+.miran-product ul.products:not(.wd-products) li.product .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1710,20 +1710,20 @@
   text-decoration: none;
 }
 
-.serviya-product ul.products:not(.wd-products) li.product .button:hover {
+.miran-product ul.products:not(.wd-products) li.product .button:hover {
   background: var(--sp-accent);
   color: var(--sp-navy);
 }
 
-.serviya-product .woocommerce-message,
-.serviya-product .woocommerce-error,
-.serviya-product .woocommerce-info {
+.miran-product .woocommerce-message,
+.miran-product .woocommerce-error,
+.miran-product .woocommerce-info {
   border-radius: 14px;
   font-family: inherit;
 }
 
 /* ----------------------------------------------------------------- sticky */
-.serviya-product .sp-sticky {
+.miran-product .sp-sticky {
   position: fixed;
   z-index: 999;
   inset-inline: 0;
@@ -1734,12 +1734,12 @@
   pointer-events: none;
 }
 
-.serviya-product .sp-sticky.is-visible {
+.miran-product .sp-sticky.is-visible {
   transform: translateY(0);
   pointer-events: auto;
 }
 
-.serviya-product .sp-sticky-inner {
+.miran-product .sp-sticky-inner {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1753,7 +1753,7 @@
   backdrop-filter: blur(14px);
 }
 
-.serviya-product .sp-sticky-thumb {
+.miran-product .sp-sticky-thumb {
   flex: 0 0 auto;
   width: 52px;
   height: 52px;
@@ -1762,13 +1762,13 @@
   background: var(--sp-soft);
 }
 
-.serviya-product .sp-sticky-thumb img {
+.miran-product .sp-sticky-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.serviya-product .sp-sticky-info {
+.miran-product .sp-sticky-info {
   display: flex;
   min-width: 0;
   flex: 1;
@@ -1776,7 +1776,7 @@
   line-height: 1.45;
 }
 
-.serviya-product .sp-sticky-info strong {
+.miran-product .sp-sticky-info strong {
   overflow: hidden;
   color: var(--sp-navy);
   font-size: 13.5px;
@@ -1785,7 +1785,7 @@
   white-space: nowrap;
 }
 
-.serviya-product .sp-sticky-price {
+.miran-product .sp-sticky-price {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: baseline;
@@ -1795,27 +1795,27 @@
   font-weight: 800;
 }
 
-.serviya-product .sp-sticky-price del {
+.miran-product .sp-sticky-price del {
   order: 1;
   color: var(--sp-gray);
   font-size: 11px;
 }
 
-.serviya-product .sp-sticky-price ins {
+.miran-product .sp-sticky-price ins {
   order: -1;
   text-decoration: none;
 }
 
 /* Bigger, pink final price in the sticky bars. */
-.serviya-product .sp-sticky-price ins .woocommerce-Price-amount,
-.serviya-product .sp-sticky-price > .woocommerce-Price-amount {
+.miran-product .sp-sticky-price ins .woocommerce-Price-amount,
+.miran-product .sp-sticky-price > .woocommerce-Price-amount {
   color: var(--sp-price-final);
   font-size: 17px;
   font-weight: 800;
   line-height: 1.4;
 }
 
-.serviya-product .sp-sticky-btn {
+.miran-product .sp-sticky-btn {
   flex: 0 0 auto;
   min-height: 48px;
   padding: 9px 22px;
@@ -1859,7 +1859,7 @@
 }
 
 /* Bigger, pink final price in WoodMart's sticky bar (it lives outside
- * .serviya-product, so the color is a literal, not the CSS variable). */
+ * .miran-product, so the color is a literal, not the CSS variable). */
 .wd-sticky-btn .price ins .woocommerce-Price-amount,
 .wd-sticky-btn .price > .woocommerce-Price-amount {
   color: #A5321A;
@@ -1875,146 +1875,146 @@
 
 /* In the sticky bars the currency unit sits back on the baseline
    (the raised summary treatment looked too high there). */
-.serviya-product .sp-sticky-price .amount bdi > .woocommerce-Price-currencySymbol,
+.miran-product .sp-sticky-price .amount bdi > .woocommerce-Price-currencySymbol,
 .wd-sticky-btn .price .amount bdi > .woocommerce-Price-currencySymbol {
   transform: translateY(-0.05em);
 }
 
 /* ------------------------------------------------------------- responsive */
 @media (min-width: 1025px) {
-  .serviya-product .sp-sticky {
+  .miran-product .sp-sticky {
     display: none;
   }
 }
 
 @media (max-width: 1080px) {
   /* Never let any inner slider/label widen the page on phones. */
-  .serviya-product {
+  .miran-product {
     overflow-x: clip;
   }
 
-  .serviya-product .sp-main-inner {
+  .miran-product .sp-main-inner {
     grid-template-columns: minmax(0, 1fr);
   }
 
   /* Not sticky any more, but still positioned: position:static let the
      absolute dimensions/sale badges escape to the top of the page. */
-  .serviya-product .sp-gallery {
+  .miran-product .sp-gallery {
     position: relative;
     top: auto;
   }
 
-  .serviya-product .sp-gallery,
-  .serviya-product .summary {
+  .miran-product .sp-gallery,
+  .miran-product .summary {
     width: auto;
     min-width: 0;
     max-width: 100%;
   }
 
-  .serviya-product .sp-toolbar {
+  .miran-product .sp-toolbar {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .serviya-product .sp-product-nav {
+  .miran-product .sp-product-nav {
     width: 100%;
     margin-inline-start: 0;
   }
 }
 
 @media (max-width: 640px) {
-  .serviya-product {
+  .miran-product {
     font-size: 14px;
   }
 
-  .serviya-product .sp-container {
+  .miran-product .sp-container {
     width: calc(100% - 20px);
   }
 
-  .serviya-product .sp-product-nav {
+  .miran-product .sp-product-nav {
     overflow-x: auto;
     padding-bottom: 4px;
   }
 
-  .serviya-product .sp-nav-card {
+  .miran-product .sp-nav-card {
     flex: 1 0 auto;
   }
 
-  .serviya-product .sp-nav-text strong {
+  .miran-product .sp-nav-text strong {
     max-width: 118px;
   }
 
-  .serviya-product .sp-main {
+  .miran-product .sp-main {
     padding: 14px;
     border-radius: 22px;
   }
 
-  .serviya-product .sp-gallery {
+  .miran-product .sp-gallery {
     --sp-gallery-pad: 10px;
     padding: var(--sp-gallery-pad);
     border-radius: 18px;
   }
 
-  .serviya-product .sp-dim-badge {
+  .miran-product .sp-dim-badge {
     height: 30px;
     max-width: calc(100% - 40px);
     padding: 4px 11px;
     font-size: 12px;
   }
 
-  .serviya-product .sp-sale-badge {
+  .miran-product .sp-sale-badge {
     height: 30px;
     padding: 4px 11px;
     font-size: 12px;
   }
 
-  .serviya-product .sp-gallery .onsale,
-  .serviya-product .product-label.onsale {
+  .miran-product .sp-gallery .onsale,
+  .miran-product .product-label.onsale {
     height: 30px;
     padding: 4px 11px;
     font-size: 12px;
   }
 
-  .serviya-product .product_title,
-  .serviya-product .summary .entry-title {
+  .miran-product .product_title,
+  .miran-product .summary .entry-title {
     font-size: 24px;
   }
 
-  .serviya-product table.variations .label {
+  .miran-product table.variations .label {
     width: 76px;
   }
 
-  .serviya-product .single_add_to_cart_button {
+  .miran-product .single_add_to_cart_button {
     flex-basis: 100%;
   }
 
-  .serviya-product .quantity {
+  .miran-product .quantity {
     min-height: 52px;
   }
 
-  .serviya-product table.shop_attributes th {
+  .miran-product table.shop_attributes th {
     width: 42%;
     padding-inline-end: 14px;
   }
 
-  .serviya-product .sp-after > * {
+  .miran-product .sp-after > * {
     padding: 17px 15px;
     border-radius: 20px;
   }
 
-  .serviya-product .sp-sticky-thumb {
+  .miran-product .sp-sticky-thumb {
     display: none;
   }
 
-  .serviya-product .sp-sticky-btn {
+  .miran-product .sp-sticky-btn {
     padding-inline: 16px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .serviya-product *,
-  .serviya-product *::before,
-  .serviya-product *::after {
+  .miran-product *,
+  .miran-product *::before,
+  .miran-product *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }

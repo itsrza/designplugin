@@ -1,9 +1,9 @@
 <?php
 /**
- * Serviya — Blog module
+ * Miran — Blog module
  *
- * Loaded by the unified Serviya plugin. Internal functions use the
- * serviya_suite_ prefix so this module cannot collide with the former
+ * Loaded by the unified Miran plugin. Internal functions use the
+ * miran_suite_ prefix so this module cannot collide with the former
  * standalone plugins during migration.
  */
 
@@ -15,25 +15,25 @@ if (!defined('ABSPATH')) {
  * Assets — loaded only where the blog widget is shown, after the theme CSS
  * ========================================================================== */
 
-function serviya_suite_blog_needs_assets() {
+function miran_suite_blog_needs_assets() {
     if (is_home()) {
         return true;
     }
     $object_id = get_queried_object_id();
     if ($object_id) {
         $post = get_post($object_id);
-        if ($post && has_shortcode($post->post_content, 'serviya_blog')) {
+        if ($post && (has_shortcode($post->post_content, 'miran_blog') || has_shortcode($post->post_content, 'serviya_blog'))) {
             return true;
         }
         $elementor_data = get_post_meta($object_id, '_elementor_data', true);
-        if (is_string($elementor_data) && strpos($elementor_data, 'serviya_blog') !== false) {
+        if (is_string($elementor_data) && (false !== strpos($elementor_data, 'miran_blog') || false !== strpos($elementor_data, 'serviya_blog'))) {
             return true;
         }
     }
-    return (bool) apply_filters('serviya_blog_needs_assets', false);
+    return (bool) apply_filters('miran_blog_needs_assets', false);
 }
 
-function serviya_suite_blog_current_url() {
+function miran_suite_blog_current_url() {
     if (is_home()) {
         $posts_page = (int) get_option('page_for_posts');
         if ($posts_page && get_permalink($posts_page)) {
@@ -49,41 +49,41 @@ function serviya_suite_blog_current_url() {
     return $archive ? $archive : home_url('/');
 }
 
-function serviya_suite_blog_enqueue_assets() {
-    $plugin_url  = SERVIYA_URL;
-    $plugin_path = SERVIYA_PATH;
+function miran_suite_blog_enqueue_assets() {
+    $plugin_url  = MIRAN_URL;
+    $plugin_path = MIRAN_PATH;
 
     $use_min  = !(defined('SCRIPT_DEBUG') && SCRIPT_DEBUG);
-    $css_rel  = 'assets/css/serviya-blog' . ($use_min && file_exists($plugin_path . 'assets/css/serviya-blog.min.css') ? '.min.css' : '.css');
-    $js_rel   = 'assets/js/serviya-blog' . ($use_min && file_exists($plugin_path . 'assets/js/serviya-blog.min.js') ? '.min.js' : '.js');
+    $css_rel  = 'assets/css/miran-blog' . ($use_min && file_exists($plugin_path . 'assets/css/miran-blog.min.css') ? '.min.css' : '.css');
+    $js_rel   = 'assets/js/miran-blog' . ($use_min && file_exists($plugin_path . 'assets/js/miran-blog.min.js') ? '.min.js' : '.js');
     $css_file = $plugin_path . $css_rel;
     $js_file  = $plugin_path . $js_rel;
 
-    $css_version = file_exists($css_file) ? (string) filemtime($css_file) : SERVIYA_VERSION;
-    $js_version  = file_exists($js_file) ? (string) filemtime($js_file) : SERVIYA_VERSION;
+    $css_version = file_exists($css_file) ? (string) filemtime($css_file) : MIRAN_VERSION;
+    $js_version  = file_exists($js_file) ? (string) filemtime($js_file) : MIRAN_VERSION;
 
-    if (!wp_style_is('serviya-blog', 'enqueued')) {
-        wp_enqueue_style('serviya-blog', $plugin_url . $css_rel, array(), $css_version);
+    if (!wp_style_is('miran-blog', 'enqueued')) {
+        wp_enqueue_style('miran-blog', $plugin_url . $css_rel, array(), $css_version);
     }
 
-    if (!wp_script_is('serviya-blog', 'enqueued')) {
+    if (!wp_script_is('miran-blog', 'enqueued')) {
         if (version_compare(get_bloginfo('version'), '6.3', '>=')) {
-            wp_enqueue_script('serviya-blog', $plugin_url . $js_rel, array(), $js_version, array('in_footer' => true, 'strategy' => 'defer'));
+            wp_enqueue_script('miran-blog', $plugin_url . $js_rel, array(), $js_version, array('in_footer' => true, 'strategy' => 'defer'));
         } else {
-            wp_enqueue_script('serviya-blog', $plugin_url . $js_rel, array(), $js_version, true);
+            wp_enqueue_script('miran-blog', $plugin_url . $js_rel, array(), $js_version, true);
         }
 
-        wp_localize_script('serviya-blog', 'ServiyaBlogData', array(
-            'restBase' => esc_url_raw(rest_url('serviya/v1/')),
-            'pageUrl'  => serviya_suite_blog_current_url(),
-            'perPage'  => (int) apply_filters('serviya_blog_per_page', 9),
+        wp_localize_script('miran-blog', 'MiranBlogData', array(
+            'restBase' => esc_url_raw(rest_url('miran/v1/')),
+            'pageUrl'  => miran_suite_blog_current_url(),
+            'perPage'  => (int) apply_filters('miran_blog_per_page', 9),
         ));
     }
 }
 
 add_action('wp_enqueue_scripts', function () {
-    if (serviya_suite_blog_needs_assets()) {
-        serviya_suite_blog_enqueue_assets();
+    if (miran_suite_blog_needs_assets()) {
+        miran_suite_blog_enqueue_assets();
     }
 }, 100);
 
@@ -115,11 +115,11 @@ add_filter('wp_robots', function ($robots) {
  * fallback title, so an empty category would "sanitize" to the
  * WP_REST_Request object itself and a later (string) cast would fatal.
  */
-function serviya_suite_blog_sanitize_slug($value) {
+function miran_suite_blog_sanitize_slug($value) {
     return is_scalar($value) ? sanitize_title((string) $value) : '';
 }
 
-function serviya_suite_blog_parse_state($source = null) {
+function miran_suite_blog_parse_state($source = null) {
     if ($source === null) {
         // phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only filter state.
         $source = isset($_GET) ? wp_unslash($_GET) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
@@ -146,13 +146,13 @@ function serviya_suite_blog_parse_state($source = null) {
     }
 
     return array(
-        'cat'    => serviya_suite_blog_sanitize_slug($cat),
+        'cat'    => miran_suite_blog_sanitize_slug($cat),
         'search' => sanitize_text_field((string) $search),
         'page'   => max(1, absint($page)),
     );
 }
 
-function serviya_suite_blog_build_url($state, $base_url, $page = 0, $cat_override = null) {
+function miran_suite_blog_build_url($state, $base_url, $page = 0, $cat_override = null) {
     $args = array();
     $cat  = $cat_override !== null ? $cat_override : $state['cat'];
     if ($cat !== '') {
@@ -167,7 +167,7 @@ function serviya_suite_blog_build_url($state, $base_url, $page = 0, $cat_overrid
     return $args ? add_query_arg($args, $base_url) : $base_url;
 }
 
-function serviya_suite_blog_query_posts($state, $per_page) {
+function miran_suite_blog_query_posts($state, $per_page) {
     $args = array(
         'post_type'           => 'post',
         'post_status'         => 'publish',
@@ -203,18 +203,18 @@ function serviya_suite_blog_query_posts($state, $per_page) {
  * Small helpers
  * ========================================================================== */
 
-function serviya_suite_blog_fa_digits($value) {
+function miran_suite_blog_fa_digits($value) {
     return strtr((string) $value, array(
         '0' => '۰', '1' => '۱', '2' => '۲', '3' => '۳', '4' => '۴',
         '5' => '۵', '6' => '۶', '7' => '۷', '8' => '۸', '9' => '۹',
     ));
 }
 
-function serviya_suite_blog_fa_number($value) {
-    return serviya_suite_blog_fa_digits(number_format((float) $value, 0, '.', ','));
+function miran_suite_blog_fa_number($value) {
+    return miran_suite_blog_fa_digits(number_format((float) $value, 0, '.', ','));
 }
 
-function serviya_suite_blog_trunc($text, $length) {
+function miran_suite_blog_trunc($text, $length) {
     $text = trim(preg_replace('/\s+/u', ' ', wp_strip_all_tags((string) $text)));
     $length = max(1, (int) $length);
 
@@ -235,12 +235,12 @@ function serviya_suite_blog_trunc($text, $length) {
     return $text;
 }
 
-function serviya_suite_blog_read_minutes($post) {
+function miran_suite_blog_read_minutes($post) {
     $words = preg_match_all('/\S+/u', wp_strip_all_tags((string) $post->post_content));
     return max(1, (int) round(((int) $words) / 220));
 }
 
-function serviya_suite_blog_first_category($post) {
+function miran_suite_blog_first_category($post) {
     $terms = get_the_category($post->ID);
     if ($terms && !is_wp_error($terms)) {
         return $terms[0];
@@ -248,13 +248,13 @@ function serviya_suite_blog_first_category($post) {
     return null;
 }
 
-function serviya_suite_blog_icon($name, $size) {
+function miran_suite_blog_icon($name, $size) {
     return '<svg width="' . (int) $size . '" height="' . (int) $size . '" aria-hidden="true"><use href="#bi-' . esc_attr($name) . '"/></svg>';
 }
 
 /* Slim DTO for the REST endpoint — only what one card needs. */
-function serviya_suite_blog_post_dto($post) {
-    $category = serviya_suite_blog_first_category($post);
+function miran_suite_blog_post_dto($post) {
+    $category = miran_suite_blog_first_category($post);
     $image    = null;
     $image_id = get_post_thumbnail_id($post->ID);
     if ($image_id) {
@@ -275,9 +275,9 @@ function serviya_suite_blog_post_dto($post) {
         'id'           => (int) $post->ID,
         'title'        => get_the_title($post),
         'link'         => get_permalink($post),
-        'date_fa'      => serviya_suite_blog_fa_digits(get_the_date('j F Y', $post)),
-        'excerpt'      => serviya_suite_blog_trunc(get_the_excerpt($post), 220),
-        'read_minutes' => serviya_suite_blog_read_minutes($post),
+        'date_fa'      => miran_suite_blog_fa_digits(get_the_date('j F Y', $post)),
+        'excerpt'      => miran_suite_blog_trunc(get_the_excerpt($post), 220),
+        'read_minutes' => miran_suite_blog_read_minutes($post),
         'category'     => $category ? array(
             'id'   => (int) $category->term_id,
             'name' => $category->name,
@@ -288,33 +288,37 @@ function serviya_suite_blog_post_dto($post) {
 }
 
 /* ==========================================================================
- * Slim REST endpoint: GET /wp-json/serviya/v1/posts
+ * Slim REST endpoint: GET /wp-json/miran/v1/posts
  * ========================================================================== */
 
 add_action('rest_api_init', function () {
-    register_rest_route('serviya/v1', '/posts', array(
-        'methods'             => 'GET',
-        'permission_callback' => '__return_true',
-        'callback'            => 'serviya_suite_blog_rest_posts',
-        'args'                => array(
-            'page'     => array('type' => 'integer', 'default' => 1, 'sanitize_callback' => 'absint'),
-            'per_page' => array('type' => 'integer', 'default' => 9, 'sanitize_callback' => 'absint'),
-            'cat'      => array('type' => 'string', 'default' => '', 'sanitize_callback' => 'serviya_suite_blog_sanitize_slug'),
-            'q'        => array('type' => 'string', 'default' => '', 'sanitize_callback' => 'sanitize_text_field'),
-        ),
-    ));
+    // Registered under both namespaces: cached JS from before the rename keeps
+    // working, and the new build talks to miran/v1.
+    foreach (array('miran/v1', 'serviya/v1') as $miran_rest_namespace) {
+        register_rest_route($miran_rest_namespace, '/posts', array(
+            'methods'             => 'GET',
+            'permission_callback' => '__return_true',
+            'callback'            => 'miran_suite_blog_rest_posts',
+            'args'                => array(
+                'page'     => array('type' => 'integer', 'default' => 1, 'sanitize_callback' => 'absint'),
+                'per_page' => array('type' => 'integer', 'default' => 9, 'sanitize_callback' => 'absint'),
+                'cat'      => array('type' => 'string', 'default' => '', 'sanitize_callback' => 'miran_suite_blog_sanitize_slug'),
+                'q'        => array('type' => 'string', 'default' => '', 'sanitize_callback' => 'sanitize_text_field'),
+            ),
+        ));
+    }
 });
 
-function serviya_suite_blog_rest_posts($request) {
-    $state    = serviya_suite_blog_parse_state(array(
+function miran_suite_blog_rest_posts($request) {
+    $state    = miran_suite_blog_parse_state(array(
         'page' => $request->get_param('page'),
         'cat'  => $request->get_param('cat'),
         'q'    => $request->get_param('q'),
     ));
     $per_page = min(24, max(1, absint($request->get_param('per_page'))));
-    $result   = serviya_suite_blog_query_posts($state, $per_page);
+    $result   = miran_suite_blog_query_posts($state, $per_page);
 
-    $posts = array_map('serviya_suite_blog_post_dto', $result['posts']);
+    $posts = array_map('miran_suite_blog_post_dto', $result['posts']);
     $response = rest_ensure_response($posts);
     $response->header('X-WP-Total', (string) $result['total']);
     $response->header('X-WP-TotalPages', (string) $result['total_pages']);
@@ -325,7 +329,7 @@ function serviya_suite_blog_rest_posts($request) {
  * Card rendering — same markup/classes as the JS-rendered cards
  * ========================================================================== */
 
-function serviya_suite_blog_image_html($post, $featured) {
+function miran_suite_blog_image_html($post, $featured) {
     $image_id = get_post_thumbnail_id($post->ID);
     if ($image_id) {
         $alt = get_post_meta($image_id, '_wp_attachment_image_alt', true);
@@ -345,59 +349,59 @@ function serviya_suite_blog_image_html($post, $featured) {
             return $html;
         }
     }
-    return '<div class="b-noimg">' . serviya_suite_blog_icon('doc', $featured ? 46 : 40) . '</div>';
+    return '<div class="b-noimg">' . miran_suite_blog_icon('doc', $featured ? 46 : 40) . '</div>';
 }
 
-function serviya_suite_blog_meta_html($post, $with_category) {
+function miran_suite_blog_meta_html($post, $with_category) {
     $html = '';
-    $category = serviya_suite_blog_first_category($post);
+    $category = miran_suite_blog_first_category($post);
     if ($with_category && $category) {
         $html .= '<span class="b-cat">' . esc_html($category->name) . '</span>';
     }
     $html .= '<span><svg width="13" height="13" style="vertical-align:-2px;color:#96632E" aria-hidden="true"><use href="#bi-cal"/></svg> '
-        . esc_html(serviya_suite_blog_fa_digits(get_the_date('j F Y', $post))) . '</span>';
+        . esc_html(miran_suite_blog_fa_digits(get_the_date('j F Y', $post))) . '</span>';
     $html .= '<span><svg width="13" height="13" style="vertical-align:-2px;color:#96632E" aria-hidden="true"><use href="#bi-clock"/></svg> '
-        . serviya_suite_blog_fa_number(serviya_suite_blog_read_minutes($post)) . ' دقیقه مطالعه</span>';
+        . miran_suite_blog_fa_number(miran_suite_blog_read_minutes($post)) . ' دقیقه مطالعه</span>';
     return $html;
 }
 
-function serviya_suite_blog_render_featured($post) {
+function miran_suite_blog_render_featured($post) {
     $link  = get_permalink($post);
     $title = get_the_title($post);
     return '<article class="b-feat b-r b-in">'
         . '<div class="b-feat-img">'
-        . '<span class="b-feat-badge">' . serviya_suite_blog_icon('star', 12) . 'مقاله ویژه</span>'
-        . serviya_suite_blog_image_html($post, true)
+        . '<span class="b-feat-badge">' . miran_suite_blog_icon('star', 12) . 'مقاله ویژه</span>'
+        . miran_suite_blog_image_html($post, true)
         . '</div>'
         . '<div class="b-feat-body">'
-        . '<div class="b-feat-meta">' . serviya_suite_blog_meta_html($post, true) . '</div>'
+        . '<div class="b-feat-meta">' . miran_suite_blog_meta_html($post, true) . '</div>'
         . '<h2><a href="' . esc_url($link) . '">' . esc_html($title) . '</a></h2>'
-        . '<p>' . esc_html(serviya_suite_blog_trunc(get_the_excerpt($post), 180)) . '</p>'
-        . '<a class="b-feat-link" href="' . esc_url($link) . '">ادامه مطلب ' . serviya_suite_blog_icon('arrow', 16) . '</a>'
+        . '<p>' . esc_html(miran_suite_blog_trunc(get_the_excerpt($post), 180)) . '</p>'
+        . '<a class="b-feat-link" href="' . esc_url($link) . '">ادامه مطلب ' . miran_suite_blog_icon('arrow', 16) . '</a>'
         . '</div></article>';
 }
 
-function serviya_suite_blog_render_card($post, $index = 0) {
+function miran_suite_blog_render_card($post, $index = 0) {
     $link     = get_permalink($post);
     $title    = get_the_title($post);
-    $category = serviya_suite_blog_first_category($post);
+    $category = miran_suite_blog_first_category($post);
     $badge    = $category ? '<span class="b-card-cat">' . esc_html($category->name) . '</span>' : '';
 
     return '<article class="b-card b-r b-in" style="transition-delay:' . (int) ($index * 60) . 'ms">'
         . '<a href="' . esc_url($link) . '" class="b-card-img" aria-label="' . esc_attr($title) . '">'
-        . $badge . serviya_suite_blog_image_html($post, false)
+        . $badge . miran_suite_blog_image_html($post, false)
         . '</a>'
         . '<div class="b-card-body">'
-        . '<div class="b-card-meta">' . serviya_suite_blog_meta_html($post, false) . '</div>'
+        . '<div class="b-card-meta">' . miran_suite_blog_meta_html($post, false) . '</div>'
         . '<h3><a href="' . esc_url($link) . '">' . esc_html($title) . '</a></h3>'
-        . '<p>' . esc_html(serviya_suite_blog_trunc(get_the_excerpt($post), 110)) . '</p>'
+        . '<p>' . esc_html(miran_suite_blog_trunc(get_the_excerpt($post), 110)) . '</p>'
         . '<div class="b-card-foot">'
         . '<a class="b-card-read" href="' . esc_url($link) . '">مطالعه مقاله</a>'
-        . '<a class="b-card-ar" href="' . esc_url($link) . '" aria-label="مطالعه">' . serviya_suite_blog_icon('arrow', 14) . '</a>'
+        . '<a class="b-card-ar" href="' . esc_url($link) . '" aria-label="مطالعه">' . miran_suite_blog_icon('arrow', 14) . '</a>'
         . '</div></div></article>';
 }
 
-function serviya_suite_blog_svg_defs() {
+function miran_suite_blog_svg_defs() {
     return '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>'
         . '<symbol id="bi-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>'
         . '<symbol id="bi-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>'
@@ -414,23 +418,23 @@ function serviya_suite_blog_svg_defs() {
  * Shortcode
  * ========================================================================== */
 
-function serviya_suite_blog_render($atts) {
-    serviya_suite_blog_enqueue_assets();
+function miran_suite_blog_render($atts) {
+    miran_suite_blog_enqueue_assets();
 
     $shop_link = function_exists('wc_get_page_permalink') && wc_get_page_permalink('shop')
         ? wc_get_page_permalink('shop')
         : home_url('/shop/');
 
     $atts = shortcode_atts(array(
-        'per_page'     => (int) apply_filters('serviya_blog_per_page', 9),
+        'per_page'     => (int) apply_filters('miran_blog_per_page', 9),
         'phone'        => '09382420272',
         'products_url' => $shop_link,
-    ), $atts, 'serviya_blog');
+    ), $atts, 'miran_blog');
 
     $per_page = min(24, max(1, absint($atts['per_page'])));
-    $state    = serviya_suite_blog_parse_state();
-    $result   = serviya_suite_blog_query_posts($state, $per_page);
-    $page_url = serviya_suite_blog_current_url();
+    $state    = miran_suite_blog_parse_state();
+    $result   = miran_suite_blog_query_posts($state, $per_page);
+    $page_url = miran_suite_blog_current_url();
     $uid      = wp_unique_id('sb-');
 
     $categories = get_categories(array(
@@ -455,13 +459,13 @@ function serviya_suite_blog_render($atts) {
 
     ob_start();
     ?>
-    <div class="serviya-blog" dir="rtl" lang="fa"
+    <div class="miran-blog" dir="rtl" lang="fa"
         data-current-page="<?php echo esc_attr($state['page']); ?>"
         data-total-pages="<?php echo esc_attr($result['total_pages']); ?>"
         data-per-page="<?php echo esc_attr($per_page); ?>"
         data-ssr-state="<?php echo esc_attr(wp_json_encode($ssr_state, JSON_UNESCAPED_UNICODE)); ?>">
 
-        <?php echo serviya_suite_blog_svg_defs(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG symbols. ?>
+        <?php echo miran_suite_blog_svg_defs(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG symbols. ?>
 
         <form class="b-form" method="get" action="<?php echo esc_url($page_url); ?>">
             <button type="submit" class="b-sr-only" tabindex="-1" aria-hidden="true">جستجو</button>
@@ -486,22 +490,22 @@ function serviya_suite_blog_render($atts) {
             <section class="b-main">
                 <div class="bw">
                     <div class="b-filters" role="group" aria-label="فیلتر دسته‌بندی مقالات">
-                        <a class="b-fchip" href="<?php echo esc_url(serviya_suite_blog_build_url($state, $page_url, 0, '')); ?>"
+                        <a class="b-fchip" href="<?php echo esc_url(miran_suite_blog_build_url($state, $page_url, 0, '')); ?>"
                             data-cat-slug="" aria-pressed="<?php echo $state['cat'] === '' ? 'true' : 'false'; ?>">همه مقالات</a>
                         <?php foreach ($categories as $category) :
                             $is_active = $state['cat'] === $category->slug;
                             ?>
-                            <a class="b-fchip" href="<?php echo esc_url(serviya_suite_blog_build_url($state, $page_url, 0, $category->slug)); ?>"
+                            <a class="b-fchip" href="<?php echo esc_url(miran_suite_blog_build_url($state, $page_url, 0, $category->slug)); ?>"
                                 data-cat-slug="<?php echo esc_attr($category->slug); ?>"
                                 aria-pressed="<?php echo $is_active ? 'true' : 'false'; ?>"
-                                <?php echo $is_active ? 'aria-current="true"' : ''; ?>><?php echo esc_html($category->name); ?> <small>(<?php echo serviya_suite_blog_fa_number($category->count); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?>)</small></a>
+                                <?php echo $is_active ? 'aria-current="true"' : ''; ?>><?php echo esc_html($category->name); ?> <small>(<?php echo miran_suite_blog_fa_number($category->count); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- digits only. ?>)</small></a>
                         <?php endforeach; ?>
                     </div>
 
                     <div class="b-featured-slot">
                         <?php
                         if ($show_featured) {
-                            echo serviya_suite_blog_render_featured($posts[0]); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
+                            echo miran_suite_blog_render_featured($posts[0]); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
                         }
                         ?>
                     </div>
@@ -510,12 +514,12 @@ function serviya_suite_blog_render($atts) {
                         <?php
                         if ($grid_posts) {
                             foreach ($grid_posts as $index => $post) {
-                                echo serviya_suite_blog_render_card($post, $index); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
+                                echo miran_suite_blog_render_card($post, $index); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped while building.
                             }
                         } elseif (!$show_featured) {
                             ?>
                             <div class="b-empty" style="grid-column:1/-1">
-                                <div class="b-empty-ic"><?php echo serviya_suite_blog_icon('doc', 30); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?></div>
+                                <div class="b-empty-ic"><?php echo miran_suite_blog_icon('doc', 30); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG. ?></div>
                                 <h3>مقاله‌ای یافت نشد</h3>
                                 <p>با فیلتر یا جستجوی دیگری امتحان کنید.</p>
                                 <a class="b-reset-btn" href="<?php echo esc_url($page_url); ?>">بازنشانی فیلترها</a>
@@ -537,7 +541,7 @@ function serviya_suite_blog_render($atts) {
                         $page_base = str_replace(
                             '999999999',
                             '%#%',
-                            serviya_suite_blog_build_url($state, $page_url, 999999999)
+                            miran_suite_blog_build_url($state, $page_url, 999999999)
                         );
                         $pagination_html = paginate_links(array(
                             'base'      => $page_base,
@@ -601,4 +605,6 @@ function serviya_suite_blog_render($atts) {
     return ob_get_clean();
 }
 
-add_shortcode('serviya_blog', 'serviya_suite_blog_render');
+add_shortcode('miran_blog', 'miran_suite_blog_render');
+// Legacy alias for pages built before the rename.
+add_shortcode('serviya_blog', 'miran_suite_blog_render');

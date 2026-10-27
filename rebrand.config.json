@@ -80,7 +80,7 @@
     },
     {
       "_comment": "Brand name in every user-facing Persian string and doc.",
-      "find": "سرویا یکپارچه (Serviya)",
+      "find": "سرویا یکپارچه (Miran)",
       "replace": "میران یکپارچه (Miran)"
     },
     {
@@ -89,12 +89,12 @@
     },
     {
       "_comment": "Plugin list name.",
-      "find": "Serviya — Shop & Blog",
+      "find": "Miran — Shop & Blog",
       "replace": "Miran — Shop & Blog"
     },
     {
       "_comment": "Plugin list author.",
-      "find": "Author:            Serviya",
+      "find": "Author:            Miran",
       "replace": "Author:            Miran"
     }
   ]

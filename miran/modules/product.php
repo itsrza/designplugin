@@ -1,8 +1,8 @@
 <?php
 /**
- * Serviya suite — single-product module.
+ * Miran suite — single-product module.
  *
- * Renders a complete, Serviya-styled single-product view through the
+ * Renders a complete, Miran-styled single-product view through the
  * canonical WooCommerce hooks. Gallery, title, rating, price, short
  * description, the add-to-cart/variation form, meta, tabs (description /
  * additional information / reviews), upsells and related products are all
@@ -14,11 +14,11 @@
  * buy-now, dynamic discounts, Frequently Bought Together, role-based pricing
  * plugins, size guides, estimated delivery, waitlist, custom tabs, etc.
  *
- * Usage: [serviya_product] inside a blank single-product template
- * (WoodMart/Elementor Theme Builder), or [serviya_product id="123"]
+ * Usage: [miran_product] inside a blank single-product template
+ * (WoodMart/Elementor Theme Builder), or [miran_product id="123"]
  * anywhere.
  *
- * @package Serviya
+ * @package Miran
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,26 +27,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /* ------------------------------------------------------------------ assets */
 
-function serviya_suite_product_needs_assets(): bool {
+function miran_suite_product_needs_assets(): bool {
 	$need = function_exists( 'is_product' ) && is_product();
 	if ( ! $need ) {
 		$post_id = (int) get_queried_object_id();
 		if ( $post_id > 0 ) {
 			$content = (string) get_post_field( 'post_content', $post_id )
 				. (string) get_post_meta( $post_id, '_elementor_data', true );
-			$need    = false !== strpos( $content, 'serviya_product' );
+			$need    = false !== strpos( $content, 'miran_product' ) || false !== strpos( $content, 'serviya_product' );
 		}
 	}
 	/** Filter: force-load (or skip) the product assets on the current page. */
-	return (bool) apply_filters( 'serviya_product_needs_assets', $need );
+	return (bool) apply_filters( 'miran_product_needs_assets', $need );
 }
 
-function serviya_suite_product_enqueue_assets(): void {
-	$base    = SERVIYA_PATH;
-	$url     = SERVIYA_URL;
+function miran_suite_product_enqueue_assets(): void {
+	$base    = MIRAN_PATH;
+	$url     = MIRAN_URL;
 	$use_min = ! ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG );
-	$css_rel = 'assets/css/serviya-product' . ( $use_min && file_exists( $base . 'assets/css/serviya-product.min.css' ) ? '.min' : '' ) . '.css';
-	$js_rel  = 'assets/js/serviya-product' . ( $use_min && file_exists( $base . 'assets/js/serviya-product.min.js' ) ? '.min' : '' ) . '.js';
+	$css_rel = 'assets/css/miran-product' . ( $use_min && file_exists( $base . 'assets/css/miran-product.min.css' ) ? '.min' : '' ) . '.css';
+	$js_rel  = 'assets/js/miran-product' . ( $use_min && file_exists( $base . 'assets/js/miran-product.min.js' ) ? '.min' : '' ) . '.js';
 
 	if ( file_exists( $base . $css_rel ) ) {
 		$deps = array();
@@ -56,7 +56,7 @@ function serviya_suite_product_enqueue_assets(): void {
 			}
 		}
 		wp_enqueue_style(
-			'serviya-product',
+			'miran-product',
 			$url . $css_rel,
 			$deps,
 			(string) filemtime( $base . $css_rel )
@@ -71,7 +71,7 @@ function serviya_suite_product_enqueue_assets(): void {
 			);
 		}
 		wp_enqueue_script(
-			'serviya-product',
+			'miran-product',
 			$url . $js_rel,
 			array(),
 			(string) filemtime( $base . $js_rel ),
@@ -91,8 +91,8 @@ function serviya_suite_product_enqueue_assets(): void {
 add_action(
 	'wp_enqueue_scripts',
 	static function (): void {
-		if ( serviya_suite_product_needs_assets() ) {
-			serviya_suite_product_enqueue_assets();
+		if ( miran_suite_product_needs_assets() ) {
+			miran_suite_product_enqueue_assets();
 		}
 	},
 	100
@@ -100,21 +100,21 @@ add_action(
 
 /* ----------------------------------------------------------------- helpers */
 
-function serviya_suite_product_fa_number( $value ): string {
-	if ( is_numeric( $value ) && function_exists( 'serviya_suite_shop_fa_number' ) ) {
-		return serviya_suite_shop_fa_number( $value );
+function miran_suite_product_fa_number( $value ): string {
+	if ( is_numeric( $value ) && function_exists( 'miran_suite_shop_fa_number' ) ) {
+		return miran_suite_shop_fa_number( $value );
 	}
-	return serviya_suite_product_fa_digits( $value );
+	return miran_suite_product_fa_digits( $value );
 }
 
 /** Persian digits without thousand grouping (phone numbers, codes). */
-function serviya_suite_product_fa_digits( $value ): string {
+function miran_suite_product_fa_digits( $value ): string {
 	$en = array( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' );
 	$fa = array( '۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹' );
 	return str_replace( $en, $fa, (string) $value );
 }
 
-function serviya_suite_product_capture( callable $callback ): string {
+function miran_suite_product_capture( callable $callback ): string {
 	$level = ob_get_level();
 	ob_start();
 	try {
@@ -129,7 +129,7 @@ function serviya_suite_product_capture( callable $callback ): string {
 }
 
 /** Resolve the product this shortcode should render. */
-function serviya_suite_product_resolve_id( int $requested ): int {
+function miran_suite_product_resolve_id( int $requested ): int {
 	if ( $requested > 0 ) {
 		return $requested;
 	}
@@ -148,7 +148,7 @@ function serviya_suite_product_resolve_id( int $requested ): int {
 }
 
 /** Deepest assigned product category (most specific breadcrumb trail). */
-function serviya_suite_product_primary_category( WC_Product $product ): ?WP_Term {
+function miran_suite_product_primary_category( WC_Product $product ): ?WP_Term {
 	$best  = null;
 	$depth = -1;
 	foreach ( $product->get_category_ids() as $term_id ) {
@@ -167,7 +167,7 @@ function serviya_suite_product_primary_category( WC_Product $product ): ?WP_Term
 }
 
 /** Brand label from the brand taxonomy, or a single-value brand attribute. */
-function serviya_suite_product_brand_label( WC_Product $product ): string {
+function miran_suite_product_brand_label( WC_Product $product ): string {
 	foreach ( array( 'product_brand', 'product-brands' ) as $taxonomy ) {
 		if ( ! taxonomy_exists( $taxonomy ) ) {
 			continue;
@@ -204,14 +204,14 @@ function serviya_suite_product_brand_label( WC_Product $product ): string {
 }
 
 /** WooCommerce stock-display format: '', 'low_qty', or 'no_amount'. */
-function serviya_suite_product_stock_format(): string {
+function miran_suite_product_stock_format(): string {
 	return function_exists( 'get_option' )
 		? (string) get_option( 'woocommerce_stock_format', '' )
 		: '';
 }
 
 /** @return array{text:string,class:string} Small stock pill for the eyebrow row. */
-function serviya_suite_product_stock_pill( WC_Product $product ): array {
+function miran_suite_product_stock_pill( WC_Product $product ): array {
 	if ( ! $product->is_in_stock() ) {
 		return array( 'text' => 'ناموجود', 'class' => 'is-out' );
 	}
@@ -220,12 +220,12 @@ function serviya_suite_product_stock_pill( WC_Product $product ): array {
 		return array( 'text' => 'قابل سفارش (پیش‌خرید)', 'class' => 'is-backorder' );
 	}
 	if ( $product->managing_stock() && null !== $quantity ) {
-		$format   = serviya_suite_product_stock_format();
+		$format   = miran_suite_product_stock_format();
 		$show_qty = 'no_amount' !== $format;
 		$low      = (int) $product->get_low_stock_amount();
 		if ( $show_qty && $low > 0 && $quantity <= $low ) {
 			return array(
-				'text'  => sprintf( 'تنها %s عدد در انبار باقی مانده', serviya_suite_product_fa_number( $quantity ) ),
+				'text'  => sprintf( 'تنها %s عدد در انبار باقی مانده', miran_suite_product_fa_number( $quantity ) ),
 				'class' => 'is-low',
 			);
 		}
@@ -233,7 +233,7 @@ function serviya_suite_product_stock_pill( WC_Product $product ): array {
 		// extensions expose the same choice as "always".
 		if ( $show_qty && ( '' === $format || 'always' === $format ) ) {
 			return array(
-				'text'  => sprintf( '%s عدد موجود در انبار', serviya_suite_product_fa_number( $quantity ) ),
+				'text'  => sprintf( '%s عدد موجود در انبار', miran_suite_product_fa_number( $quantity ) ),
 				'class' => 'is-in',
 			);
 		}
@@ -242,7 +242,7 @@ function serviya_suite_product_stock_pill( WC_Product $product ): array {
 }
 
 /** Whole-number sale percentage for simple (and priced) products, else 0. */
-function serviya_suite_product_sale_percent( WC_Product $product ): int {
+function miran_suite_product_sale_percent( WC_Product $product ): int {
 	if ( ! $product->is_on_sale() ) {
 		return 0;
 	}
@@ -262,9 +262,9 @@ function serviya_suite_product_sale_percent( WC_Product $product ): int {
 }
 
 /** Dimension text in the same form as the shop card label (without unit). */
-function serviya_suite_product_dimensions_label( WC_Product $product ): string {
-	if ( function_exists( 'serviya_suite_shop_product_dimensions' ) ) {
-		return (string) serviya_suite_shop_product_dimensions( $product );
+function miran_suite_product_dimensions_label( WC_Product $product ): string {
+	if ( function_exists( 'miran_suite_shop_product_dimensions' ) ) {
+		return (string) miran_suite_shop_product_dimensions( $product );
 	}
 
 	$parts = array();
@@ -311,7 +311,7 @@ function serviya_suite_product_dimensions_label( WC_Product $product ): string {
 }
 
 /** Next future sale end (Unix timestamp), including variable products. */
-function serviya_suite_product_sale_end_timestamp( WC_Product $product ): int {
+function miran_suite_product_sale_end_timestamp( WC_Product $product ): int {
 	$now        = time();
 	$candidates = array();
 	$collect    = static function ( $item ) use ( &$candidates, $now ): void {
@@ -348,8 +348,8 @@ function serviya_suite_product_sale_end_timestamp( WC_Product $product ): int {
 }
 
 /** Plugin-owned sale countdown, used only when the theme printed none. */
-function serviya_suite_product_countdown_html( WC_Product $product ): string {
-	$end = serviya_suite_product_sale_end_timestamp( $product );
+function miran_suite_product_countdown_html( WC_Product $product ): string {
+	$end = miran_suite_product_sale_end_timestamp( $product );
 	if ( $end <= time() ) {
 		return '';
 	}
@@ -367,8 +367,8 @@ function serviya_suite_product_countdown_html( WC_Product $product ): string {
 		. '<span class="sp-countdown-label">تا پایان فروش ویژه</span><div class="sp-countdown-units">';
 	foreach ( $units as $key => $unit ) {
 		$value = 'days' === $key
-			? serviya_suite_product_fa_number( $unit['value'] )
-			: serviya_suite_product_fa_digits( str_pad( (string) $unit['value'], 2, '0', STR_PAD_LEFT ) );
+			? miran_suite_product_fa_number( $unit['value'] )
+			: miran_suite_product_fa_digits( str_pad( (string) $unit['value'], 2, '0', STR_PAD_LEFT ) );
 		$html .= '<span class="sp-countdown-unit"><strong data-countdown-unit="' . esc_attr( $key ) . '">'
 			. esc_html( $value ) . '</strong><small>' . esc_html( $unit['label'] ) . '</small></span>';
 	}
@@ -378,7 +378,7 @@ function serviya_suite_product_countdown_html( WC_Product $product ): string {
 
 /* ---------------------------------------------------------------- template */
 
-function serviya_suite_product_breadcrumb( WC_Product $product ): string {
+function miran_suite_product_breadcrumb( WC_Product $product ): string {
 	$items = array(
 		array( 'label' => 'خانه', 'url' => home_url( '/' ) ),
 	);
@@ -386,7 +386,7 @@ function serviya_suite_product_breadcrumb( WC_Product $product ): string {
 	if ( '' !== $shop_url ) {
 		$items[] = array( 'label' => 'فروشگاه', 'url' => $shop_url );
 	}
-	$primary = serviya_suite_product_primary_category( $product );
+	$primary = miran_suite_product_primary_category( $product );
 	if ( $primary instanceof WP_Term ) {
 		$ancestors = get_ancestors( $primary->term_id, 'product_cat' );
 		$trail     = is_array( $ancestors ) ? array_reverse( $ancestors ) : array();
@@ -419,7 +419,7 @@ function serviya_suite_product_breadcrumb( WC_Product $product ): string {
 	return $html;
 }
 
-function serviya_suite_product_adjacent_nav( string $shop_url ): string {
+function miran_suite_product_adjacent_nav( string $shop_url ): string {
 	$prev = get_previous_post( true, '', 'product_cat' );
 	$next = get_next_post( true, '', 'product_cat' );
 	if ( ! $prev && ! $next && '' === $shop_url ) {
@@ -453,7 +453,7 @@ function serviya_suite_product_adjacent_nav( string $shop_url ): string {
 }
 
 /** Minimal gallery used only when the theme/WooCommerce printed none. */
-function serviya_suite_product_fallback_gallery( WC_Product $product ): string {
+function miran_suite_product_fallback_gallery( WC_Product $product ): string {
 	$ids = array_values( array_filter( array_unique( array_merge(
 		array( (int) $product->get_image_id() ),
 		array_map( 'intval', $product->get_gallery_image_ids() )
@@ -475,7 +475,7 @@ function serviya_suite_product_fallback_gallery( WC_Product $product ): string {
 			$full = wp_get_attachment_image_src( $id, 'woocommerce_single' );
 			$html .= '<button type="button" class="sp-fallback-thumb' . ( 0 === $index ? ' is-active' : '' ) . '"'
 				. ' data-sp-thumb data-full="' . esc_url( $full ? (string) $full[0] : '' ) . '"'
-				. ' aria-label="' . esc_attr( sprintf( 'تصویر %s محصول', serviya_suite_product_fa_number( $index + 1 ) ) ) . '">'
+				. ' aria-label="' . esc_attr( sprintf( 'تصویر %s محصول', miran_suite_product_fa_number( $index + 1 ) ) ) . '">'
 				. wp_get_attachment_image( $id, 'woocommerce_thumbnail', false, array( 'alt' => '', 'loading' => 'lazy' ) )
 				. '</button>';
 		}
@@ -485,7 +485,7 @@ function serviya_suite_product_fallback_gallery( WC_Product $product ): string {
 	return $html;
 }
 
-function serviya_suite_product_consult_box( WC_Product $product, string $phone, string $whatsapp, string $telegram ): string {
+function miran_suite_product_consult_box( WC_Product $product, string $phone, string $whatsapp, string $telegram ): string {
 	if ( '' === $phone && '' === $whatsapp && '' === $telegram ) {
 		return '';
 	}
@@ -497,7 +497,7 @@ function serviya_suite_product_consult_box( WC_Product $product, string $phone, 
 		$tel    = preg_replace( '/[^\d+]/', '', $phone );
 		$links .= '<a class="sp-consult-btn" href="tel:' . esc_attr( (string) $tel ) . '">'
 			. $icon_svg( '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>' )
-			. '<span dir="ltr">' . esc_html( serviya_suite_product_fa_digits( $phone ) ) . '</span></a>';
+			. '<span dir="ltr">' . esc_html( miran_suite_product_fa_digits( $phone ) ) . '</span></a>';
 	}
 	if ( '' !== $whatsapp ) {
 		$number = preg_replace( '/\D/', '', $whatsapp );
@@ -524,13 +524,13 @@ function serviya_suite_product_consult_box( WC_Product $product, string $phone, 
 }
 
 /**
- * Restructure the first summary price into the Serviya price card:
+ * Restructure the first summary price into the Miran price card:
  * amounts stacked in .sp-price-stack (WooCommerce already prints the
  * old <del> price first, so it lands on top) plus a left-aligned
  * «قیمت فروش»/«قیمت فروش ویژه» label. Price ranges (multiple bare
  * amounts, e.g. unselected variable products) are left untouched.
  */
-function serviya_suite_product_price_card( string $summary_html ): string {
+function miran_suite_product_price_card( string $summary_html ): string {
 	if ( false !== strpos( $summary_html, 'sp-price-stack' ) ) {
 		return $summary_html;
 	}
@@ -557,12 +557,12 @@ function serviya_suite_product_price_card( string $summary_html ): string {
 	return is_string( $out ) ? $out : $summary_html;
 }
 
-function serviya_suite_product_render( $atts ): string {
+function miran_suite_product_render( $atts ): string {
 	static $rendering = array();
 
 	if ( ! class_exists( 'WooCommerce' ) || ! function_exists( 'wc_get_product' ) ) {
 		return current_user_can( 'edit_posts' )
-			? '<p style="direction:rtl">افزونه ووکامرس فعال نیست؛ شورت‌کد [serviya_product] به ووکامرس نیاز دارد.</p>'
+			? '<p style="direction:rtl">افزونه ووکامرس فعال نیست؛ شورت‌کد [miran_product] به ووکامرس نیاز دارد.</p>'
 			: '';
 	}
 
@@ -576,10 +576,10 @@ function serviya_suite_product_render( $atts ): string {
 			'telegram' => '',
 		),
 		is_array( $atts ) ? $atts : array(),
-		'serviya_product'
+		'miran_product'
 	);
 
-	$product_id = serviya_suite_product_resolve_id( absint( $atts['id'] ) );
+	$product_id = miran_suite_product_resolve_id( absint( $atts['id'] ) );
 	if ( $product_id <= 0 || isset( $rendering[ $product_id ] ) ) {
 		return '';
 	}
@@ -603,7 +603,7 @@ function serviya_suite_product_render( $atts ): string {
 	setup_postdata( $post );
 
 	try {
-		serviya_suite_product_enqueue_assets();
+		miran_suite_product_enqueue_assets();
 		if ( $product->is_type( 'variable' ) && wp_script_is( 'wc-add-to-cart-variation', 'registered' ) ) {
 			wp_enqueue_script( 'wc-add-to-cart-variation' );
 		}
@@ -611,49 +611,49 @@ function serviya_suite_product_render( $atts ): string {
 		/* Canonical WooCommerce output — theme (WoodMart) + plugin hooks
 		 * all run here; the plugin only supplies fallbacks for pieces a
 		 * custom layout may have detached from the standard hooks. */
-		$before_html = serviya_suite_product_capture( static function (): void {
+		$before_html = miran_suite_product_capture( static function (): void {
 			do_action( 'woocommerce_before_single_product' );
 		} );
 
-		$gallery_html = serviya_suite_product_capture( static function (): void {
+		$gallery_html = miran_suite_product_capture( static function (): void {
 			do_action( 'woocommerce_before_single_product_summary' );
 		} );
 		if ( false === strpos( $gallery_html, 'woocommerce-product-gallery' ) && false === stripos( $gallery_html, '<img' ) ) {
 			$direct = function_exists( 'woocommerce_show_product_images' )
-				? serviya_suite_product_capture( 'woocommerce_show_product_images' )
+				? miran_suite_product_capture( 'woocommerce_show_product_images' )
 				: '';
 			$gallery_html .= false !== stripos( $direct, '<img' )
 				? $direct
-				: serviya_suite_product_fallback_gallery( $product );
+				: miran_suite_product_fallback_gallery( $product );
 		}
 		if ( $product->is_on_sale()
 			&& false === strpos( $gallery_html, 'onsale' )
 			&& false === strpos( $gallery_html, 'product-label' )
 		) {
-			$percent       = serviya_suite_product_sale_percent( $product );
+			$percent       = miran_suite_product_sale_percent( $product );
 			$gallery_html  = '<span class="sp-sale-badge">'
-				. esc_html( $percent > 0 ? serviya_suite_product_fa_number( (string) $percent ) . '٪ تخفیف' : 'فروش ویژه' )
+				. esc_html( $percent > 0 ? miran_suite_product_fa_number( (string) $percent ) . '٪ تخفیف' : 'فروش ویژه' )
 				. '</span>' . $gallery_html;
 		}
-		$dimensions = serviya_suite_product_dimensions_label( $product );
+		$dimensions = miran_suite_product_dimensions_label( $product );
 		if ( '' !== $dimensions ) {
 			$gallery_html = '<span class="sp-dim-badge" data-sp-dimensions>ابعاد <span data-sp-dimensions-value>'
 				. esc_html( $dimensions ) . '</span></span>' . $gallery_html;
 		}
 
-		$summary_html = serviya_suite_product_capture( static function (): void {
+		$summary_html = miran_suite_product_capture( static function (): void {
 			do_action( 'woocommerce_single_product_summary' );
 		} );
 		$summary_prefix = '';
 		$summary_suffix = '';
 		if ( false === stripos( $summary_html, '<h1' ) ) {
 			$summary_prefix .= function_exists( 'woocommerce_template_single_title' )
-				? serviya_suite_product_capture( 'woocommerce_template_single_title' )
+				? miran_suite_product_capture( 'woocommerce_template_single_title' )
 				: '<h1 class="product_title entry-title">' . esc_html( $product->get_name() ) . '</h1>';
 		}
 		if ( false === strpos( $summary_html, 'woocommerce-product-rating' )
 			&& function_exists( 'woocommerce_template_single_rating' ) ) {
-			$rating = serviya_suite_product_capture( 'woocommerce_template_single_rating' );
+			$rating = miran_suite_product_capture( 'woocommerce_template_single_rating' );
 			if ( '' !== trim( $rating ) ) {
 				$summary_prefix .= $rating;
 			}
@@ -661,22 +661,22 @@ function serviya_suite_product_render( $atts ): string {
 		if ( false === strpos( $summary_html, 'woocommerce-Price-amount' )
 			&& false === strpos( $summary_html, 'class="price"' )
 			&& function_exists( 'woocommerce_template_single_price' ) ) {
-			$summary_prefix .= serviya_suite_product_capture( 'woocommerce_template_single_price' );
+			$summary_prefix .= miran_suite_product_capture( 'woocommerce_template_single_price' );
 		}
 		if ( false === strpos( $summary_html, 'woocommerce-product-details__short-description' )
 			&& function_exists( 'woocommerce_template_single_excerpt' ) ) {
-			$summary_suffix .= serviya_suite_product_capture( 'woocommerce_template_single_excerpt' );
+			$summary_suffix .= miran_suite_product_capture( 'woocommerce_template_single_excerpt' );
 		}
 		if ( false === strpos( $summary_html, 'single_add_to_cart_button' )
 			&& false === strpos( $summary_html, 'form class="cart"' )
 			&& function_exists( 'woocommerce_template_single_add_to_cart' ) ) {
-			$summary_suffix .= serviya_suite_product_capture( 'woocommerce_template_single_add_to_cart' );
+			$summary_suffix .= miran_suite_product_capture( 'woocommerce_template_single_add_to_cart' );
 		}
 		// The default bottom product meta is intentionally not used here:
 		// category/tag output is hidden by the design, while SKU is moved
 		// to a small framed label directly below the product title.
 		$summary_html = $summary_prefix . $summary_html . $summary_suffix;
-		$summary_html = serviya_suite_product_price_card( $summary_html );
+		$summary_html = miran_suite_product_price_card( $summary_html );
 
 		$sku = method_exists( $product, 'get_sku' ) ? trim( (string) $product->get_sku() ) : '';
 		if ( '' !== $sku ) {
@@ -702,7 +702,7 @@ function serviya_suite_product_render( $atts ): string {
 			|| false !== strpos( $summary_html, 'wd-timer' )
 			|| false !== strpos( $summary_html, 'woodmart-timer' );
 		if ( ! $has_countdown ) {
-			$countdown_html = serviya_suite_product_countdown_html( $product );
+			$countdown_html = miran_suite_product_countdown_html( $product );
 			if ( '' !== $countdown_html ) {
 				$countdown_done = 0;
 				$with_countdown = preg_replace_callback(
@@ -724,24 +724,24 @@ function serviya_suite_product_render( $atts ): string {
 			}
 		}
 
-		$after_html = serviya_suite_product_capture( static function (): void {
+		$after_html = miran_suite_product_capture( static function (): void {
 			do_action( 'woocommerce_after_single_product_summary' );
 		} );
 		if ( false === strpos( $after_html, 'woocommerce-tabs' )
 			&& function_exists( 'woocommerce_output_product_data_tabs' ) ) {
-			$after_html = serviya_suite_product_capture( 'woocommerce_output_product_data_tabs' ) . $after_html;
+			$after_html = miran_suite_product_capture( 'woocommerce_output_product_data_tabs' ) . $after_html;
 		}
 		if ( false === strpos( $after_html, 'up-sells' )
 			&& ! empty( $product->get_upsell_ids() )
 			&& function_exists( 'woocommerce_upsell_display' ) ) {
-			$after_html .= serviya_suite_product_capture( 'woocommerce_upsell_display' );
+			$after_html .= miran_suite_product_capture( 'woocommerce_upsell_display' );
 		}
 		if ( false === strpos( $after_html, 'related products' )
 			&& function_exists( 'woocommerce_output_related_products' ) ) {
-			$after_html .= serviya_suite_product_capture( 'woocommerce_output_related_products' );
+			$after_html .= miran_suite_product_capture( 'woocommerce_output_related_products' );
 		}
 
-		$after_product_html = serviya_suite_product_capture( static function (): void {
+		$after_product_html = miran_suite_product_capture( static function (): void {
 			do_action( 'woocommerce_after_single_product' );
 		} );
 
@@ -749,9 +749,9 @@ function serviya_suite_product_render( $atts ): string {
 			|| false !== strpos( $summary_html, 'wd-breadcrumbs' )
 			|| false !== strpos( $before_html, 'woocommerce-breadcrumb' );
 		$shop_url = function_exists( 'wc_get_page_permalink' ) ? (string) wc_get_page_permalink( 'shop' ) : '';
-		$category = serviya_suite_product_primary_category( $product );
-		$brand    = serviya_suite_product_brand_label( $product );
-		$stock    = serviya_suite_product_stock_pill( $product );
+		$category = miran_suite_product_primary_category( $product );
+		$brand    = miran_suite_product_brand_label( $product );
+		$stock    = miran_suite_product_stock_pill( $product );
 		$show_sticky  = '1' === (string) $atts['sticky'] && $product->is_purchasable() && $product->is_in_stock();
 		$show_consult = '1' === (string) $atts['consult'];
 
@@ -766,21 +766,21 @@ function serviya_suite_product_render( $atts ): string {
 				: '<a class="sp-chip" href="' . esc_url( $link ) . '">' . esc_html( $category->name ) . '</a>';
 		}
 		$eyebrow .= '<span class="sp-chip sp-chip--stock ' . esc_attr( $stock['class'] ) . '" data-sp-stock-pill'
-			. ' data-stock-format="' . esc_attr( serviya_suite_product_stock_format() ) . '"'
+			. ' data-stock-format="' . esc_attr( miran_suite_product_stock_format() ) . '"'
 			. ' data-low-threshold="' . esc_attr( (string) ( method_exists( $product, 'get_low_stock_amount' ) ? (int) $product->get_low_stock_amount() : 0 ) ) . '">'
 			. '<span class="sp-stock-dot" aria-hidden="true"></span>'
 			. '<span data-sp-stock-text>' . esc_html( $stock['text'] ) . '</span></span>';
 		$eyebrow .= '</div>';
 
 		$consult_html = $show_consult
-			? serviya_suite_product_consult_box( $product, trim( (string) $atts['phone'] ), trim( (string) $atts['whatsapp'] ), trim( (string) $atts['telegram'] ) )
+			? miran_suite_product_consult_box( $product, trim( (string) $atts['phone'] ), trim( (string) $atts['whatsapp'] ), trim( (string) $atts['telegram'] ) )
 			: '';
 
 		$product_classes = function_exists( 'wc_product_class' )
-			? serviya_suite_product_capture( static function () use ( $product ): void {
-				wc_product_class( 'serviya-product__article', $product );
+			? miran_suite_product_capture( static function () use ( $product ): void {
+				wc_product_class( 'miran-product__article', $product );
 			} )
-			: 'class="serviya-product__article product"';
+			: 'class="miran-product__article product"';
 
 		$sticky_html = '';
 		if ( $show_sticky ) {
@@ -795,10 +795,10 @@ function serviya_suite_product_render( $atts ): string {
 		}
 
 		$html = $before_html
-			. '<section class="serviya-product" dir="rtl" data-serviya-product>'
+			. '<section class="miran-product" dir="rtl" data-miran-product>'
 			. '<div class="sp-container">'
 			. '<div class="sp-toolbar">'
-			. ( $has_breadcrumb ? '' : serviya_suite_product_breadcrumb( $product ) )
+			. ( $has_breadcrumb ? '' : miran_suite_product_breadcrumb( $product ) )
 			. '</div>'
 			. '<article id="product-' . esc_attr( (string) $product_id ) . '" ' . $product_classes . '>'
 			. '<div class="sp-main product-image-summary"><div class="sp-main-inner product-image-summary-inner">'
@@ -834,4 +834,6 @@ function serviya_suite_product_render( $atts ): string {
 	return $html ?? '';
 }
 
-add_shortcode( 'serviya_product', 'serviya_suite_product_render' );
+add_shortcode( 'miran_product', 'miran_suite_product_render' );
+// Legacy alias for templates/pages built before the rename.
+add_shortcode( 'serviya_product', 'miran_suite_product_render' );
