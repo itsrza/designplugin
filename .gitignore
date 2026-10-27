@@ -9,12 +9,14 @@ node_modules/
 *.log
 npm-debug.log*
 
-# Build / release artefacts (the plugin sources are committed, not the zips)
-release/
+# Build / release artefacts
 dist/
 build/
 *.zip
 *.tar.gz
+# ...but the packaged plugin is published so it has a stable download link
+!legacy/serviya-3.2.3-original.zip
+!release/miran-*.zip
 
 # Local WordPress test installs, if someone points the plugin at one
 wp-content/
