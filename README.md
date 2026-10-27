@@ -17,6 +17,7 @@ docs/
   REBRAND.md        چک‌لیست اجرایی فاز ۰ تا ۵: بکاپ، WP-CLI، پاک‌سازی داده، QA عددی
   MIRAN-PLAN.md     برنامه و سؤالات باز پروژه جدید (کلون سرویا برای سایت جدید)
   BRAND.md          پالت میران، کنتراست‌ها، نگاشت توکن‌ها، دسته‌بندی‌ها و اسلاگ‌ها
+  RELEASE.md        چک‌لیست انتشار نسخه و قالب لینک دانلود
 tools/
   build.mjs         مینیفای CSS/JS
   lint-php.mjs      بررسی سینتکس PHP بدون باینری php
@@ -44,6 +45,16 @@ node tools/rebrand.mjs --write                       # بکاپ + اعمال + �
 - فایل‌های خوانا (`miran-*.css`, `miran-*.js`) را ویرایش کنید، نه `.min.*` را.
 - نسخه را هم‌زمان در `miran/miran.php` (هدر + `MIRAN_VERSION`) و `package.json` به‌روز کنید.
 - شورت‌کدها: `[miran_shop]` · `[miran_blog]` · `[miran_product]` · `[miran_post]`
+
+## انتشار و دانلود
+
+```bash
+npm run build && npm run check && npm run package   # → release/miran-<version>.zip
+```
+
+- لینک دانلود هر نسخه: `https://github.com/itsrza/designplugin/raw/arena/8c639e3c-designplugin/release/miran-<version>.zip`
+- قالب و چک‌لیست انتشار: [`docs/RELEASE.md`](docs/RELEASE.md)
+- جدول نسخه‌ها: [`release/README.md`](release/README.md)
 
 ## مستندات
 
