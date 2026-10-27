@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>میران — پیش‌نمایش پالت و اجزای افزونه</title>
+<link rel="stylesheet" href="../serviya/assets/css/serviya-shop.css">
+<link rel="stylesheet" href="../serviya/assets/css/serviya-product.css">
+<link rel="stylesheet" href="../serviya/assets/css/serviya-blog.css">
+<link rel="stylesheet" href="../serviya/assets/css/serviya-post.css">
+<style>
+  :root { --mr-primary:#7A4A16; --mr-dark:#46270B; --mr-accent:#D9A86C; --mr-bg:#FBF6EE; }
+  body { margin:0; background:#fff; font-family:"Vazirmatn","vazirmatn",Tahoma,Arial,sans-serif; color:#3A2A1C; }
+  .pv-note { background:var(--mr-dark); color:#F2E7D9; padding:14px 20px; font-size:13px; line-height:1.9; }
+  .pv-note b { color:var(--mr-accent); }
+  .pv-wrap { max-width:1320px; margin:0 auto; padding:24px 16px 64px; }
+  .pv-h { display:flex; align-items:center; gap:10px; margin:44px 0 16px; font-size:20px; font-weight:800; color:var(--mr-dark); }
+  .pv-h::before { content:""; width:6px; height:26px; border-radius:99px; background:var(--mr-accent); }
+  .pv-h small { font-weight:600; font-size:12px; color:#9B846C; }
+  .pv-swatches { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); gap:12px; }
+  .pv-sw { border:1px solid #EADFCF; border-radius:16px; overflow:hidden; background:#fff; }
+  .pv-sw div { height:64px; }
+  .pv-sw p { margin:0; padding:8px 12px; font-size:12.5px; line-height:1.7; }
+  .pv-sw code { font-size:11.5px; color:#6F5B47; }
+  .pv-ph { position:relative; aspect-ratio:1/1; background:linear-gradient(135deg,#F3E6D4,#E3CFB2); display:grid; place-items:center; color:#8a6c4a; font-size:12px; }
+  .pv-ph--tall { aspect-ratio:4/3; }
+  .pv-mock { border:1px dashed #EADFCF; border-radius:18px; padding:14px; }
+  .pv-grid3 { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px; }
+  .pv-ratio { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:10px; font-size:13px; }
+  .pv-ratio div { border:1px solid #EADFCF; border-radius:12px; padding:10px 12px; display:flex; justify-content:space-between; gap:10px; }
+  .pv-ratio b { color:var(--mr-primary); }
+  .ok { color:#15803D; }
+  .warn { color:#B45309; }
+</style>
+</head>
+<body>
+
+<div class="pv-note">
+  <b>پیش‌نمایش است، نه صفحه‌ی واقعی سایت.</b>
+  این فایل همان CSS واقعی افزونه (نسخه ۳.۳.۰) را لود می‌کند و مارک‌آپ کارت‌ها/بج‌ها/قیمت را با داده‌ی نمونه بازسازی می‌کند تا پالت میران را قبل از دست‌زدن به وردپرس ببینید.
+  تصاویر جای‌گذاری شده‌اند (بدون درخواست شبکه) و فونت وزیرمتن از سایت شما می‌آید؛ این‌جا فونت جانشین Tahoma است.
+</div>
+
+<div class="pv-wrap">
+
+  <div class="pv-h">پالت میران <small>اندازه‌گیری کنتراست با فرمول WCAG</small></div>
+  <div class="pv-swatches">
+    <div class="pv-sw"><div style="background:#D9A86C"></div><p>Accent / کرافت<br><code>#D9A86C</code><br><code>--*-accent</code></p></div>
+    <div class="pv-sw"><div style="background:#C8924F"></div><p>Accent hover<br><code>#C8924F</code></p></div>
+    <div class="pv-sw"><div style="background:#F9EFE1"></div><p>Accent soft<br><code>#F9EFE1</code></p></div>
+    <div class="pv-sw"><div style="background:#46270B"></div><p>Dark<br><code>#46270B</code> · <code>--*-navy</code></p></div>
+    <div class="pv-sw"><div style="background:#7A4A16"></div><p>Primary / قهوه‌ای لوگو<br><code>#7A4A16</code> · <code>--*-ink</code></p></div>
+    <div class="pv-sw"><div style="background:#6F5B47"></div><p>خاکستری متن<br><code>#6F5B47</code></p></div>
+    <div class="pv-sw"><div style="background:#EADFCF"></div><p>حاشیه<br><code>#EADFCF</code></p></div>
+    <div class="pv-sw"><div style="background:#F6F1E9"></div><p>پس‌زمینه نرم<br><code>#F6F1E9</code></p></div>
+    <div class="pv-sw"><div style="background:#FF047E"></div><p>لیبل تخفیف (معلق)<br><code>#FF047E</code></p></div>
+    <div class="pv-sw"><div style="background:#EC3680"></div><p>قیمت نهایی (معلق)<br><code>#EC3680</code></p></div>
+  </div>
+
+  <div class="pv-ratio" style="margin-top:14px">
+    <div><span>متن دکمه روی کرافت</span><b>۶٫۲۸:۱ <span class="ok">✓</span></b></div>
+    <div><span>قهوه‌ای لوگو روی سفید</span><b>۷٫۴۵:۱ <span class="ok">✓</span></b></div>
+    <div><span>تیتر تیره روی سفید</span><b>۱۳٫۵:۱ <span class="ok">✓</span></b></div>
+    <div><span>متن بدنه روی سفید</span><b>۱۳٫۷۴:۱ <span class="ok">✓</span></b></div>
+    <div><span>کرافت روی تیره</span><b>۶٫۲۸:۱ <span class="ok">✓</span></b></div>
+    <div><span>کرافت روی سفید (فقط تزئینی)</span><b>۲٫۱۵:۱ <span class="warn">متن نشود</span></b></div>
+  </div>
+
+  <div class="pv-h">فروشگاه <small>[serviya_shop]</small></div>
+  <div class="serviya-shop-widget pv-mock">
+    <div class="ss-container">
+      <div class="ss-header-bar">
+        <nav class="ss-breadcrumbs" aria-label="مسیر صفحه">
+          <ol>
+            <li><a href="#">خانه</a><span class="ss-sep">/</span></li>
+            <li><a href="#">فروشگاه</a><span class="ss-sep">/</span></li>
+            <li><h1 class="ss-current" aria-current="page">زیپ کیپ فانتزی</h1></li>
+          </ol>
+        </nav>
+        <div class="ss-product-count"><span class="ss-total-count">۱۲</span> کالا</div>
+      </div>
+
+      <div class="ss-top-categories">
+        <a class="ss-cat-item active" href="#"><span class="ss-cat-title">زیپ کیپ فانتزی</span></a>
+        <a class="ss-cat-item" href="#"><span class="ss-cat-title">گیفت چوبی</span></a>
+        <a class="ss-cat-item" href="#"><span class="ss-cat-title">کاور</span></a>
+        <a class="ss-cat-item" href="#"><span class="ss-cat-title">سلفون</span></a>
+        <a class="ss-cat-item" href="#"><span class="ss-cat-title">پلاستیک خرگوشی</span></a>
+      </div>
+
+      <div class="ss-grid pv-grid3">
+        <article class="ss-card">
+          <a href="#" class="ss-card-img">
+            <span class="ss-badge-discount">۲۸٪-</span>
+            <span class="ss-badge-dim">ابعاد <span>20 × 15 × 10</span></span>
+            <span class="pv-ph">تصویر محصول</span>
+          </a>
+          <div class="ss-card-content">
+            <a href="#" class="ss-card-title-link"><h3 class="ss-card-title">زیپ کیپ بانکه ۲</h3></a>
+            <div class="ss-card-cat">زیپ کیپ فانتزی</div>
+            <div class="ss-card-price-box">
+              <span class="ss-price-old">۱۸٬۰۰۰</span><span class="ss-price-new">۱۳٬۰۰۰</span><span class="ss-price-currency">تومان</span>
+            </div>
+            <button type="button" class="ss-card-btn">
+              <span class="ss-btn-label">افزودن به سبد خرید</span>
+              <svg class="ss-btn-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            </button>
+          </div>
+        </article>
+
+        <article class="ss-card">
+          <a href="#" class="ss-card-img">
+            <span class="ss-badge-dim">ابعاد <span>18 × 12 × 8</span></span>
+            <span class="pv-ph">تصویر محصول</span>
+          </a>
+          <div class="ss-card-content">
+            <a href="#" class="ss-card-title-link"><h3 class="ss-card-title">ساک‌دستی فانتزی سری ۷</h3></a>
+            <div class="ss-card-cat">زیپ کیپ فانتزی</div>
+            <div class="ss-card-price-box"><span class="ss-price-new">۱۱۵٬۰۰۰</span><span class="ss-price-currency">تومان</span></div>
+            <a href="#" class="ss-card-btn ss-card-link-btn"><span class="ss-btn-label">انتخاب گزینه‌ها</span></a>
+          </div>
+        </article>
+
+        <article class="ss-card is-out-of-stock">
+          <a href="#" class="ss-card-img"><span class="pv-ph">تصویر محصول</span></a>
+          <div class="ss-card-content">
+            <a href="#" class="ss-card-title-link"><h3 class="ss-card-title">زیپ کیپ الترامن</h3></a>
+            <div class="ss-card-cat">زیپ کیپ فانتزی</div>
+            <div class="ss-card-price-box"><span class="ss-price-new">۱۳٬۰۰۰</span><span class="ss-price-currency">تومان</span></div>
+            <button type="button" class="ss-card-btn is-unavailable" disabled><span class="ss-btn-label">ناموجود</span></button>
+          </div>
+        </article>
+      </div>
+
+      <div class="ss-pagination"><button type="button" class="ss-load-more">مشاهده محصولات بیشتر</button></div>
+    </div>
+  </div>
+
+  <div class="pv-h">صفحه محصول <small>[serviya_product] — کارت قیمت، بج‌ها، تب‌ها، نوار چسبان</small></div>
+  <div class="serviya-product pv-mock">
+    <div class="sp-container">
+      <div class="sp-toolbar">
+        <nav class="sp-breadcrumb" aria-label="مسیر صفحه">
+          <ol>
+            <li><a href="#">خانه</a></li>
+            <li><a href="#">زیپ کیپ فانتزی</a></li>
+            <li><span class="sp-current" aria-current="page">زیپ کیپ بانکه ۲</span></li>
+          </ol>
+        </nav>
+      </div>
+      <div class="sp-main">
+        <div class="sp-main-inner">
+          <div class="sp-gallery" style="position:relative">
+            <span class="sp-sale-badge">۲۸٪ تخفیف</span>
+            <span class="sp-dim-badge">ابعاد <span>20 × 15 × 10</span></span>
+            <span class="pv-ph pv-ph--tall">گالری محصول</span>
+          </div>
+          <div class="sp-summary">
+            <div class="sp-eyebrow">
+              <span class="sp-chip sp-chip--brand">برند: میران</span>
+              <a class="sp-chip" href="#">زیپ کیپ فانتزی</a>
+              <span class="sp-chip sp-chip--stock"><span class="sp-stock-dot" aria-hidden="true"></span>موجود</span>
+            </div>
+            <h1 class="product_title entry-title">زیپ کیپ بانکه ۲</h1>
+            <div class="sp-sku-row"><span class="sp-sku-chip">شناسه محصول: <span class="sp-sku-value" dir="ltr">MIR-1023</span></span></div>
+            <p class="price sp-price-card">
+              <span class="sp-price-stack">
+                <del><span class="woocommerce-Price-amount"><bdi>۱۸٬۰۰۰ <span class="woocommerce-Price-currencySymbol">تومان</span></bdi></span></del>
+                <ins><span class="woocommerce-Price-amount"><bdi>۱۳٬۰۰۰ <span class="woocommerce-Price-currencySymbol">تومان</span></bdi></span></ins>
+              </span>
+              <span class="sp-price-label">قیمت فروش ویژه</span>
+            </p>
+            <div class="sp-countdown" data-sp-countdown data-end="1790000000">
+              <span class="sp-countdown-label">تا پایان فروش ویژه</span>
+              <div class="sp-countdown-units">
+                <span class="sp-countdown-unit"><strong>۳۲</strong><small>ثانیه</small></span>
+                <span class="sp-countdown-unit"><strong>۱۴</strong><small>دقیقه</small></span>
+                <span class="sp-countdown-unit"><strong>۰۹</strong><small>ساعت</small></span>
+                <span class="sp-countdown-unit"><strong>۳</strong><small>روز</small></span>
+              </div>
+            </div>
+            <form class="cart" method="post">
+              <div class="quantity"><input type="number" value="1" min="1"></div>
+              <button type="submit" class="single_add_to_cart_button button alt">افزودن به سبد خرید</button>
+            </form>
+            <div class="sp-consult">
+              <div class="sp-consult-head"><span class="sp-consult-icon">☎</span> مشاوره قبل از خرید</div>
+              <p>برای انتخاب بهتر یا ثبت سفارش اختصاصی، تیم میران پاسخ‌گوی شماست.</p>
+              <a class="sp-consult-btn" href="#">۰۹۳۸۲۴۲۰۲۷۲ (تماس)</a>
+              <a class="sp-consult-btn" href="#">واتس‌اپ</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sp-after">
+        <div class="woocommerce-tabs">
+          <ul class="tabs">
+            <li class="active"><a href="#">توضیحات</a></li>
+            <li><a href="#">اطلاعات تکمیلی</a></li>
+            <li><a href="#">دیدگاه‌ها</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="sp-sticky" style="position:static;display:block;margin-top:18px">
+        <div class="sp-sticky-inner">
+          <span class="pv-ph" style="width:44px;height:44px;border-radius:10px;font-size:0;aspect-ratio:auto">▪</span>
+          <span class="sp-sticky-info"><strong>زیپ کیپ بانکه ۲</strong>
+            <span class="sp-sticky-price"><del>۱۸٬۰۰۰</del> <ins>۱۳٬۰۰۰</ins> تومان</span></span>
+          <button type="button" class="sp-sticky-btn">خرید محصول</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pv-h">وبلاگ <small>[serviya_blog]</small></div>
+  <div class="serviya-blog pv-mock">
+    <section class="b-hero" style="border-radius:18px">
+      <div class="bw" style="position:relative">
+        <h1>مجله <em>میران</em></h1>
+        <p style="margin-top:10px">ایده، راهنما و الهام برای بسته‌بندی هدیه</p>
+      </div>
+    </section>
+    <div class="bw" style="margin-top:18px">
+      <div class="b-filters">
+        <button type="button" class="b-fchip" aria-pressed="true">همه <small>۱۲</small></button>
+        <button type="button" class="b-fchip" aria-pressed="false">راهنمای خرید</button>
+        <button type="button" class="b-fchip" aria-pressed="false">ایده هدیه</button>
+      </div>
+      <div class="pv-grid3">
+        <article class="b-card">
+          <a href="#" class="b-card-img"><span class="b-card-cat">راهنمای خرید</span><span class="pv-ph pv-ph--tall">تصویر مقاله</span></a>
+          <div class="b-card-body">
+            <div class="b-card-meta"><span>۱۲ آبان ۱۴۰۴</span></div>
+            <h3><a href="#">چطور زیپ‌کیپ مناسب هدیه انتخاب کنیم؟</a></h3>
+            <p>سه معیار ساده برای انتخاب اندازه، جنس و چاپ…</p>
+            <div class="b-card-foot"><a class="b-card-read" href="#">مطالعه مقاله</a><a class="b-card-ar" href="#">→</a></div>
+          </div>
+        </article>
+        <article class="b-card">
+          <a href="#" class="b-card-img"><span class="pv-ph pv-ph--tall">تصویر مقاله</span></a>
+          <div class="b-card-body">
+            <div class="b-card-meta"><span>۸ آبان ۱۴۰۴</span></div>
+            <h3><a href="#">ایده‌های بسته‌بندی برای هدیه‌های کوچک</a></h3>
+            <p>با کمترین هزینه، بیشترین تأثیر…</p>
+            <div class="b-card-foot"><a class="b-card-read" href="#">مطالعه مقاله</a><a class="b-card-ar" href="#">→</a></div>
+          </div>
+        </article>
+      </div>
+      <div class="b-more-wrap"><button type="button" class="b-more"><span class="b-txt">نمایش مقالات بیشتر</span></button></div>
+    </div>
+    <section class="b-cta" style="border-radius:18px;margin-top:22px">
+      <div class="bw b-cta-in">
+        <h2>به دنبال بسته‌بندی مناسب <em>کسب‌وکار خود هستید؟</em></h2>
+        <p>با مشاوران میران در تماس باشید؛ راهنمایی رایگان برای انتخاب جنس، سایز و چاپ اختصاصی.</p>
+        <div class="b-cta-btns">
+          <a class="b-btn b-btn--g" href="#">تماس با میران</a>
+          <a class="b-btn b-btn--w" href="#">مشاهده محصولات</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="pv-h">مقاله <small>[serviya_post]</small></div>
+  <div class="serviya-post pv-mock">
+    <div class="svp-container">
+      <nav class="svp-breadcrumb" aria-label="مسیر صفحه">
+        <ol>
+          <li><a href="#">خانه</a></li>
+          <li><a href="#">مجله میران</a></li>
+          <li><a href="#">راهنمای خرید</a></li>
+          <li><span class="svp-current" aria-current="page">چطور زیپ‌کیپ مناسب هدیه انتخاب کنیم؟</span></li>
+        </ol>
+      </nav>
+      <div class="svp-layout">
+        <article class="svp-article">
+          <div class="svp-chips"><a class="svp-chip" href="#">راهنمای خرید</a></div>
+          <h1 class="svp-title">چطور زیپ‌کیپ مناسب هدیه انتخاب کنیم؟</h1>
+          <p class="svp-lead">سه معیار ساده برای انتخاب اندازه، جنس و چاپ زیپ‌کیپ هدیه.</p>
+          <div class="svp-meta">
+            <span class="svp-meta-item">۱۲ آبان ۱۴۰۴</span>
+            <span class="svp-meta-item">۴ دقیقه مطالعه</span>
+            <span class="svp-meta-item">۲ دیدگاه</span>
+          </div>
+          <div class="svp-content">
+            <h2>اندازه را اول انتخاب کنید</h2>
+            <p>قبل از هر چیز اندازه‌ی هدیه را مشخص کنید؛ زیپ‌کیپ کوچک برای جواهر و زیپ‌کیپ بانکه برای ست‌های چندتکه مناسب است.</p>
+            <blockquote>قاعده‌ی ساده: هدیه‌ای که تکان می‌خورد، بسته‌بندی محکم‌تر می‌خواهد.</blockquote>
+          </div>
+          <div class="svp-tags"><span class="svp-tags-label">برچسب‌ها:</span><a href="#">بسته‌بندی</a><a href="#">هدیه</a></div>
+        </article>
+        <aside class="svp-sidebar">
+          <div class="svp-widget"><h2 class="svp-widget-title">فهرست مقاله</h2>
+            <ul class="svp-toc"><li><a href="#">اندازه را اول انتخاب کنید</a></li><li><a href="#">جنس و دوام</a></li></ul>
+          </div>
+          <div class="svp-widget"><h2 class="svp-widget-title">دسته‌بندی‌ها</h2>
+            <ul class="svp-cats"><li class="is-current"><a href="#">راهنمای خرید</a><span class="svp-cat-count">۵</span></li><li><a href="#">ایده هدیه</a><span class="svp-cat-count">۳</span></li></ul>
+          </div>
+        </aside>
+      </div>
+      <section class="svp-related">
+        <div class="svp-related-head"><h2>مقالات دیگر</h2><a class="svp-related-all" href="#">همه مقالات مجله میران</a></div>
+      </section>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

@@ -4,32 +4,32 @@
  * logic lives here. All rules are scoped to .serviya-product.
  */
 .serviya-product {
-  --sp-lime: #b7e600;
-  --sp-lime-hover: #a3cc00;
-  --sp-lime-soft: #f4fbe3;
-  --sp-navy: #18233d;
-  --sp-ink: #2b3b66;
-  --sp-text: #292d32;
-  --sp-muted: #667085;
-  --sp-gray: #8892a3;
-  --sp-border: #e2e8f0;
+  --sp-accent: #D9A86C;
+  --sp-accent-hover: #C8924F;
+  --sp-accent-soft: #F9EFE1;
+  --sp-navy: #46270B;
+  --sp-ink: #7A4A16;
+  --sp-text: #3A2A1C;
+  --sp-muted: #6F5B47;
+  --sp-gray: #9B846C;
+  --sp-border: #EADFCF;
   --sp-soft: #f6f8f3;
   --sp-red: #ef4056;
   --sp-sale: #ff047e;
   --sp-price-final: #ec3680;
   --sp-gallery-pad: clamp(12px, 2vw, 20px);
-  --sp-dim: #b8e620;
+  --sp-dim: #D9A86C;
   --sp-green: #15803d;
   --sp-amber: #b45309;
   --sp-radius: 24px;
-  --sp-shadow: 0 18px 50px rgba(24, 35, 61, 0.08);
+  --sp-shadow: 0 18px 50px rgba(70,39,11, 0.08);
   box-sizing: border-box;
   direction: rtl;
   padding: clamp(18px, 3vw, 34px) 0 clamp(42px, 6vw, 72px);
   color: var(--sp-text);
   background:
-    radial-gradient(620px 360px at 8% -40px, rgba(183, 230, 0, 0.16), transparent 65%),
-    linear-gradient(180deg, #fbfcf8 0%, var(--sp-soft) 100%);
+    radial-gradient(620px 360px at 8% -40px, rgba(217,168,108, 0.16), transparent 65%),
+    linear-gradient(180deg, #FDF9F4 0%, var(--sp-soft) 100%);
   font-family: "vazirmatn", "Vazirmatn", Tahoma, Arial, sans-serif;
   font-size: 15px;
   line-height: 1.8;
@@ -51,7 +51,7 @@
 }
 
 .serviya-product :focus-visible {
-  outline: 3px solid rgba(183, 230, 0, 0.75);
+  outline: 3px solid rgba(217,168,108, 0.75);
   outline-offset: 3px;
 }
 
@@ -106,7 +106,7 @@
 
 .serviya-product .sp-breadcrumb li + li::before {
   flex: 0 0 auto;
-  color: #c3cbd8;
+  color: #CBB9A2;
   content: "/";
 }
 
@@ -159,8 +159,8 @@
 }
 
 .serviya-product .sp-nav-card:hover {
-  border-color: #cfe38a;
-  box-shadow: 0 8px 22px rgba(24, 35, 61, 0.08);
+  border-color: #E7CBA4;
+  box-shadow: 0 8px 22px rgba(70,39,11, 0.08);
   transform: translateY(-1px);
 }
 
@@ -228,7 +228,7 @@
 }
 
 .serviya-product .sp-nav-shop:hover {
-  color: var(--sp-lime);
+  color: var(--sp-accent);
 }
 
 /* ------------------------------------------------------------------- main */
@@ -237,7 +237,7 @@
   overflow: hidden;
   overflow: clip;
   padding: clamp(16px, 3vw, 34px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  border: 1px solid rgba(234,223,207, 0.9);
   border-radius: 30px;
   background: #fff;
   box-shadow: var(--sp-shadow);
@@ -263,11 +263,11 @@
   position: sticky;
   top: 96px;
   padding: var(--sp-gallery-pad);
-  border: 1px solid #edf1e4;
+  border: 1px solid #F2E9DE;
   border-radius: var(--sp-radius);
   background:
-    radial-gradient(420px 260px at 85% 0%, rgba(183, 230, 0, 0.2), transparent 62%),
-    #fbfdf6;
+    radial-gradient(420px 260px at 85% 0%, rgba(217,168,108, 0.2), transparent 62%),
+    #FDF8F2;
 }
 
 .serviya-product .sp-gallery .woocommerce-product-gallery {
@@ -405,14 +405,14 @@
 
 .serviya-product .sp-gallery .flex-control-thumbs img:hover,
 .serviya-product .sp-gallery .flex-control-thumbs img.flex-active {
-  border-color: var(--sp-lime);
+  border-color: var(--sp-accent);
   opacity: 1;
 }
 
 .serviya-product .sp-gallery .woocommerce-product-gallery__trigger {
   border-radius: 50%;
   background: #fff;
-  box-shadow: 0 8px 20px rgba(24, 35, 61, 0.12);
+  box-shadow: 0 8px 20px rgba(70,39,11, 0.12);
 }
 
 .serviya-product .sp-sale-badge {
@@ -427,7 +427,7 @@
   padding: 5px 14px;
   border-radius: 999px;
   background: var(--sp-sale);
-  box-shadow: 0 8px 20px rgba(24, 35, 61, 0.14);
+  box-shadow: 0 8px 20px rgba(70,39,11, 0.14);
   color: #fff;
   font-size: 13px;
   font-weight: 800;
@@ -448,7 +448,7 @@
   padding: 5px 14px;
   border-radius: 999px;
   background: var(--sp-dim);
-  box-shadow: 0 8px 20px rgba(24, 35, 61, 0.14);
+  box-shadow: 0 8px 20px rgba(70,39,11, 0.14);
   color: #000;
   font-size: 13px;
   font-weight: 800;
@@ -468,7 +468,7 @@
   padding: 5px 14px;
   border-radius: 999px !important;
   background: var(--sp-sale) !important;
-  box-shadow: 0 8px 20px rgba(24, 35, 61, 0.14);
+  box-shadow: 0 8px 20px rgba(70,39,11, 0.14);
   color: #fff !important;
   font-size: 13px;
   font-weight: 800;
@@ -487,7 +487,7 @@
   height: 34px;
   padding: 5px 14px;
   background: var(--sp-sale) !important;
-  box-shadow: 0 8px 20px rgba(24, 35, 61, 0.14);
+  box-shadow: 0 8px 20px rgba(70,39,11, 0.14);
   color: #fff !important;
   font-size: 13px;
   font-weight: 800;
@@ -522,7 +522,7 @@
 }
 
 .serviya-product .sp-fallback-thumb.is-active {
-  border-color: var(--sp-lime);
+  border-color: var(--sp-accent);
 }
 
 .serviya-product .sp-fallback-thumb img {
@@ -562,8 +562,8 @@
 }
 
 .serviya-product .sp-chip--brand {
-  border-color: #dcebad;
-  background: var(--sp-lime-soft);
+  border-color: #EBD3B4;
+  background: var(--sp-accent-soft);
   color: var(--sp-ink);
 }
 
@@ -580,9 +580,9 @@
 }
 
 .serviya-product .sp-chip--stock.is-backorder {
-  border-color: #bfdbfe;
-  background: #eff6ff;
-  color: #1d4ed8;
+  border-color: #E6D2B6;
+  background: #FBF3E8;
+  color: #7A4A16;
 }
 
 .serviya-product .sp-chip--stock.is-out {
@@ -665,9 +665,9 @@
   gap: 6px 12px;
   margin: 0 0 18px;
   padding: 15px 18px;
-  border: 1px solid #e2efb4;
+  border: 1px solid #F0DCC1;
   border-radius: 18px;
-  background: linear-gradient(135deg, var(--sp-lime-soft), #fff 72%);
+  background: linear-gradient(135deg, var(--sp-accent-soft), #fff 72%);
   color: var(--sp-navy);
   font-size: clamp(22px, 2.6vw, 30px);
   font-weight: 800;
@@ -871,10 +871,10 @@
 .serviya-product .woocommerce-product-details__short-description {
   margin: 0 0 20px;
   padding: 16px 18px;
-  border: 1px solid #eef1e6;
+  border: 1px solid #F3EADF;
   border-radius: 18px;
   background: var(--sp-soft);
-  color: #475467;
+  color: #6B5643;
 }
 
 .serviya-product .woocommerce-product-details__short-description > :first-child {
@@ -905,7 +905,7 @@
   height: 18px;
   place-items: center;
   border-radius: 50%;
-  background: var(--sp-lime);
+  background: var(--sp-accent);
   color: var(--sp-navy);
   font-size: 11px;
   font-weight: 900;
@@ -990,7 +990,7 @@
 .serviya-product .wd-swatch:hover,
 .serviya-product .woodmart-swatch:hover,
 .serviya-product .variable-item:hover {
-  border-color: #c8d568;
+  border-color: #DCB98D;
   transform: translateY(-1px);
 }
 
@@ -1002,7 +1002,7 @@
 .serviya-product [class*="swatch-item"].active,
 .serviya-product [class*="swatch-item"].selected {
   border-color: var(--sp-navy);
-  box-shadow: 0 0 0 3px rgba(183, 230, 0, 0.55);
+  box-shadow: 0 0 0 3px rgba(217,168,108, 0.55);
 }
 
 .serviya-product .single_variation_wrap {
@@ -1067,8 +1067,8 @@
   padding: 10px 24px;
   border: 0;
   border-radius: 999px;
-  background: linear-gradient(135deg, var(--sp-lime), #cffb4d);
-  box-shadow: 0 12px 26px rgba(183, 230, 0, 0.32);
+  background: linear-gradient(135deg, var(--sp-accent), #E8C795);
+  box-shadow: 0 12px 26px rgba(217,168,108, 0.32);
   color: var(--sp-navy);
   font: inherit;
   font-size: 16px;
@@ -1079,8 +1079,8 @@
 }
 
 .serviya-product .single_add_to_cart_button:hover:not(:disabled) {
-  background: var(--sp-lime-hover);
-  box-shadow: 0 14px 30px rgba(163, 204, 0, 0.34);
+  background: var(--sp-accent-hover);
+  box-shadow: 0 14px 30px rgba(200,146,79, 0.34);
   transform: translateY(-1px);
 }
 
@@ -1108,7 +1108,7 @@
 
 .serviya-product .wd-buy-now-btn:hover,
 .serviya-product .woodmart-buy-now-btn:hover {
-  color: var(--sp-lime);
+  color: var(--sp-accent);
 }
 
 /* Stock is merged into the pill above the title; suppress the duplicate
@@ -1150,7 +1150,7 @@
 .serviya-product progress {
   overflow: hidden;
   border-radius: 999px;
-  background: #edf2f7;
+  background: #F2EBE0;
 }
 
 .serviya-product progress {
@@ -1161,12 +1161,12 @@
 }
 
 .serviya-product progress::-webkit-progress-bar {
-  background: #edf2f7;
+  background: #F2EBE0;
 }
 
 .serviya-product progress::-webkit-progress-value,
 .serviya-product progress::-moz-progress-bar {
-  background: linear-gradient(90deg, var(--sp-lime-hover), var(--sp-lime));
+  background: linear-gradient(90deg, var(--sp-accent-hover), var(--sp-accent));
 }
 
 .serviya-product table[class*="discount"],
@@ -1252,8 +1252,8 @@
 .serviya-product .wd-wishlist-btn a:hover,
 .serviya-product .compare-button a:hover,
 .serviya-product .yith-wcwl-add-to-wishlist a:hover {
-  border-color: #cfe38a;
-  background: var(--sp-lime-soft);
+  border-color: #E7CBA4;
+  background: var(--sp-accent-soft);
 }
 
 /* Categories/tags are not repeated at the bottom of the summary. SKU has
@@ -1275,7 +1275,7 @@
   overflow: hidden;
   border-radius: 20px;
   background:
-    radial-gradient(260px 180px at 100% 0%, rgba(183, 230, 0, 0.35), transparent 60%),
+    radial-gradient(260px 180px at 100% 0%, rgba(217,168,108, 0.35), transparent 60%),
     var(--sp-navy);
   color: #fff;
 }
@@ -1293,7 +1293,7 @@
   height: 50px;
   place-items: center;
   border-radius: 16px;
-  background: var(--sp-lime);
+  background: var(--sp-accent);
   color: var(--sp-navy);
 }
 
@@ -1331,8 +1331,8 @@
 }
 
 .serviya-product .sp-consult-btn:hover {
-  border-color: var(--sp-lime);
-  color: var(--sp-lime);
+  border-color: var(--sp-accent);
+  color: var(--sp-accent);
 }
 
 /* ------------------------------------------------------------------ after */
@@ -1343,10 +1343,10 @@
 .serviya-product .sp-after > * {
   margin: 0 0 24px;
   padding: clamp(18px, 3vw, 32px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+  border: 1px solid rgba(234,223,207, 0.9);
   border-radius: 26px;
   background: #fff;
-  box-shadow: 0 12px 36px rgba(24, 35, 61, 0.05);
+  box-shadow: 0 12px 36px rgba(70,39,11, 0.05);
 }
 
 .serviya-product .woocommerce-tabs {
@@ -1400,7 +1400,7 @@
   padding: 0 !important;
   border: 0 !important;
   border-radius: 999px !important;
-  background: #eef1f5 !important;
+  background: #F1EADF !important;
   box-shadow: none !important;
 }
 
@@ -1411,7 +1411,7 @@
   border-radius: 999px !important;
   background: transparent !important;
   box-shadow: none !important;
-  color: #71809a !important;
+  color: #8A755C !important;
   font-size: clamp(15px, 1.5vw, 18px) !important;
   font-weight: 700;
   line-height: 1.6;
@@ -1419,7 +1419,7 @@
 }
 
 .serviya-product .woocommerce-tabs ul.tabs li:hover:not(.active) {
-  background: var(--sp-lime-soft) !important;
+  background: var(--sp-accent-soft) !important;
 }
 
 .serviya-product .woocommerce-tabs ul.tabs li:hover:not(.active) a {
@@ -1436,7 +1436,7 @@
 
 .serviya-product .woocommerce-tabs .panel {
   margin: 0;
-  color: #475467;
+  color: #6B5643;
 }
 
 .serviya-product .woocommerce-tabs .panel h2,
@@ -1499,7 +1499,7 @@
 }
 
 .serviya-product table.shop_attributes td {
-  color: #475467;
+  color: #6B5643;
   font-weight: 500;
 }
 
@@ -1594,7 +1594,7 @@
 
 .serviya-product .panel input[type="submit"]:hover,
 .serviya-product .panel button[type="submit"]:hover {
-  color: var(--sp-lime);
+  color: var(--sp-accent);
 }
 
 /* ----------------------------------------------------- FBT / product rows */
@@ -1617,7 +1617,7 @@
   width: 9px;
   height: 28px;
   border-radius: 99px;
-  background: var(--sp-lime);
+  background: var(--sp-accent);
   content: "";
 }
 
@@ -1711,7 +1711,7 @@
 }
 
 .serviya-product ul.products:not(.wd-products) li.product .button:hover {
-  background: var(--sp-lime);
+  background: var(--sp-accent);
   color: var(--sp-navy);
 }
 
@@ -1746,10 +1746,10 @@
   width: min(1320px, 100%);
   margin-inline: auto;
   padding: 9px;
-  border: 1px solid rgba(226, 232, 240, 0.95);
+  border: 1px solid rgba(234,223,207, 0.95);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 18px 45px rgba(24, 35, 61, 0.18);
+  box-shadow: 0 18px 45px rgba(70,39,11, 0.18);
   backdrop-filter: blur(14px);
 }
 
@@ -1821,7 +1821,7 @@
   padding: 9px 22px;
   border: 0;
   border-radius: 999px;
-  background: var(--sp-lime);
+  background: var(--sp-accent);
   color: var(--sp-navy);
   font: inherit;
   font-weight: 800;
@@ -1832,8 +1832,8 @@
  * only its buy button, keep the theme layout untouched. */
 .wd-sticky-btn .single_add_to_cart_button,
 .wd-sticky-btn .wd-sticky-add-to-cart {
-  background: #b7e600;
-  color: #18233d;
+  background: #D9A86C;
+  color: #46270B;
   font-family: "vazirmatn", "Vazirmatn", Tahoma, Arial, sans-serif;
   font-weight: 800;
 }
@@ -1848,7 +1848,7 @@
 
 .wd-sticky-btn .price > del {
   order: 1;
-  color: #8892a3;
+  color: #9B846C;
   font-size: 12.5px;
 }
 

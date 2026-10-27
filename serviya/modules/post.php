@@ -214,7 +214,7 @@ function serviya_suite_post_icon( string $name, int $size = 15 ): string {
 function serviya_suite_post_breadcrumb( WP_Post $post, string $blog_url ): string {
 	$items = array(
 		array( 'label' => 'خانه', 'url' => home_url( '/' ) ),
-		array( 'label' => 'مجله سرویا', 'url' => $blog_url ),
+		array( 'label' => 'مجله میران', 'url' => $blog_url ),
 	);
 	$categories = serviya_suite_post_categories( $post );
 	if ( ! empty( $categories ) && $categories[0] instanceof WP_Term ) {
@@ -669,7 +669,7 @@ function serviya_suite_post_render( $atts ): string {
 			if ( '' !== $cards ) {
 				$related_html = '<section class="svp-related">'
 					. '<div class="svp-related-head"><h2>مقالات دیگر</h2>'
-					. '<a class="svp-related-all" href="' . esc_url( $blog_url ) . '">همه مقالات مجله سرویا</a></div>'
+					. '<a class="svp-related-all" href="' . esc_url( $blog_url ) . '">همه مقالات مجله میران</a></div>'
 					. '<div class="svp-related-grid">' . $cards . '</div></section>';
 			}
 		}

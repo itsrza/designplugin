@@ -172,9 +172,9 @@
             if (withCategory && post.category) {
                 html += '<span class="b-cat">' + escapeHTML(post.category.name) + '</span>';
             }
-            html += '<span><svg width="13" height="13" style="vertical-align:-2px;color:#7FA400" aria-hidden="true"><use href="#bi-cal"/></svg> ' +
+            html += '<span><svg width="13" height="13" style="vertical-align:-2px;color:#96632E" aria-hidden="true"><use href="#bi-cal"/></svg> ' +
                 escapeHTML(post.date_fa) + '</span>';
-            html += '<span><svg width="13" height="13" style="vertical-align:-2px;color:#7FA400" aria-hidden="true"><use href="#bi-clock"/></svg> ' +
+            html += '<span><svg width="13" height="13" style="vertical-align:-2px;color:#96632E" aria-hidden="true"><use href="#bi-clock"/></svg> ' +
                 toFaNumber(post.read_minutes || 1) + ' ' + escapeHTML(TXT.minutes) + '</span>';
             return html;
         }

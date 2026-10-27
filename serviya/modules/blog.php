@@ -354,9 +354,9 @@ function serviya_suite_blog_meta_html($post, $with_category) {
     if ($with_category && $category) {
         $html .= '<span class="b-cat">' . esc_html($category->name) . '</span>';
     }
-    $html .= '<span><svg width="13" height="13" style="vertical-align:-2px;color:#7FA400" aria-hidden="true"><use href="#bi-cal"/></svg> '
+    $html .= '<span><svg width="13" height="13" style="vertical-align:-2px;color:#96632E" aria-hidden="true"><use href="#bi-cal"/></svg> '
         . esc_html(serviya_suite_blog_fa_digits(get_the_date('j F Y', $post))) . '</span>';
-    $html .= '<span><svg width="13" height="13" style="vertical-align:-2px;color:#7FA400" aria-hidden="true"><use href="#bi-clock"/></svg> '
+    $html .= '<span><svg width="13" height="13" style="vertical-align:-2px;color:#96632E" aria-hidden="true"><use href="#bi-clock"/></svg> '
         . serviya_suite_blog_fa_number(serviya_suite_blog_read_minutes($post)) . ' دقیقه مطالعه</span>';
     return $html;
 }
@@ -423,7 +423,7 @@ function serviya_suite_blog_render($atts) {
 
     $atts = shortcode_atts(array(
         'per_page'     => (int) apply_filters('serviya_blog_per_page', 9),
-        'phone'        => '09169066373',
+        'phone'        => '09382420272',
         'products_url' => $shop_link,
     ), $atts, 'serviya_blog');
 
@@ -469,7 +469,7 @@ function serviya_suite_blog_render($atts) {
             <section class="b-hero">
                 <div class="b-hero-glow" aria-hidden="true"></div>
                 <div class="bw b-hero-in">
-                    <span class="b-chip"><i></i>مجله سرویا</span>
+                    <span class="b-chip"><i></i>مجله میران</span>
                     <h1>مقالات و راهنمای <em>بسته‌بندی و چاپ اختصاصی</em></h1>
                     <p>آخرین مطالب، نکات کاربردی و راهنماهای تخصصی برای انتخاب بسته‌بندی مناسب کسب‌وکار شما.</p>
                     <div class="b-search">
@@ -562,9 +562,9 @@ function serviya_suite_blog_render($atts) {
         <section class="b-cta">
             <div class="bw b-cta-in">
                 <h2>به دنبال بسته‌بندی مناسب <em>کسب‌وکار خود هستید؟</em></h2>
-                <p>با مشاوران سرویا در تماس باشید؛ راهنمایی رایگان برای انتخاب جنس، سایز و چاپ اختصاصی.</p>
+                <p>با مشاوران میران در تماس باشید؛ راهنمایی رایگان برای انتخاب جنس، سایز و چاپ اختصاصی.</p>
                 <div class="b-cta-btns">
-                    <a class="b-btn b-btn--g" href="tel:+98<?php echo esc_attr(ltrim(sanitize_text_field($atts['phone']), '0')); ?>"><svg width="16" height="16" aria-hidden="true"><use href="#bi-phone"/></svg>تماس با سرویا</a>
+                    <a class="b-btn b-btn--g" href="tel:+98<?php echo esc_attr(ltrim(sanitize_text_field($atts['phone']), '0')); ?>"><svg width="16" height="16" aria-hidden="true"><use href="#bi-phone"/></svg>تماس با میران</a>
                     <a class="b-btn b-btn--w" href="<?php echo esc_url($atts['products_url']); ?>"><svg width="16" height="16" aria-hidden="true"><use href="#bi-box"/></svg>مشاهده محصولات</a>
                 </div>
             </div>
@@ -587,7 +587,7 @@ function serviya_suite_blog_render($atts) {
             $schema = array(
                 '@context'        => 'https://schema.org',
                 '@type'           => 'ItemList',
-                'name'            => 'مجله سرویا',
+                'name'            => 'مجله میران',
                 'numberOfItems'   => $result['total'],
                 'itemListElement' => $items,
             );

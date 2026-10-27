@@ -517,7 +517,7 @@ function serviya_suite_product_consult_box( WC_Product $product, string $phone, 
 		. '<div class="sp-consult-head">'
 		. '<span class="sp-consult-icon"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14v-3a9 9 0 0 1 18 0v3"/><path d="M21 17a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z"/><path d="M3 17a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></span>'
 		. '<div><strong>مشاوره قبل از خرید</strong>'
-		. '<p>برای انتخاب بهتر یا ثبت سفارش اختصاصی، تیم سرویا پاسخ‌گوی شماست.</p></div>'
+		. '<p>برای انتخاب بهتر یا ثبت سفارش اختصاصی، تیم میران پاسخ‌گوی شماست.</p></div>'
 		. '</div>'
 		. '<div class="sp-consult-links">' . $links . '</div>'
 		. '</aside>';
@@ -571,8 +571,8 @@ function serviya_suite_product_render( $atts ): string {
 			'id'       => 0,
 			'sticky'   => '1',
 			'consult'  => '1',
-			'phone'    => '09169066373',
-			'whatsapp' => '989169066373',
+			'phone'    => '09382420272',
+			'whatsapp' => '989382420272',
 			'telegram' => '',
 		),
 		is_array( $atts ) ? $atts : array(),

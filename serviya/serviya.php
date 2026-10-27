@@ -1,10 +1,9 @@
 <?php
 /**
- * Plugin Name:       Serviya — Shop & Blog
- * Plugin URI:        https://serviya.ir/
- * Description:       افزونه یکپارچه سرویا (فروشگاه، محصول، وبلاگ، پست و...)
- * Version:           3.2.3
- * Author:            Serviya
+ * Plugin Name:       Miran — Shop & Blog
+ * Description:       افزونه یکپارچه میران (فروشگاه، محصول، وبلاگ، پست و...)
+ * Version:           3.3.0
+ * Author:            Miran
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Text Domain:       serviya
@@ -14,7 +13,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('SERVIYA_VERSION', '3.2.3');
+define('SERVIYA_VERSION', '3.3.0');
 define('SERVIYA_PATH', plugin_dir_path(__FILE__));
 define('SERVIYA_URL', plugin_dir_url(__FILE__));
 
@@ -71,7 +70,7 @@ if ($serviya_suite_legacy) {
         }
 
         echo '<div class="notice notice-warning"><p>';
-        echo '<strong>Serviya — Shop & Blog:</strong> ';
+        echo '<strong>Miran — Shop & Blog:</strong> ';
         echo 'افزونه قدیمی ';
         echo esc_html(implode(' و ', $serviya_suite_legacy));
         echo ' هنوز فعال است؛ برای جلوگیری از تداخل، ماژول مشابه در نسخه یکپارچه فعلاً استندبای مانده است. ';

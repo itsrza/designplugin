@@ -817,7 +817,7 @@
                 } else {
                     imageHTML =
                         '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#F6F8F3">' +
-                            '<svg width="24" height="24" viewBox="0 0 24 24" stroke="#8892A3" fill="none" aria-hidden="true">' +
+                            '<svg width="24" height="24" viewBox="0 0 24 24" stroke="#9B846C" fill="none" aria-hidden="true">' +
                                 '<rect x="3" y="3" width="18" height="18" rx="2"></rect>' +
                                 '<circle cx="8.5" cy="8.5" r="1.5"></circle>' +
                                 '<polyline points="21 15 16 10 5 21"></polyline>' +
