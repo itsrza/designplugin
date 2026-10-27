@@ -57,7 +57,7 @@ node tools/rebrand.mjs --write                       # بکاپ + اعمال + �
 
 | مورد | مقدار |
 |---|---|
-| برند | میران / Miran — `mirangiftshop.ir` |
+| برند | میران / Miran — `mirangiftshop.ir` (بسته‌بندی مقوایی، ظروف یک‌بارمصرف، چاپ اختصاصی) |
 | Accent (کرافت) | `#D9A86C` · hover `#C8924F` |
 | Dark | `#46270B` |
 | Primary (متن/لینک) | `#7A4A16` |
