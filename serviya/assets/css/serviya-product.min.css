@@ -1,5 +1,5 @@
 /*! Serviya — serviya-product.css (minified build, do not edit; run "npm run build") */
-.serviya-product{--sp-accent:#D9A86C;--sp-accent-hover:#C8924F;--sp-accent-soft:#F9EFE1;--sp-navy:#46270B;--sp-ink:#7A4A16;--sp-text:#3A2A1C;--sp-muted:#6F5B47;--sp-gray:#9B846C;--sp-border:#EADFCF;--sp-soft:#f6f8f3;--sp-red:#ef4056;--sp-sale:#ff047e;--sp-price-final:#ec3680;--sp-gallery-pad:clamp(12px, 2vw, 20px);--sp-dim:#D9A86C;--sp-green:#15803d;--sp-amber:#b45309;--sp-radius:24px;--sp-shadow:0 18px 50px rgba(70,39,11, 0.08);box-sizing:border-box;direction:rtl;padding:clamp(18px,3vw,34px) 0 clamp(42px,6vw,72px);color:var(--sp-text);background:radial-gradient(620px 360px at 8% -40px,rgba(217,168,108,.16),transparent 65%),linear-gradient(180deg,#fdf9f4 0,var(--sp-soft) 100%);font-family:vazirmatn,Vazirmatn,Tahoma,Arial,sans-serif;font-size:15px;line-height:1.8}
+.serviya-product{--sp-accent:#D9A86C;--sp-accent-hover:#C8924F;--sp-accent-soft:#F9EFE1;--sp-navy:#46270B;--sp-ink:#7A4A16;--sp-text:#3A2A1C;--sp-muted:#6F5B47;--sp-gray:#9B846C;--sp-border:#EADFCF;--sp-soft:#f6f8f3;--sp-red:#ef4056;--sp-sale:#ff047e;--sp-price-final:#A5321A;--sp-gallery-pad:clamp(12px, 2vw, 20px);--sp-dim:#D9A86C;--sp-green:#15803d;--sp-amber:#b45309;--sp-radius:24px;--sp-shadow:0 18px 50px rgba(70,39,11, 0.08);box-sizing:border-box;direction:rtl;padding:clamp(18px,3vw,34px) 0 clamp(42px,6vw,72px);color:var(--sp-text);background:radial-gradient(620px 360px at 8% -40px,rgba(217,168,108,.16),transparent 65%),linear-gradient(180deg,#fdf9f4 0,var(--sp-soft) 100%);font-family:vazirmatn,Vazirmatn,Tahoma,Arial,sans-serif;font-size:15px;line-height:1.8}
 .serviya-product *,.serviya-product ::after,.serviya-product ::before{box-sizing:border-box}
 .serviya-product .sp-container{width:min(1320px,calc(100% - 32px));margin-inline:auto}
 .serviya-product a{color:var(--sp-ink)}
@@ -233,7 +233,7 @@
 .wd-sticky-btn .price{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:3px 8px;font-family:vazirmatn,Vazirmatn,Tahoma,Arial,sans-serif}
 .wd-sticky-btn .price>del{order:1;color:#9b846c;font-size:12.5px}
 .wd-sticky-btn .price>ins{order:-1;background:0 0;text-decoration:none}
-.wd-sticky-btn .price ins .woocommerce-Price-amount,.wd-sticky-btn .price>.woocommerce-Price-amount{color:#ec3680;font-size:21px;font-weight:800;line-height:1.4}
+.wd-sticky-btn .price ins .woocommerce-Price-amount,.wd-sticky-btn .price>.woocommerce-Price-amount{color:#a5321a;font-size:21px;font-weight:800;line-height:1.4}
 .wd-sticky-btn .price .woocommerce-Price-currencySymbol{font-size:.6em;font-weight:700}
 .serviya-product .sp-sticky-price .amount bdi>.woocommerce-Price-currencySymbol,.wd-sticky-btn .price .amount bdi>.woocommerce-Price-currencySymbol{transform:translateY(-.05em)}
 @media (min-width:1025px){

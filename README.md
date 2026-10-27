@@ -52,3 +52,18 @@ node tools/rebrand.mjs --write                       # بکاپ + اعمال + �
 - نقشه راه پروژه جدید: [`docs/MIRAN-PLAN.md`](docs/MIRAN-PLAN.md)
 
 > ⚠️ فایل `github-recovery-codes.txt` در ریشه‌ی مخزن، کدهای بازیابی ۲FA است و نباید در گیت باشد؛ آن را حذف و کدها را باطل کنید.
+
+## برند میران (نسخه ۳.۳.۱)
+
+| مورد | مقدار |
+|---|---|
+| برند | میران / Miran — `mirangiftshop.ir` |
+| Accent (کرافت) | `#D9A86C` · hover `#C8924F` |
+| Dark | `#46270B` |
+| Primary (متن/لینک) | `#7A4A16` |
+| قیمت نهایی | `#A5321A` (۶٫۸۴:۱ روی سفید) |
+| لیبل تخفیف | `#FF047E` |
+| تماس پیش‌فرض | `09382420272` · واتس‌اپ `989382420272` |
+| لوگو | `https://mirangiftshop.ir/wp-content/uploads/2026/10/logo-1-1.webp` |
+
+پیش‌نمایش پالت با CSS واقعی افزونه: `preview/brand-preview.html` (سرو محلی: `python3 -m http.server 8080` → `/preview/brand-preview.html`).

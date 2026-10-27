@@ -4,7 +4,8 @@
     "The reference theme uses a bright accent (#B7E600) for CTAs with dark text on top. For Miran the bright role is the kraft accent (#D9A86C) and the dark role is the brand dark (#46270B); because every lime surface in the CSS pairs with dark text, this mapping keeps contrast intact without editing rules.",
     "Primary brown (#7A4A16) takes over the ink/link/text role (the old #2B3B66), so the logo brown is present across headings, links and labels.",
     "Semantic colours (success green, warning amber, error red) are intentionally untouched.",
-    "Sale label (#FF047E) and final price (#EC3680) are kept from the reference design until the client approves a brand-harmonised pair."
+    "Sale label (#FF047E) and final price (#EC3680) are kept from the reference design until the client approves a brand-harmonised pair.",
+    "Final price / 'قیمت فروش' label: decided #EC3680 (pink) -> #A5321A deep brick red (6.84:1 on white), so the price reads as brand-warm and stays clearly distinct from the pink sale-discount label (#FF047E) that the client chose to keep."
   ],
   "colors": {
     "#B7E600": "#D9A86C",
@@ -28,7 +29,6 @@
     "#4F6B00": "#7A4A16",
     "#9DB8A1": "#B39B82",
     "#E6E9E0": "#EDE2D2",
-
     "#18233D": "#46270B",
     "#1F2D4E": "#3B2009",
     "#2B3B66": "#7A4A16",
@@ -53,11 +53,10 @@
     "#EFF6FF": "#FBF3E8",
     "#BFDBFE": "#E6D2B6",
     "#1D4ED8": "#7A4A16",
-
     "#ECECEC": "#EDE6DC",
     "#F5F5F5": "#F6F1E9",
-
-    "#B8E620": "#D9A86C"
+    "#B8E620": "#D9A86C",
+    "#EC3680": "#A5321A"
   },
   "rgbShadows": true,
   "replacements": [
@@ -65,13 +64,19 @@
       "_comment": "Default contact number (blog CTA + product consult box + README examples).",
       "find": "09169066373",
       "replace": "09382420272",
-      "files": ["modules/*.php", "README-fa.md"]
+      "files": [
+        "modules/*.php",
+        "README-fa.md"
+      ]
     },
     {
       "_comment": "Default WhatsApp number (product consult box + README examples).",
       "find": "989169066373",
       "replace": "989382420272",
-      "files": ["modules/*.php", "README-fa.md"]
+      "files": [
+        "modules/*.php",
+        "README-fa.md"
+      ]
     },
     {
       "_comment": "Brand name in every user-facing Persian string and doc.",

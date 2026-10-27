@@ -16,7 +16,7 @@
   --sp-soft: #f6f8f3;
   --sp-red: #ef4056;
   --sp-sale: #ff047e;
-  --sp-price-final: #ec3680;
+  --sp-price-final: #A5321A;
   --sp-gallery-pad: clamp(12px, 2vw, 20px);
   --sp-dim: #D9A86C;
   --sp-green: #15803d;
@@ -1862,7 +1862,7 @@
  * .serviya-product, so the color is a literal, not the CSS variable). */
 .wd-sticky-btn .price ins .woocommerce-Price-amount,
 .wd-sticky-btn .price > .woocommerce-Price-amount {
-  color: #ec3680;
+  color: #A5321A;
   font-size: 21px;
   font-weight: 800;
   line-height: 1.4;

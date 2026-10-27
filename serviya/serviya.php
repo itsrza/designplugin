@@ -1,9 +1,11 @@
 <?php
 /**
  * Plugin Name:       Miran — Shop & Blog
+ * Plugin URI:        https://mirangiftshop.ir/
  * Description:       افزونه یکپارچه میران (فروشگاه، محصول، وبلاگ، پست و...)
- * Version:           3.3.0
+ * Version:           3.3.1
  * Author:            Miran
+ * Author URI:        https://mirangiftshop.ir/
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Text Domain:       serviya
@@ -13,7 +15,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('SERVIYA_VERSION', '3.3.0');
+define('SERVIYA_VERSION', '3.3.1');
 define('SERVIYA_PATH', plugin_dir_path(__FILE__));
 define('SERVIYA_URL', plugin_dir_url(__FILE__));
 

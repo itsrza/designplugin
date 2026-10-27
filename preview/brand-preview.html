@@ -11,6 +11,11 @@
 <style>
   :root { --mr-primary:#7A4A16; --mr-dark:#46270B; --mr-accent:#D9A86C; --mr-bg:#FBF6EE; }
   body { margin:0; background:#fff; font-family:"Vazirmatn","vazirmatn",Tahoma,Arial,sans-serif; color:#3A2A1C; }
+  .pv-head { display:flex; align-items:center; gap:14px; padding:14px 20px; background:#fff; border-bottom:1px solid #EADFCF; }
+  .pv-head img { height:44px; width:auto; border-radius:8px; background:#F9EFE1; padding:4px; }
+  .pv-head strong { display:block; font-size:16px; color:var(--mr-dark); }
+  .pv-head span { font-size:12px; color:#9B846C; }
+  .pv-badge { margin-inline-start:auto; font-size:12px; font-weight:700; color:#46270B; background:#D9A86C; padding:6px 12px; border-radius:99px; }
   .pv-note { background:var(--mr-dark); color:#F2E7D9; padding:14px 20px; font-size:13px; line-height:1.9; }
   .pv-note b { color:var(--mr-accent); }
   .pv-wrap { max-width:1320px; margin:0 auto; padding:24px 16px 64px; }
@@ -35,6 +40,14 @@
 </head>
 <body>
 
+<header class="pv-head">
+  <img src="https://mirangiftshop.ir/wp-content/uploads/2026/10/logo-1-1.webp" alt="لوگوی میران" onerror="this.style.display='none'">
+  <div>
+    <strong>میران | Miran</strong>
+    <span>mirangiftshop.ir — نسخه ۳.۳.۱</span>
+  </div>
+  <span class="pv-badge">پیش‌نمایش پالت</span>
+</header>
 <div class="pv-note">
   <b>پیش‌نمایش است، نه صفحه‌ی واقعی سایت.</b>
   این فایل همان CSS واقعی افزونه (نسخه ۳.۳.۰) را لود می‌کند و مارک‌آپ کارت‌ها/بج‌ها/قیمت را با داده‌ی نمونه بازسازی می‌کند تا پالت میران را قبل از دست‌زدن به وردپرس ببینید.
@@ -53,8 +66,8 @@
     <div class="pv-sw"><div style="background:#6F5B47"></div><p>خاکستری متن<br><code>#6F5B47</code></p></div>
     <div class="pv-sw"><div style="background:#EADFCF"></div><p>حاشیه<br><code>#EADFCF</code></p></div>
     <div class="pv-sw"><div style="background:#F6F1E9"></div><p>پس‌زمینه نرم<br><code>#F6F1E9</code></p></div>
-    <div class="pv-sw"><div style="background:#FF047E"></div><p>لیبل تخفیف (معلق)<br><code>#FF047E</code></p></div>
-    <div class="pv-sw"><div style="background:#EC3680"></div><p>قیمت نهایی (معلق)<br><code>#EC3680</code></p></div>
+    <div class="pv-sw"><div style="background:#FF047E"></div><p>لیبل تخفیف ✅ تأییدشده<br><code>#FF047E</code></p></div>
+    <div class="pv-sw"><div style="background:#A5321A"></div><p>قیمت نهایی ✅<br><code>#A5321A</code> · <code>--sp-price-final</code></p></div>
   </div>
 
   <div class="pv-ratio" style="margin-top:14px">
@@ -64,6 +77,8 @@
     <div><span>متن بدنه روی سفید</span><b>۱۳٫۷۴:۱ <span class="ok">✓</span></b></div>
     <div><span>کرافت روی تیره</span><b>۶٫۲۸:۱ <span class="ok">✓</span></b></div>
     <div><span>کرافت روی سفید (فقط تزئینی)</span><b>۲٫۱۵:۱ <span class="warn">متن نشود</span></b></div>
+    <div><span>قیمت نهایی #A5321A روی سفید</span><b>۶٫۸۴:۱ <span class="ok">✓</span></b></div>
+    <div><span>قیمت روی کارت نرم</span><b>۶٫۰۸:۱ <span class="ok">✓</span></b></div>
   </div>
 
   <div class="pv-h">فروشگاه <small>[serviya_shop]</small></div>
